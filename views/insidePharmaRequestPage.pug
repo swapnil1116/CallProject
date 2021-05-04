@@ -1,0 +1,110 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/insiderequestpage.css')
+    title Dashboard
+block content   
+    main.main
+        .d-flex.justify-content-center.date-inside-main
+            h2(style='color: black;') 00:00
+        section.pending
+            h2 Pending Orders
+            .all-pending
+                .all-cards
+                    .enter-card
+                        .d-flex.justify-content-center.date-inside-main
+                            h3(style='color: black;') Patient Name
+                        .grid
+                            .d-flex.justify-content-center.timeSlot-container
+                                .name
+                                    | Prescribed by:- Dr. Ankit Sharma
+                .all-cards
+                    .enter-card
+                        .d-flex.justify-content-center.date-inside-main
+                            h3(style='color: black;') Patient Name
+                        .grid
+                            .d-flex.justify-content-center.timeSlot-container
+                                .name
+                                    | Prescription Given By The Doctor
+                .all-cards
+                    .enter-card
+                        .d-flex.justify-content-center.date-inside-main
+                            h3(style='color: black;') Patient Name
+                        .grid
+                            .d-flex.justify-content-center.timeSlot-container
+                                .name
+                                    | Prescription Given By The Doctor
+        section.vault
+            h2 Done
+            .files
+                .card
+                    img.card-img-top(src='/static/img/pdf.jpeg' alt='')
+                    .description
+                        | Some quick example text to build on the card title and make up the bulk of the card's content.
+                .card
+                    img.card-img-top(src='/static/img/pdf.jpeg' alt='')
+                    .description
+                        | Some quick example text to build on the card title and make up the bulk of the card's content.
+                .card
+                    img.card-img-top(src='/static/img/pdf.jpeg' alt='')
+                    .description
+                        | Some quick example text to build on the card title and make up the bulk of the card's content.
+        section.updates
+            h2 Updates
+            .have-updates-input
+                .update
+                    input(type='text' placeholder='Enter New Update')
+                button#send-btn Send
+                button#attach-btn(type='submit') Attach
+                .in-updates-section Order Picked Up By You. 
+                .in-updates-section  Order ready For Pickup 
+        section.holding-btns
+            .done-notavailable-buttons
+                button.done-buttons Done
+                button.done-buttons Order Ready!
+                button.done-buttons Cancel Order
+
+block script
+    // JQuery
+    script(src='/static/js/timepicker.js')
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/jquery.js')
+    script(src='/static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    script(src='/static/js/yourOwnCalendarScript.js')
+    script(type='text/javascript').
+      $(document).ready(function () {
+      $(".responsive-calendar").responsiveCalendar({
+        events: {
+        "2020-10-12": {
+        "number": 5,
+        "url": "http://w3widgets.com/responsive-slider"
+        },
+        "2020-10-22": {
+        "number": 1,
+        "url": "http://w3widgets.com"
+        },
+        "2013-05-03": {
+        "number": 1
+        },
+        "2013-06-12": {}
+        }
+        });
+      });

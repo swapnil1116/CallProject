@@ -1,0 +1,141 @@
+
+
+
+
+
+
+
+
+#otp-section{
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    justify-content: center;
+    /* border: 2px solid black; */
+    text-align: center;
+    align-items: center;
+}
+
+#otp-section::before{
+    content:"";
+    position: fixed;
+    background: url(../img/loginBG.jpg) no-repeat fixed center;
+    filter: brightness(0.4);
+    
+    
+    background-size: 100%;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+    top: 0;
+}
+#inside-otp-section{
+    width: 350px;
+    /* height: 305px; */
+    background-color: #27241f;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 2px solid #5d5c5c;
+    color: white;
+    box-shadow: 0 6px 8px 0 rgba(255, 145, 145, 0.25), 0 8px 20px 0 rgba(0, 102, 255, 0.19)
+}
+#otp-heading{
+    padding-bottom: 20px;
+}
+#otp-form{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+#otp-form div{
+    text-align: left;
+    padding: 5px 0px;
+}
+
+#otp-form .label-inside-form{
+    font-size: 16px;
+}
+
+#otp-form .input-inside-form{
+    width: 100%;
+    font-size: 16px;
+    border: 3px solid transparent;
+    outline: none;
+    border-radius: 5px;
+    padding: 4px 5px;
+    box-sizing: border-box;
+}
+#otp-form .input-inside-form:focus-within{
+    border: 3px solid rgba(231, 173, 134,3);
+    box-shadow: 0px 0px 5px rgba(231, 173, 134, 1);
+}
+
+#otp-form span{
+    padding-left: 6vw;
+    font-size: 14px;
+    
+}
+#otp-form span a{
+    color: #99d0ff;
+    text-decoration: none;
+}
+#otp-form span a:hover{
+    text-decoration: underline;
+}
+#show-pass{
+    width:15px ;
+    font-size: 20px;
+    margin-right: 7px;
+}
+
+#otpButton{
+    width: 100%;
+    padding: 4px 0px;
+    font-size: 16px;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    background-color: #e7ad86;
+    outline: none;
+    cursor: pointer;
+}
+#otpButton:hover{
+    background-color:  #99d0ff;
+}
+#new-user-in-otp-form{
+    width: 100%;
+    text-align: center;
+    padding-top: 3px;
+}
+#new-user-in-otp-form a{
+    text-decoration: none;
+    color: #99d0ff;
+}
+#new-user-in-otp-form h1{
+    font-size: 14px;
+    display: inline;
+}
+#new-user-in-otp-form a:hover{
+    text-decoration: underline;
+}
+
+
+#errors{
+    width: 100%;
+    padding-top: 13px;
+}
+
+h4{
+    text-align: center;
+    color: red;
+}
+#otp-para{
+    font-size: 15px;
+    padding-top: 15px;
+}

@@ -1,0 +1,104 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/insideAppointmentOfHospital.css')
+    title Dashboard
+block content
+      .inner-container
+        p.heading-text Your Appointments
+        .slot-name
+            p.internal-text 00:00 - 09:00
+            p.internal-text.name Dr. Ankita Sharma
+        .subtitle-description
+            .top-heading-service
+                p.internal-text.sub-title Chest Pain
+                p.internal-text.service Doctor
+            p.internal-text.description
+                | will go to do the Ct scan and wil safh asbj fkbasjb fgshjadbjf
+                | sabfjkbasjfkjksa fasfjkafk
+        p.heading-text.documents Attached Documents
+        .grid-container-gallery
+            article#3685.location-listing
+                a.location-title(href='#')
+                    | San Francisco
+                .location-image
+                    a(href='#')
+                    img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/san-fransisco-768x432.jpg' alt='san francisco')
+            article#3685.location-listing
+                a.location-title(href='#')
+                    | San Francisco
+                .location-image
+                    a(href='#')
+                    img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/san-fransisco-768x432.jpg' alt='san francisco')
+            article#3685.location-listing
+                a.location-title(href='#')
+                    | San Francisco
+                .location-image
+                    a(href='#')
+                    img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/san-fransisco-768x432.jpg' alt='san francisco')
+            article#3685.location-listing
+                a.location-title(href='#')
+                    | San Francisco
+                .location-image
+                    a(href='#')
+                    img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/san-fransisco-768x432.jpg' alt='san francisco')
+        .updates-section
+            h2.h-secondary.heading-text.documents Updates
+            .update.update-which-have-input-textarea
+                textarea(type='text' placeholder='Enter New Update').update-input-textarea
+                .div-for-send-update-and-attach-document-in-hospital-module-page
+                    button#send-btn(type="submit") Send
+                    button#attach-btn(type='submit') Attach 
+                        span.span-in-which-document-is-written Documents
+            .update
+                | We discussed, your weight is 80Kg, and your ideal weight is 71. Attached is your current picture.
+            .update
+                | Please bring in documents when you will come.
+            .update
+                | Booking confirmed
+        .cancel-appointment-btn
+            button#cancel-appointment Cancel Appointment
+block script
+    // JQuery
+    script(src='/static/js/timepicker.js')
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/jquery.js')
+    script(src='/static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    script(src='/static/js/yourOwnCalendarScript.js')
+    script(type='text/javascript').
+      $(document).ready(function () {
+      $(".responsive-calendar").responsiveCalendar({
+        events: {
+        "2020-10-12": {
+        "number": 5,
+        "url": "http://w3widgets.com/responsive-slider"
+        },
+        "2020-10-22": {
+        "number": 1,
+        "url": "http://w3widgets.com"
+        },
+        "2013-05-03": {
+        "number": 1
+        },
+        "2013-06-12": {}
+        }
+        });
+      });

@@ -1,0 +1,160 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    title Dashboard
+  body
+    .grid-container
+      .menu-icon
+        i.fas.fa-bars.header__menu
+      // HEADER
+      header.header-head
+        .input-group
+          input.form-control(type='text' placeholder='Search')
+          button.btn.btn-green.btn-md.m-0.px-3.py-2.z-depth-0.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Dropdown
+          .dropdown-menu.dropdown-menu-right
+            a.dropdown-item(href='#') Action
+            a.dropdown-item(href='#') Another action
+            a.dropdown-item(href='#') Something else here
+            .dropdown-divider(role='separator')
+            a.dropdown-item(href='#') Separated link
+          button.btn.btn-green.btn-md.m-0.px-3.py-2.z-depth-0(type='submit' aria-haspopup='true' aria-expanded='false') Search
+        button#add.btn.btn-outline-success Add Calendar
+      // SIDEBAR
+      aside.sidenav
+        .sidenav__close-icon
+          i.fas.fa-times.sidenav__brand-close
+        .logo
+          img(src='/static/img/logo-removebg-preview.jpg' alt='')
+        ul.sidenav__list
+          li.sidenav__list-item
+            img(src='/static/img/undraw_profile_pic_ic5t.png' alt='')
+            |  Profile
+          li.sidenav__list-item
+            a.sidebar-menu(href='#submenu1' data-toggle='collapse' aria-expanded='false')
+              .justify-content-start.align-items-center
+                img(src='https://img.icons8.com/emoji/48/000000/calendar-emoji.png')
+                span.menu-collapsed Calendar
+            #submenu1.collapse.sidebar-submenu
+              a.list-group-item.list-group-item-action(href='#')
+                span.menu-collapsed ABC
+              a.list-group-item.list-group-item-action(href='#')
+                span.menu-collapsed ABC
+              a.list-group-item.list-group-item-action(href='#')
+                span.menu-collapsed ABC
+          li.sidenav__list-item
+            img(src='https://img.icons8.com/flat_round/64/000000/bell.png')
+            | Appointments
+          li.sidenav__list-item
+            img(src='/static/img/logout.jpg')
+            a(href="/logout") Logout
+      // CONTENT
+      main.main
+        .event.container
+          | Events
+          .text-center
+            a#model-1.btn-success(href='' data-toggle='modal' data-target='#modalevents')
+              h1 +
+        .container
+          .events-content
+            .row
+              .card.col-lg-4.col-md-10.col-sm-12.col-10
+                h1 Birthday
+              .card.col-lg-4.col-md-10.col-sm-12.col-10
+                h1 Birthday
+              .card.col-lg-4.col-md-10.col-sm-12.col-10
+                h1 Birthday
+              .card.col-lg-4.col-md-10.col-sm-12.col-10
+                h1 Birthday
+              .card.col-lg-4.col-md-10.col-sm-12.col-10
+                h1 Birthday
+        .event1.container
+          | Schedules
+          .text-center
+            a#model-1.btn-success(href='' data-toggle='modal' data-target='#modalschedule')
+              h1 +
+        .container
+          .events1-content
+            .row
+              .card.col-lg-3.col-md-10.col-sm-12.col-10
+                .time 21:30
+                h1 Birthday
+              .col-lg
+              .card.col-lg-3.col-md-10.col-sm-12.col-10
+                .time 21:30
+                h1 Birthday
+              .col-lg
+              .card.col-lg-3.col-md-10.col-sm-12.col-10
+                .time 21:30
+                h1 Birthday
+              .col-lg
+              .card.col-lg-3.col-md-10.col-sm-12.col-10
+                .time 21:30
+                h1 Birthday
+              .col-lg
+              .card.col-lg-3.col-md-10.col-sm-12.col-10
+                .time 21:30
+                h1 Birthday
+              .col-lg
+              .card.col-lg-3.col-md-10.col-sm-12.col-10
+                .time 21:30
+                h1 Birthday
+              .col-lg
+        // events model
+        #modalevents.modal.fade(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header.text-center
+                h4.modal-title.w-100 Add your events
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+              .modal-body.mx-3
+                .md-form.mb-5
+                  input#defaultForm-email.form-control.validate(type='text')
+                  label(data-error='wrong' data-success='right' for='defaultForm-email') Enter Your Events
+              .modal-footer.d-flex.justify-content-center
+                button.btn.btn-success(type='submit' data-dismiss='modal') Done
+        // Schedules model
+        #modalschedule.modal.fade(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')
+          .modal-dialog(role='document')
+            .modal-content
+              .modal-header.text-center
+                h4.modal-title.w-100 Add your Schedule
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+              .modal-body.mx-3
+                // Basic dropdown
+                button#model-dropdown.btn.btn-success.dropdown-toggle.mr-4(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Available Slots
+                .dropdown-menu
+                  a.dropdown-item(href='#') Action
+                  a.dropdown-item(href='#') Another action
+                  a.dropdown-item(href='#') Something else here
+                  .dropdown-divider
+                  a.dropdown-item(href='#') Separated link
+                // Basic dropdown
+                .md-form
+                  input#model-input.form-control.validate(type='text')
+                  label(data-error='wrong' data-success='right' for='defaultForm-email') Enter Your Schedule
+              .modal-footer.d-flex.justify-content-center
+                button.btn.btn-success(type='submit' data-dismiss='modal') Done
+    // JQuery
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/new_Static//js//dash.js')
+    script(src='/static/js/jquery.js')
+    script(src='/static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')

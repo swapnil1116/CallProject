@@ -1,0 +1,16 @@
+.main .date-inside-main i {
+    position: absolute;
+    top: 35%;
+    right: 0;
+}
+.main .date-inside-main {
+    position: relative;
+}
+/* Override Ki Hui CSS */
+.main .main-heading-in-visitor-and-doctor-appointment-page{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .main-heading-below-navbar-in-visitor-and-doctor-appointment-page{
+    width: 100%;
+  }

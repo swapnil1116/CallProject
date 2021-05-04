@@ -1,0 +1,13 @@
+.search-suggestions{
+    flex-direction: column;
+}  
+.have-info-details{
+    padding-right: 0;
+}
+#download-excel-button {
+    margin: 7px 0 0 auto;
+    color: hsl(0deg 1% 61%);
+    padding: 0 7px;
+    border-radius: 5px;
+    background-color: #fce7c8;
+}

@@ -1,0 +1,63 @@
+
+
+<!-- include header -->
+<%- include('include/_header') %>
+    <!-- /include header -->
+
+
+    <div class="container">
+
+        <div class="slidebar">
+
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Product Management</a>
+                    <ul>
+                        <li><a href="/admin">All Product</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a href="/customerorderpage">Customer Review</a></li>
+
+                <li><a href="#">Daily Report</a></li>
+                <li><a href="#">Monthly Report</a></li>
+            </ul>
+        </div>
+
+
+        <div class="viewp">
+            <div class="table-h">
+                <h2 style="font-family:Arial, Helvetica, sans-serif;">All Product</h2>
+                <!-- <button  class="btn">Add Product</button> -->
+                <button><a href="/add_product">Add Product</a></button>
+                <button><a href="/generator">Generate</a></button>
+            </div>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Product Name</th>
+                    <th>Product Description</th>
+                    <th>Product Status</th>
+                    <th>Product users</th>
+                    <th>Product Flat</th>
+                    <th>Product Transaction</th>
+                    <th>Product Data-Size</th>
+                    <th>Product Price</th>
+                    <th>Product GST</th>
+                    <th>Total</th>
+                    <th>Button</th>
+                </tr>
+                
+                <%- include('include/_show') %>
+             
+            </table>
+        </div>
+        
+    </div>
+
+
+    <!-- include header -->
+<%- include('include/_footer') %>
+        <!-- /include header -->
+

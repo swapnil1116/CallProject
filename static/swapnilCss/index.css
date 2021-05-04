@@ -1,0 +1,127 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+.container{
+    display: flex;
+}
+nav {
+    padding: 12px;
+    text-align: start;
+    font-size: 20px;
+    color: white;
+    background-color: #393e46;
+}
+
+.slidebar{
+    background-color: #394263;
+    width: 200px;
+    text-align: center;
+    height: 600px; 
+}
+
+/* .slidebar ul {
+    margin-top: 4px;
+} */
+
+.slidebar ul li{
+    padding: 20px;
+    border-bottom: 0.2px solid lightslategray;
+    list-style: none;
+    
+} 
+
+.slidebar ul li:hover{
+    
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.slidebar ul li ul li{
+    
+    width: 130px;
+    /* margin-left: 20px; */
+    margin-top: 5px;
+    margin-bottom: 0px;
+    background-color: #394263;
+    display: block;
+}
+
+.slidebar ul li ul li:hover{
+    background-color: lime;
+    color: black;
+    
+}
+
+.slidebar ul li ul li a:hover{
+    color: black;
+}
+.slidebar ul li ul{
+    display: none;
+    visibility: hidden;
+}
+
+
+.slidebar ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: monospace;
+    
+}
+
+.slidebar ul li:hover ul{
+    display: block;
+    visibility: visible;
+}
+
+.viewp  table{
+    border: 2px solid lightgray;
+    width: 85vw;
+    border-collapse: collapse;
+}
+
+.table-h{
+    display: flex;
+    justify-content: space-around;
+}
+
+.table-h button{
+    margin: 10px;
+    background-color: #204051;
+    color: white;
+    font-family: monospace;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 8px 8px;
+    font-size: 15px;
+}
+
+.viewp h2{
+    text-align: start;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 36px;
+    font-size: 30px;
+}
+
+.viewp tr , td , th{
+    text-align: center;
+    border: 2px solid lightgray;
+    /* border-collapse: collapse; */
+    padding: 10px;
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.viewp a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+    background-color: #204051;
+    padding: 5px 8px;
+    color: white;
+    border: 1px solid black;
+
+}

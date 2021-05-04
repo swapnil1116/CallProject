@@ -1,0 +1,61 @@
+<form action="/api/users" method="POST" id="add_user">
+    <div class="new-product">
+        <div class="form-group">
+            <label for="Name">Product Name</label>
+            <input type="text" name="name" placeholder="">
+        </div>
+
+
+        <div class="form-group">
+            <label for="Name">Product Price</label>
+            <input type="text" name="price" placeholder="">
+        </div>
+        <div style="margin : 15px 0px; font-size : 30px;" class="form-group">
+            <label for="">Status</label>
+            <div class="radio inline" style="display : inline; padding-left: 30px;">
+                <input type="radio" name="status" value="Active">
+                <label for="">Active</label>
+            </div>
+            <div class="radio inline" style="display : inline; padding-left: 30px;">
+                <input type="radio" name="status" value="Inactive">
+                <label for="">Inactive</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Name">Product Description</label>
+            <textarea name="detail" style="width: 100%; border: 1px solid lightslategray;
+                border-radius: 4px;
+                margin: 7px 0px;" name="" id="" cols="30" rows="10"></textarea>
+
+        </div>
+        <div class="form-group">
+            <label for="Name">Users Allowed</label>
+            <input type="text" name="users" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="Name">No. Of Flats</label>
+            <input type="number" name="flat" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="Name">No. Of Transactions</label>
+            <input type="text" name="transcations" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="Name">Data Allowed</label>
+            <input type="text" name="data_size" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="Name">GST</label>
+            <input type="number" name="gst" placeholder="%">
+        </div>
+        <div class="form-group">
+            <label for="Name">Total</label>
+            <input type="number" name="total" placeholder="">
+        </div>
+        <div>
+            <button name="submit" class="btn">
+                Save
+            </button>
+        </div>
+    </div>
+</form>

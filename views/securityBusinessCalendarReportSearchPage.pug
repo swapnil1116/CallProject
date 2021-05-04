@@ -1,0 +1,80 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    link(href='https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap' rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/search-page.css')
+    link(rel='stylesheet' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(rel='stylesheet' href='/static/css/securityBusinessCalendarReportSearchPageStyle.css')
+    title Search | Calendar
+block content
+    section.search-results(style='text-align: center;')
+        .h-primary Report Results
+        .search-suggestions             
+            .have-info-details
+                table.report-table
+                    thead
+                        tr 
+                            th Date Of Visit
+                            th Entry Time
+                            th Exit Time
+                            th Name
+                            th Vehicle No
+                            th Flat No
+                            th Category
+                    tbody 
+                        for foundArray in foundArrayToBePassedInPugFile
+                            tr 
+                                td #{foundArray.enteredDate} 
+                                td 
+                                    if (foundArray.entryTime !== null || foundArray.entryTime !== undefined)
+                                        if ((foundArray.entryTime).getMinutes()).toString().length === 1
+                                            | #{(foundArray.entryTime).getHours()}:0#{(foundArray.entryTime).getMinutes()}
+                                        else    
+                                            | #{(foundArray.entryTime).getHours()}:#{(foundArray.entryTime).getMinutes()}
+                                if foundArray.exitTime === null
+                                    td Still IN
+                                else
+                                    td
+                                        if ((foundArray.exitTime).getMinutes()).toString().length === 1
+                                            |  #{(foundArray.exitTime).getHours()}:0#{(foundArray.exitTime).getMinutes()}
+                                        else
+                                            |  #{(foundArray.exitTime).getHours()}:#{(foundArray.exitTime).getMinutes()}
+                                td   #{foundArray.visitorName}
+                                td  #{foundArray.vehicleNumber}  
+                                if ((foundArray.houseNumber).length > 20)
+                                    td   #{foundArray.houseNumber.slice(0,20)}... 
+                                else    
+                                    td   #{foundArray.houseNumber} 
+                                td #{foundArray.typeOfUserCategoryInEntry}  
+            button#download-excel-button Download Excel   
+block script
+    // JQuery
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    script(src="/static/js/profileScript.js")
+    script(src="/static/js/timepicker.js")
+    script(src="/static/js/table2excel.js")
+    script.
+        document.getElementById("download-excel-button").addEventListener('click',(e)=>{
+            var table2excel = new Table2Excel();
+            table2excel.export(document.querySelector(".report-table"))
+        })

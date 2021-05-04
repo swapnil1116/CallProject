@@ -1,0 +1,73 @@
+table{
+    width: 100%;
+    table-layout: auto;
+    background-color: white;
+}
+
+.title-text{
+    font-size: 30px;
+    margin: 40px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+th{
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: system-ui;
+}
+
+table ,  td{
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+    padding: 12px;
+    font-size: 20px;
+    text-align: left;
+    font-family: cursive;
+}
+
+.btn{
+    text-align: right;
+    margin-top: 1%;
+    margin-right: 32%;
+    }
+
+button{
+    border: 2px solid red;
+    background-color: red;
+    border-radius: 8px;
+    font-size: 22px;
+    padding: 6px;
+}
+
+button:hover , a:hover{
+    background-color: white;
+    color: red;
+}
+
+
+a{
+    text-decoration: none;
+    color: white;
+    
+}
+
+.btn{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-input{
+    margin-top: 12px;
+    font-size: 23px;
+}
+
+/* {
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+    
+} */

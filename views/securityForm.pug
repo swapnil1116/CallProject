@@ -1,0 +1,104 @@
+
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    link(href='https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap' rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(rel='stylesheet' href='/static/css/log.css')
+    link(rel='stylesheet'  type='text/css' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/securityFormStyle.css')
+    link(rel='stylesheet' href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
+    title Security Form
+block content
+    section#outermost1.outermost
+    section.security-form-section.main
+      div.div-for-heading-and-camera-icon
+        h1.h-primary IN
+          img.camera-icon-for-qr-scan(src="/static/img/qrCodeIcon.png", alt="")
+      form.security-form( method='post' enctype="multipart/form-data" , action="/businessCalendar/gateKeeper/" + idOfCalendarForSecurityVehicleRecord + "/" + dateForSecurityVehicleRecord + "/" + "entryForm")
+        //- div.div-containing-inputs
+        //-   img(src=qrCodeUrl ).qr-code-image
+        include partial/flash-messages.pug 
+        div.div-containing-inputs
+            input#contactNumberOfVisitor.inputs-of-security-form-page.guests-input-security-form(type='text' name="contactNumberOfVisitor"     placeholder="Guest's Contact No." maxlength="10" value=visitorDetail.contactNumberOfVisitor)
+        div.div-containing-inputs
+          input#name-of-visitor.inputs-of-security-form-page.guests-input-security-form(type='text' value=visitorDetail.visitorName name="visitorName"  placeholder='Name Of Guest')
+        div.div-containing-inputs.enteredDate
+          input.enteredDate.inputs-of-security-form-page.guests-input-security-form(type='text' name="enteredDate"  placeholder='Vehicle No.' value=dateForSecurityVehicleRecord)
+        div.div-containing-inputs
+          input#from-location.inputs-of-security-form-page.guests-input-security-form(type='text' name='from' value=visitorDetail.from placeholder="Guest's Address:")
+        div.div-containing-inputs
+          input#vehicleNo.inputs-of-security-form-page.guests-input-security-form(type='text' name="vehicleNumber"  placeholder='Vehicle No.' value=visitorDetail.vehicleNumber)
+          //- div.div-containing-inputs
+          select.inputs-of-security-form-page.guests-input-security-form(name='vehicleType')
+            option(value='') Select Vehicle Type
+            if visitorDetail.vehicleType === "2"
+              option(value='2' selected) 2-Wheeler
+              option(value='4' ) 4-Wheeler
+            else if visitorDetail.vehicleType === "4"
+              option(value='2' selected) 2-Wheeler
+              option(value='4' ) 4-Wheeler
+            else  
+              option(value='2' ) 2-Wheeler
+              option(value='4' ) 4-Wheeler 
+        div.div-containing-inputs            
+          input#houseNumberVisitingTo.inputs-of-security-form-page.host-input-security-form(type='text' name='houseNumber' value=visitorDetail.houseNumber  placeholder="Host's House No:")  
+        div.div-containing-inputs            
+          input#contactNumberVisitingTo.inputs-of-security-form-page.host-input-security-form(type='text' name='contactNumberOfHost' value=visitorDetail.contactNumberVisitingTo placeholder="Host's Contact Number:" maxlength="10")
+        div.div-containing-inputs            
+          input#visiting-to.inputs-of-security-form-page.host-input-security-form(type='text' name='to' value=visitorDetail.to  placeholder='Host:')
+        .div-containing-inputs.div-containing-description-and-upload-file
+          textarea#descripiton-of-visit( cols="20", rows="10", placeholder="Description(If any)" name="description")
+            | #{visitorDetail.description}
+          .div-containing-file-input-and-file-display   
+            label#capture-image-label(for="capture-image") Take Photo&nbsp;
+              i.fas.fa-camera
+            input#capture-image.inputs-of-security-form-page(type='file' name="photoUrl"   accept="image/*;capture=camera" title=" This is title" onchange="readURL(this);")
+            img( src="#" alt="your image").preview-vehicle-image
+        .div-containing-inputs.div-containing-radio-buttons   
+          for singleEntryTypeUserCategory of entryTypeUserCategoryArray
+            div.div-having-radio-input-and-label
+              input(id=singleEntryTypeUserCategory type="radio" name="typeOfUserCategoryInEntry" value=singleEntryTypeUserCategory).radio-type-input
+              label(for=singleEntryTypeUserCategory) #{singleEntryTypeUserCategory}  
+        .div-having-save-visitor-details-button
+          button(type="submit" ).save-btn Save 
+        //- div#reader(width="600px")  
+
+
+    //- QR CODE 
+    section.section-for-qr-code-scanning
+      #cross-to-hide-floating-section.cross-to-cut-floating-section ✕
+      video(id="preview-qr-code")
+      .btn-group.btn-group-toggle.mb-5(data-toggle='buttons')
+        img(src="/static/img/switch-camera.png", alt="switch camera").switch-camera-image
+      .input-from-qr-code
+block script
+    // JQuery
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    //- script(src="/static/js/profileScript.js")
+    script(src='https://code.jquery.com/jquery-1.12.4.js')
+    script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+    script(src='https://rawgit.com/schmich/instascan-builds/master/instascan.min.js' )
+    script(src="/static/js/qrCodeScannerScript.js")
+    script(src="/static/js/ajaxForAutoCompleteScript.js")
+    script(src="/static/js/displayImageAfterSelectingFileNameScript.js")
+    script(src="/static/js/errorMessage.js")

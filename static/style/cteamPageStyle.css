@@ -1,0 +1,130 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primary-color: #4d4d4d;
+}
+
+.main-section-in-cteam-page {
+    margin-top: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem 0 2rem 0;
+}
+
+.heading-of-cofounder {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.div-having-image-and-text-inside-main-section-in-cteam-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.div-having-just-headings-and-text {
+    width: 35%;
+    margin-right: 4rem;
+}
+
+.heading-of-team-member {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.position-of-team-member {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.main-text-describing-team-member {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.div-having-image-of-team-member-inside-cteam-section {
+    width: 12%;
+}
+
+.img-of-cofounders {
+    height: auto;
+    width: 100%;
+}
+
+@media only screen and (max-width:1400px) {
+    .div-having-just-headings-and-text {
+        width: 45%;
+    }
+    .div-having-image-of-team-member-inside-cteam-section {
+        width: 13%;
+    }
+}
+
+@media only screen and (max-width:1250px) {
+    .div-having-image-of-team-member-inside-cteam-section {
+        width: 16%;
+    }
+}
+
+@media only screen and (max-width:1150px) {
+    .div-having-image-of-team-member-inside-cteam-section {
+        width: 18%;
+    }
+    .div-having-just-headings-and-text {
+        width: 55%;
+    }
+}
+
+@media only screen and (max-width:950px) {
+    .div-having-just-headings-and-text {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width:770px) {
+    .main-section-in-cteam-page {
+        margin-top: 125px;
+    }
+    .div-having-image-and-text-inside-main-section-in-cteam-page {
+        flex-direction: column-reverse;
+    }
+    .div-having-image-of-team-member-inside-cteam-section {
+        width: 35%;
+    }
+    .div-having-just-headings-and-text {
+        width: 75%;
+        text-align: center;
+        margin: 1rem 0 0 0;
+    }
+    .position-of-team-member {
+        margin: 5px 0;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .div-having-image-of-team-member-inside-cteam-section {
+        width: 40%;
+    }
+    .div-having-just-headings-and-text {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width:450px) {
+    .div-having-image-of-team-member-inside-cteam-section {
+        width: 45%;
+    }
+    .div-having-just-headings-and-text {
+        width: 90%;
+    }
+}

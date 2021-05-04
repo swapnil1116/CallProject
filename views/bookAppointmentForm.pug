@@ -1,0 +1,52 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    link(href='https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap' rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(rel='stylesheet'  type='text/css' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/bookAppointmentFormStyle.css')
+    title Book Appointment
+block content
+    section.security-form-section
+      h1.h-primary Book Appointment
+      include partial/flash-messages.pug 
+      form( method='post' enctype="multipart/form-data" )
+        div.div-containing-inputs
+          label.labels-of-input-in-book-appointment-page From:
+          input.searchByDate.inputs-of-security-form-page(type='datetime-local' name="fromDateTimeBookAppointment" onfocus="(this.type='datetime-local')" onblur="(this.type='datetime-local')"    value="" required)
+        div.div-containing-inputs
+          label.labels-of-input-in-book-appointment-page To:
+          input.searchByDate.inputs-of-security-form-page(type='datetime-local' name="toDateTimeBookAppointment" onfocus="(this.type='datetime-local')" onblur="(this.type='datetime-local')"  value="" required)
+        div.div-containing-inputs
+          label.labels-of-input-in-book-appointment-page Reason Of Appointment:
+          textarea#reason-of-appointment.inputs-of-security-form-page(type='text' name="description"  value="" cols="30", rows="4" required)
+        div.div-containing-inputs
+          label.labels-of-input-in-book-appointment-page Attachement:
+          input#documentImageInBookAppointment.inputs-of-security-form-page( type='file' name="documentImageInScheduleOrAppointment"  accept='image/*' capture='camera' title=" Select Attachement")
+        .div-having-save-visitor-details-button
+          button(type="submit" ).save-btn Book Appointment 
+block script
+    script(src="/static/js/errorMessage.js")
+    // JQuery
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/jquery.js')
+    script(src='/static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    script(src="/static/js/profileScript.js")

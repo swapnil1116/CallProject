@@ -1,0 +1,88 @@
+.order-div{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+.div-having-table{
+    width: 50%;
+}
+.div-having-table table{
+    width: 100%;
+    table-layout: auto;
+    background-color: white;
+}
+
+.title-text{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.div-having-table th{
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: system-ui;
+    background-color: blanchedalmond;
+    border: 1px solid lightgray;
+    width: 65%;
+
+}
+
+.div-having-table table ,  td{
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+    padding: 12px;
+    font-size: 20px;
+    text-align: left;
+    font-family: cursive;
+    background-color: rgb(33 150 243 / 10%);
+}
+
+.btn{
+    text-align: right;
+    margin-top: 1%;
+    margin-right: 32%;
+    }
+
+.pay-now-button{
+    border: 2px solid red;
+    background-color: red;
+    border-radius: 8px;
+    font-size: 22px;
+    padding: 6px;
+}
+
+.pay-now-button:hover{
+    background-color: white;
+    color: red;
+}
+
+
+
+.btn{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.form-for-discount-code{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form-for-discount-code input{
+    margin-top: 12px;
+    font-size: 1rem;
+}
+
+/* {
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+    
+} */

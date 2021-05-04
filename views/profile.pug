@@ -1,0 +1,84 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='/static/css/roboto.css')
+    link(href='/static/css/quicksand.css' rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='/static/css/mdb.min.css' rel='stylesheet')
+    link(href='/static/css/wtf-forms.css' rel='stylesheet')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(href='/static/css/jcropStyle.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/profile.css')
+    link(rel='stylesheet' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    title Profile | Calendar
+block content
+    section.profile
+        h1.h-primary Your Profile
+        form#image-upload-form.div-having-user-profile-img(action="/upload", method="post", enctype="multipart/form-data")
+          img#uploaded-image-from-database(src=user.profilePic , alt="", srcset="")
+          label.file.label-for-upload-profile-pic
+            input#file(type='file' name="singleFile"  onchange="this.form.submit()")
+        form( method='post')  
+          div.div-containing-label-inputs
+            label.name(for='name')
+              | Name:
+            input#name.inputs-of-profile-page(type='text' name="name" placeholder='Name' value=user.name )
+            img#edit-img-for-name.edit-img(src='/static/img/edit-solid.svg' alt='')
+          div.div-containing-label-inputs
+            label.dob(for='dob')
+              | DOB:
+            input#dob.inputs-of-profile-page(type='date' name="dob" placeholder='Date Of Birth' value=user.dob)
+            img#edit-img-for-name.edit-img(src='/static/img/edit-solid.svg' alt='')
+          div.div-containing-label-inputs
+            label.gender(for='gender')
+              | Gender:
+            select#gender.inputs-of-profile-page(name="gender")
+              option(value='Female') Female
+              option(value=user.gender selected) Male
+              option(value='Other') Other
+            img#edit-img-for-name.edit-img(src='/static/img/edit-solid.svg' alt='')
+          div.div-containing-label-inputs
+            label.email(for='email')
+              | Email:
+            input#email.phone.inputs-of-profile-page(type='email' name='email' placeholder='Email' value=user.email )
+            img#edit-img-for-email.edit-img(src='/static/img/edit-solid.svg' alt='')
+            a()#verify-button-enabled-email.verify-button-enabled.verify-anchor-tag-disabled Verify            
+          div.div-containing-label-inputs            
+            label(for='phone')
+              | Phone:
+            input#phone.phone.inputs-of-profile-page(type='tel' name='number' placeholder='Phone Number' value=user.number )
+            img#edit-img-for-phone.edit-img(src='/static/img/edit-solid.svg' alt='')
+            a()#verify-button-enabled-phone.verify-anchor-tag-disabled.verify-button-enabled Verify
+          div.div-containing-label-inputs.address-input-div
+            label.address(for='address')
+              | Add.:
+            textarea#address.inputs-of-profile-page(type='text' rows="3" cols="50" name='address' value=user.address placeholder='Address' ) #{user.address}
+            img#edit-img-for-email.edit-img(src='/static/img/edit-solid.svg' alt='')    
+          //- div.map-section
+            #map-heading
+              h1 Your Location:  
+            iframe#map(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.695805347871!2d73.81757731531337!3d18.58774807196657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b8b88d41b9f7%3A0x61e6405dd26fc810!2sShrikrishna%20Apartment!5e0!3m2!1sen!2sin!4v1599126705783!5m2!1sen!2sin', frameborder='0', style='border:0;', allowfullscreen='true', aria-hidden='false', tabindex='0')
+          .div-having-change-and-save-password
+            a(href="changePasswordInProfile").change-btn Change Password
+            button(type="submit" disabled).save-btn Save 
+block script
+    // JQuery
+    script(type='text/javascript' src='/static/js/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='/static/js/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='/static/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='/static/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    script(src="/static/js/profileScript.js")
+    script(src="/static/js/timepicker.js")
+    script(src="/static/js/jcropScript.js")

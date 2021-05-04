@@ -1,0 +1,653 @@
+html, body {
+   max-width: 100%;
+   overflow-x: hidden;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    }
+    :root {
+    --primary-color: #cee002;
+    --secondary-color: #edf5e1;
+    }
+    .modal-body #addCalendar-appointment{
+      background-color: white;
+      color: grey;
+      display: flex;
+      padding: 0px 10px;
+      align-items: center;
+      margin: 5px 0vw;
+  }
+
+
+    /* THIS IS FOR THE OUTERMOST LAYER  */
+    .outermost {
+    z-index: 2;
+    position: fixed;
+    }
+    #outermost2 {
+    z-index: 3;
+    }
+    .shadowing {
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    opacity: 0.6;
+    }
+    @media (min-width: 1024px) {
+    .lg\:w-2\/5 {
+    width: 31%;
+    }
+    }
+    .active {
+    background-color: #204051;
+    color: white;
+    }
+  .input-groups-for-search{
+    width: 58%;
+    padding-left: 0;
+    right: -25px;
+  }  
+  .search-input{
+
+  }
+  .search-button{
+
+  }
+  .choose-service-button{
+    /* width: 50px; */
+  }  
+  .logo-for-mobile-screen{
+    width: 120px;
+    height: 55px;
+  }
+  .logo-for-mobile-screen img{
+    width: 100%;
+    height: 100%;
+  }
+  .sidenav__list-item span{
+    font-size: 16px;
+  }
+    .container-for-calendar {
+    width: 87%;
+    margin: 0 0 1rem 0;
+    height: fit-content;
+    background-color: #f1f1f1;
+    color: #383434;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    .heading-div h1 {
+    font-size: 2.5rem;
+    color: #222227;
+    }
+    .div-containing-input-of-year-month{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin: 4px 0;
+    }
+    .divs-for-input-of-calendar-months-year{
+      width: 40%;
+    }
+    .button-to-load-page{
+      border-radius: 10px;
+      padding: 0 9px;
+      font-size: 15px;
+      background-color: peachpuff;
+    }
+    .divs-for-input-of-calendar-months-year input{
+      width: 100%;
+      border-top-style: hidden;
+      border-right-style: hidden;
+      border-left-style: hidden;
+      border-bottom-style: groove;
+      border: 1.5px solid rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      text-align: center;
+      padding-left: 20px;
+      background-color: #fcf3ec;
+    }
+    .calendar {
+    width: 95%;
+    height: fit-content;
+    background-color: #ffffff;
+    /* box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4); */
+    }
+    .month {
+      width: 100%;
+      /* height: 9rem; */
+      background-color: peachpuff;
+      color: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 1rem;
+      text-align: center;
+      text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0);
+    }
+    .month i {
+    font-size: 2.5rem;
+    cursor: pointer;
+    }
+    .month h1 {
+      font-size: 3rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      margin-bottom: 1rem;
+      display: none;
+    }
+    .month p {
+      font-size: 1.6rem;
+      margin-bottom: 0;
+    }
+    .icons-for-notifications{
+      display: flex;
+      flex-direction: row;
+      width: 90px;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .icons{
+      width: 25px;
+      height: 25px;
+      background-color: white;
+      border-radius: 50%;
+    }
+    .weekdays-and-dates-of-calendar {
+      display: flex;
+      flex-direction: row;
+      background-color: #fcf3ec;
+    }
+    .weekdays {
+      width: 8%;
+      height: 100vh;
+      padding: 0 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: column;
+      background-color: #fcf3ec;
+    }
+    .weekdays div {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+    }
+    .days {
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    flex-wrap: wrap;
+    padding: 0.2rem;
+    flex-direction: column;
+    }
+    .days a {
+    font-size: 1.4rem;
+    height: calc(100% / 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border: 1px solid transparent;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+    transition: background-color 0.2s;
+    border: 1px solid gainsboro;
+    position: relative;
+    }
+    .days a span{
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .days .all-dates {
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .events-inside-date-box-in-calendar-itself {
+    font-size: 0.8rem;
+    color: black;
+    background-color: #e8ebee;
+    width: 75%;
+    text-align: center;
+    margin: 3px 0;
+    }
+    .days a:hover:not(.today) {
+    border: 1px solid #777;
+    cursor: pointer;
+    background-color: #e8ebee;
+    }
+    .prev-date,
+    .next-date {
+    opacity: 0.3;
+    }
+    .clicked {
+    border: 0.2rem solid #777;
+    cursor: pointer;
+    }
+    .days .today {
+    background-color: #e6d8d8;
+    cursor: pointer;
+    color: white;
+    }
+    .days .today:hover {
+    color: black;
+    }
+    .days a.invisible {
+      display:none;  
+      opacity: 0 !important;
+      cursor: default !important;
+    }
+    .total-number-of-events-on-the-date{
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      font-size: 0.7rem;
+      background-color: #394263;
+      color: white;
+      width: 14px;
+      height: 14px;
+      text-align: center;
+    }
+    /* FLOATING CONTACT FORM FROM HERE */
+    .floating-contact-for-section {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.7s;
+    background-color: #68d9c4;
+    z-index: 4;
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+    .visible-contact-form {
+    visibility: visible;
+    top: 50%;
+    opacity: 1;
+    padding: 0;
+    }
+    .heading-in-appointment-form {
+    padding: 20px 0;
+    }
+    .heading-in-appointment-form h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    }
+    #div-containing-floating-contact-form {
+    margin: 0;
+    width: 100%;
+    padding: 0px 35px 55px 35px
+    }
+    .cross-to-cut-floating-form {
+    cursor: pointer;
+    position: absolute;
+    top: -10px;
+    right: 0;
+    font-size: 2rem;
+    font-family: 'Slabo 27px', serif, sans-serif;
+    color: #222227;
+    }
+    .main-div-containing-form-inside-contact-section form {
+    display: flex;
+    flex-wrap: wrap;
+    }
+    .input-text {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1.2rem;
+    padding: 0 10px;
+    box-sizing: border-box;
+    }
+    .input-text input {
+    font-family: 'Slabo 27px', serif, sans-serif;
+    background-color: white;
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    }
+    .input-text input::placeholder {
+    color: var(--primary-color);
+    }
+    .time-input {
+    width: 100%;
+    color: grey;
+    height: 31px;
+    }
+    .input-textarea {
+    width: 100%;
+    margin-bottom: 1.2rem;
+    padding: 0 10px;
+    box-sizing: border-box;
+    }
+    .input-textarea textarea {
+    width: 100%;
+    background-color: white;
+    font-family: 'Slabo 27px', serif, sans-serif;
+    font-size: 1rem;
+    padding: 0.7rem;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    resize: vertical;
+    }
+    .input-textarea textarea::placeholder {
+    color: var(--primary-color);
+    }
+    input,
+    select,
+    textarea {
+    color: black;
+    }
+    .submit-button {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    }
+    .submit-button button {
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 0.7rem 0;
+    outline: none;
+    background-color: white;
+    color: #167e56;
+    transition: all 0.5s;
+    cursor: pointer;
+    letter-spacing: 3px;
+    font-weight: 600;
+    font-family: 'Slabo 27px', serif, sans-serif;
+    }
+    .submit-button button:hover {
+    background-color: #222227;
+    }
+    .errors {
+    display: flex;
+    border: 2px solid #dac9c9;
+    align-items: center;
+    background-color: #a98633;
+    justify-content: space-between;
+    margin: 3px 0px;
+    margin-top: 10px;
+    padding: 0 10px;
+    padding-right: 0;
+    }
+    .error-message {
+    font-size: 20px;
+    font-family: 'Slabo 27px', serif;
+    font-weight: 700;
+    }
+    .error-cross {
+    font-size: 25px;
+    cursor: pointer;
+    padding: 8px 16px;
+    margin-left: 10px;
+    }
+    .error-cross:hover {
+    background-color: #ab3a3a;
+    }
+    /*NEW EVENT SYMBOL FORM HERE */
+    #new-event {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    transition: 0.1s all;
+    }
+    #div-inside-new-event {
+    width: 70px;
+    height: 70px;
+    background-color: #68d9c4;
+    border: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.25), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    #div-inside-new-event a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 50px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    }
+    a {
+    text-decoration: none;
+    }
+    /* TIME PICKER */
+    .timerangepicker-container {
+    display: flex;
+    position: absolute;
+    background-color: white;
+    top: 220px;
+    }
+    .timerangepicker-label {
+    display: block;
+    line-height: 2em;
+    background-color: #c8c8c880;
+    padding-left: 1em;
+    border-bottom: 1px solid grey;
+    margin-bottom: 0.75em;
+    }
+    .timerangepicker-from,
+    .timerangepicker-to {
+    border: 1px solid grey;
+    padding-bottom: 0.75em;
+    }
+    .timerangepicker-from {
+    border-right: none;
+    }
+    .timerangepicker-display {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px solid grey;
+    line-height: 2.5em;
+    text-align: center;
+    position: relative;
+    margin: 1em 0.175em;
+    }
+    .timerangepicker-display .increment,
+    .timerangepicker-display .decrement {
+    cursor: pointer;
+    position: absolute;
+    font-size: 1.5em;
+    width: 1.5em;
+    text-align: center;
+    left: 0;
+    }
+    .timerangepicker-display .increment {
+    margin-top: -0.25em;
+    top: -1em;
+    }
+    .timerangepicker-display .decrement {
+    margin-bottom: -0.25em;
+    bottom: -1em;
+    }
+    .timerangepicker-display.hour {
+    margin-left: 1em;
+    }
+    .timerangepicker-display.period {
+    margin-right: 1em;
+    }
+
+    
+    @media only screen and (max-width: 1150px) {
+    .container-for-calendar {
+    width: 75vw;
+    margin-left: 25%;
+    }
+    .month {
+    height: 7rem;
+    }
+    .calendar {
+    width: 34rem;
+    }
+    .days a {
+    width: calc(29.2rem / 7);
+    }
+    .floating-contact-for-section {
+    width: 50%;
+    }
+    .weekdays div {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.3);
+    }
+    .month h1 {
+    font-size: 2rem;
+    }
+    .month p {
+    font-size: 1rem;
+    }
+    .month i {
+    font-size: 2rem;
+    }
+    .fa,
+    .fas {
+    font-weight: 600;
+    }
+    .days a {
+      font-size: 1rem;
+      text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+    }
+    .events-inside-date-box-in-calendar-itself {
+      font-size: 0.5rem;
+      width: 100%;
+    }
+    .days a {
+    width: calc(35.65rem / 7);
+    }
+    .weekdays {
+    width: 10%;
+    }
+    }
+    @media only screen and (max-width: 850px) {
+    .floating-contact-for-section {
+    width: 65%;
+    }
+    .month h1 {
+    font-size: 2rem;
+    }
+    .month p {
+    font-size: 1.1rem;
+    }
+    .calendar {
+    }
+    .container-for-calendar {
+    width: 100vw;
+    margin-left: auto;
+    }
+    .days {
+    height: 70vh;
+    }
+    .weekdays {
+    height: 70vh;
+    }
+    }
+    @media only screen and (max-width: 550px) {
+    .floating-contact-for-section {
+    width: 85%;
+    }
+    .calendar {
+    width: 100vw;
+    }
+    .weekdays div {
+      writing-mode: vertical-rl;
+      width: calc(30.2rem / 7);
+      font-size: 0.8rem;
+      text-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.3);
+    }
+    .weekdays {
+    width: 12%;
+    }
+    .days{
+      width: 88%;
+    }
+    .days a {
+    font-size: 0.7rem;
+    width: calc(88vw / 6);
+    }
+    }
+    @media only screen and (max-width: 495px) {
+    .days a {
+    width: calc(50.8vh / 7);
+    }
+    .weekdays div {
+    width: calc(27.2rem / 7);
+    }
+    }
+    @media only screen and (max-width: 445px) {
+    .floating-contact-for-section {
+      width: 95%;
+    }
+    .days a {
+      width: calc(88vw / 6);
+    }
+    .month {
+      height:fit-content;
+    }
+    .month p {
+    font-size: 0.8rem;
+    }
+    .month h1 {
+    font-size: 1.2rem;
+    }
+    .weekdays {
+    width: 8%;
+    }
+    .weekdays div {
+    font-size: 0.6rem;
+    }
+    .month h1 {
+    font-size: 1.5rem;
+    }
+    .month p {
+    font-size: 0.9rem;
+    }
+    }
+    @media only screen and (max-width: 396px) {
+    .weekdays {
+    width: 8%;
+    }
+    .weekdays div {
+    font-size: 0.6rem;
+    }
+    }
+    @media only screen and (max-width: 355px) {
+
+    .weekdays {
+    width: 7%;
+    }
+    .weekdays div {
+    font-size: 0.5rem;
+    }
+

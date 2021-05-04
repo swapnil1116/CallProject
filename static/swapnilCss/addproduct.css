@@ -1,0 +1,67 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    
+}
+
+body{
+    height: 700px;
+}
+
+nav{
+    background-color: #393e46;
+    text-align: center;
+    padding: 12px;
+    font-size: 22px;
+    color: white;
+}
+
+.addp{
+    width: 100%;
+    text-align: center;
+    margin: 50px 0px;
+}
+
+/* form styling */
+
+.new-product{
+    width: 700px;
+    margin: auto;
+}
+
+form  input[ type = "text"]{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid lightslategray;
+    border-radius: 4px;
+    margin: 7px 0px;
+}
+
+
+form  input[ type = "number"]{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid lightslategray;
+    border-radius: 4px;
+    margin: 7px 0px;
+}
+
+
+form label{
+    font-size: 20px;
+}
+
+form button{
+    width: 100%;
+    padding: 8px;
+    background-color: #16db93;
+    margin: 7px 0px;
+    border-radius: 4px;
+    font-size: 18px;
+    border: 1px solid lightslategray;
+}
+
+form button:hover{
+    background-color: #394263;
+    color: white;
+}

@@ -1,0 +1,1194 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    link(href='https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap' rel='stylesheet')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(rel='stylesheet'  type='text/css' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/yourBusinessCalendarStyle.css')
+    title Dashboard | Calendar
+block content    
+  main.main.main-div-in-dashboard
+    .container-for-calendar
+      .div-containing-name-of-business
+        .name-of-business #{thisParticularBusinessCalendar.businessName}
+        if permissionType !== "Guard"
+            .business-profile-setting-icon
+                a(href="/businessProfile/" + idOfCalendar)    
+                    i.fas.fa-cog
+                a(href="/businessReportSearch/gateKeeper/"+idOfCalendar)
+                    img(src="/static/img/reportImage.PNG", alt="", srcset="").report-image
+        .business-type #{thisParticularBusinessCalendar.calendarType} 
+      .div-containing-input-of-year-month
+        .divs-for-input-of-calendar-months-year
+          input#month(list='months' name='month' value="")
+          datalist#months.drop-down-datalist
+            option(value='January')
+            option(value='February')
+            option(value='March')
+            option(value='April')
+            option(value='May')
+            option(value='June')
+            option(value='July')
+            option(value='August')
+            option(value='September')
+            option(value='October')
+            option(value='November')
+            option(value='December')
+        button.button-to-load-page Go To
+        .divs-for-input-of-calendar-months-year
+          input#year(list='years' name='years' value="2020" )
+          datalist#years.drop-down-datalist
+            option(value='' selected)
+              | Year
+            option(value='1920') 1920
+            option(value='1921') 1921
+            option(value='1922') 1922
+            option(value='1923') 1923
+            option(value='1924') 1924
+            option(value='1925') 1925
+            option(value='1926') 1926
+            option(value='1927') 1927
+            option(value='1928') 1928
+            option(value='1929') 1929
+            option(value='1930') 1930
+            option(value='1931') 1931
+            option(value='1932') 1932
+            option(value='1933') 1933
+            option(value='1934') 1934
+            option(value='1935') 1935
+            option(value='1936') 1936
+            option(value='1937') 1937
+            option(value='1938') 1938
+            option(value='1939') 1939
+            option(value='1940') 1940
+            option(value='1941') 1941
+            option(value='1942') 1942
+            option(value='1943') 1943
+            option(value='1944') 1944
+            option(value='1945') 1945
+            option(value='1946') 1946
+            option(value='1947') 1947
+            option(value='1948') 1948
+            option(value='1949') 1949
+            option(value='1950') 1950
+            option(value='1951') 1951
+            option(value='1952') 1952
+            option(value='1953') 1953
+            option(value='1954') 1954
+            option(value='1955') 1955
+            option(value='1956') 1956
+            option(value='1957') 1957
+            option(value='1958') 1958
+            option(value='1959') 1959
+            option(value='1960') 1960
+            option(value='1961') 1961
+            option(value='1962') 1962
+            option(value='1963') 1963
+            option(value='1964') 1964
+            option(value='1965') 1965
+            option(value='1966') 1966
+            option(value='1967') 1967
+            option(value='1968') 1968
+            option(value='1969') 1969
+            option(value='1970') 1970
+            option(value='1971') 1971
+            option(value='1972') 1972
+            option(value='1973') 1973
+            option(value='1974') 1974
+            option(value='1975') 1975
+            option(value='1976') 1976
+            option(value='1977') 1977
+            option(value='1978') 1978
+            option(value='1979') 1979
+            option(value='1980') 1980
+            option(value='1981') 1981
+            option(value='1982') 1982
+            option(value='1983') 1983
+            option(value='1984') 1984
+            option(value='1985') 1985
+            option(value='1986') 1986
+            option(value='1987') 1987
+            option(value='1988') 1988
+            option(value='1989') 1989
+            option(value='1990') 1990
+            option(value='1991') 1991
+            option(value='1992') 1992
+            option(value='1993') 1993
+            option(value='1994') 1994
+            option(value='1995') 1995
+            option(value='1996') 1996
+            option(value='1997') 1997
+            option(value='1998') 1998
+            option(value='1999') 1999
+            option(value='2000') 2000
+            option(value='2001') 2001
+            option(value='2002') 2002
+            option(value='2003') 2003
+            option(value='2004') 2004
+            option(value='2005') 2005
+            option(value='2006') 2006
+            option(value='2007') 2007
+            option(value='2008') 2008
+            option(value='2009') 2009
+            option(value='2010') 2010
+            option(value='2011') 2011
+            option(value='2012') 2012
+            option(value='2013') 2013
+            option(value='2014') 2014
+            option(value='2015') 2015
+            option(value='2016') 2016
+            option(value='2017') 2017
+            option(value='2018') 2018
+            option(value='2019') 2019
+            option(value='2020' selected) 2020
+            option(value='2021') 2021
+            option(value='2022') 2022
+            option(value='2023') 2023
+            option(value='2024') 2024
+            option(value='2025') 2025
+            option(value='2026') 2026
+            option(value='2027') 2027
+            option(value='2028') 2028
+            option(value='2029') 2029
+            option(value='2030') 2030
+            option(value='2031') 2031
+            option(value='2032') 2032
+            option(value='2033') 2033
+            option(value='2034') 2034
+            option(value='2035') 2035
+            option(value='2036') 2036
+            option(value='2037') 2037
+            option(value='2038') 2038
+            option(value='2039') 2039
+            option(value='2040') 2040
+            option(value='2041') 2041
+            option(value='2042') 2042
+            option(value='2043') 2043
+            option(value='2044') 2044
+            option(value='2045') 2045
+            option(value='2046') 2046
+            option(value='2047') 2047
+            option(value='2048') 2048
+            option(value='2049') 2049
+            option(value='2050') 2050
+            option(value='2051') 2051
+            option(value='2052') 2052
+            option(value='2053') 2053
+            option(value='2054') 2054
+            option(value='2055') 2055
+            option(value='2056') 2056
+            option(value='2057') 2057
+            option(value='2058') 2058
+            option(value='2059') 2059
+            option(value='2060') 2060
+            option(value='2061') 2061
+            option(value='2062') 2062
+            option(value='2063') 2063
+            option(value='2064') 2064
+            option(value='2065') 2065
+            option(value='2066') 2066
+            option(value='2067') 2067
+            option(value='2068') 2068
+            option(value='2069') 2069
+            option(value='2070') 2070
+            option(value='2071') 2071
+            option(value='2072') 2072
+            option(value='2073') 2073
+            option(value='2074') 2074
+            option(value='2075') 2075
+            option(value='2076') 2076
+            option(value='2077') 2077
+            option(value='2078') 2078
+            option(value='2079') 2079
+            option(value='2080') 2080
+            option(value='2081') 2081
+            option(value='2082') 2082
+            option(value='2083') 2083
+            option(value='2084') 2084
+            option(value='2085') 2085
+            option(value='2086') 2086
+            option(value='2087') 2087
+            option(value='2088') 2088
+            option(value='2089') 2089
+            option(value='2090') 2090
+            option(value='2091') 2091
+            option(value='2092') 2092
+            option(value='2093') 2093
+            option(value='2094') 2094
+            option(value='2095') 2095
+            option(value='2096') 2096
+            option(value='2097') 2097
+            option(value='2098') 2098
+            option(value='2099') 2099
+            option(value='2100') 2100
+            option(value='2101') 2101
+            option(value='2102') 2102
+            option(value='2103') 2103
+            option(value='2104') 2104
+            option(value='2105') 2105
+            option(value='2106') 2106
+            option(value='2107') 2107
+            option(value='2108') 2108
+            option(value='2109') 2109
+            option(value='2110') 2110
+            option(value='2111') 2111
+            option(value='2112') 2112
+            option(value='2113') 2113
+            option(value='2114') 2114
+            option(value='2115') 2115
+            option(value='2116') 2116
+            option(value='2120') 2120
+            option(value='2117') 2117
+            option(value='2118') 2118
+            option(value='2119') 2119
+      .calendar
+        .month
+          i.fas.fa-angle-left.prev
+          .date
+            h1
+            p
+          i.fas.fa-angle-right.next
+        .weekdays-and-dates-of-calendar
+          .weekdays
+            div 
+              h4 S
+              h4 U
+              h4 N
+            div 
+              h4 M
+              h4 O
+              h4 N
+            div 
+              h4 T
+              h4 U
+              h4 E
+            div
+              h4 W
+              h4 E
+              h4 D
+            div 
+              h4 T 
+              h4 H
+              h4 U
+            div 
+              h4 F
+              h4 R
+              h4 I
+            div 
+              h4 S
+              h4 A 
+              h4 T
+          .days    
+block script
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous")
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    // JQuery
+    script(src='/static/js/timepicker.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/jquery.js')
+    script(src='/static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    script.
+      let visitorArrayJson = '#{JSON.stringify(dailyVisitorArray)}' ;
+      let numberOfAppointmentArrayJson = '#{JSON.stringify(numberOfAppointmentArray)}' ;
+      let numberOfAppointmentArray = JSON.parse(numberOfAppointmentArrayJson.replace(/&quot;/g,'"'));
+      console.log(numberOfAppointmentArray)
+      if(visitorArrayJson.length <= 2){
+            console.log("numberOfAppointmentArray")
+            console.log(numberOfAppointmentArray)
+            let dateList = [] ; 
+            function find(list, element) {
+                var found = false;
+                var i;
+                for (i = 0; i < list.length; i++) {
+                    if (list[i].date == element) {
+                        found = true;
+                        break;
+                    }
+                }
+                return {
+                    found: found,
+                    index: i
+                };
+            }
+            let date = new Date();
+            let renderCalendar = () => {
+                date.setDate(1);
+                let monthName = document.querySelector(".date h1")
+                let monthInLowerCase = (monthName.innerText).toLowerCase()
+                let monthInNumber = date.getMonth(monthInLowerCase) + 1
+                if (monthInNumber < 10) {
+                    monthInNumber = '0' + monthInNumber;
+                }
+                const monthDays = document.querySelector(".days");
+                const lastDay = new Date(
+                    date.getFullYear(),
+                    date.getMonth() + 1,
+                    0
+                ).getDate();
+                const prevLastDay = new Date(
+                    date.getFullYear(),
+                    date.getMonth(),
+                    0
+                ).getDate();
+                const firstDayIndex = date.getDay();
+                const lastDayIndex = new Date(
+                    date.getFullYear(),
+                    date.getMonth() + 1,
+                    0
+                ).getDay();
+                let nextDays = 7 - lastDayIndex - 1;
+                let months = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                ];
+                document.querySelector("#month").value = `${months[date.getMonth()]}`;
+                document.querySelector(".date p").innerHTML = new Date().toDateString();
+                let monthInput = document.querySelector("#month").value;
+                let yearInput = document.querySelector("#year").value;
+                if(date.getMonth() === 0){
+                    document.querySelector(".date h1").innerHTML = `January ${date.getFullYear()}`;
+                }
+                else{
+                    document.querySelector(".date h1").innerHTML = `${months[date.getMonth()]} ${date.getFullYear()}`;
+                }
+                let days = "";
+                let totalDaysWhichDoNotBelongToThisMonth = nextDays + firstDayIndex    
+                for (let x = firstDayIndex; x > 0; x--) {
+                   if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                        days += `<a class="prev-date" style="width:calc(100%/6);"><span> ${prevLastDay - x + 1} </span></a>`;
+                    }
+                    else{
+                        days += `<a class="prev-date" style="width:calc(100%/5);"><span> ${prevLastDay - x + 1} </span></a>`;
+                    }
+                }
+                for (let i = 1; i <= lastDay; i++) {
+                    let urlForViewingSchedule = ""
+                    if(i<10){
+                        urlForViewingSchedule = `${date.getFullYear()}-${monthInNumber}-0${i}`
+                    }
+                    else{
+                        urlForViewingSchedule = `${date.getFullYear()}-${monthInNumber}-${i}`
+                    }
+                    let pageURL = $(location).attr("href");
+            
+                    let splittedURL=pageURL.split("/")
+                    
+                    let idOfCalendarForSecurityVehicleRecord=splittedURL[5]
+                    let idForViewingSchedule = `d${urlForViewingSchedule}`
+                    if (
+                        i === new Date().getDate() &&
+                        date.getMonth() === new Date().getMonth() &&
+                        date.getFullYear() === new Date().getFullYear()
+                    ) {
+                        let found = find(dateList, urlForViewingSchedule);
+                        let foundPendingAppointment = find(numberOfAppointmentArray, urlForViewingSchedule);
+                        if (found['found'] == true) {
+                            if(foundPendingAppointment['found'] == true){
+                                let indexOfFoundEntry = found['index'];
+                                let indexOfPendingAppointment = foundPendingAppointment['index']
+                                console.log("indexFoundPendingAppointmentArrayFirst")
+                                console.log(indexOfPendingAppointment)
+                                let a = ``;
+                                a += `<div class="events-inside-date-box-in-calendar-itself today-pending">Pending Appointments: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments}
+                                </div>`
+                                if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                                    days +=
+                                        `<a  class="today clicked all-dates" style="width:calc(100%/6)" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                        <span>${i}</span>` + a + ` </a>`;
+                                }
+                                else{
+                                    days +=
+                                        `<a  class="today clicked all-dates" style="width:calc(100%/5)" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                        <span>${i}</span>` + a + ` </a>`;                                    
+                                }
+                            }
+                        } else {
+                            if (foundPendingAppointment['found'] == true) {
+                                let indexOfPendingAppointment = foundPendingAppointment['index'];
+                                let a = ``;
+                                if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments !== 0 || numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments !== 0){
+                                    for (let q = 0; q < 1; q++) {
+                                        if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments !== 0){
+                                        a += `<div class="events-inside-date-box-in-calendar-itself today-pending">Pending: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments} </div>`
+                                        }
+                                        if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments !== 0){
+                                        a += `<div class="events-inside-date-box-in-calendar-itself today-entered">Accepted: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments}</div>`
+                                        }
+                                    }
+                                }
+                                else{
+                                    for (let q = 0; q < 1; q++) {
+                                        a += `<div class="events-inside-date-box-in-calendar-itself today-entered">Current Entries: ${dateList[indexOfFoundEntry].numberOfEntries}
+                                        </div>
+                                        <div class="events-inside-date-box-in-calendar-itself today-exited">Exited: ${dateList[indexOfFoundEntry].numberOfExited}
+                                        </div>`
+                                    }
+                                    console.log("Zero pending appointments")
+                                }
+                                if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                                    days +=`<a  class="today clicked all-dates" style="width:calc(100%/6)"  href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span>
+                                    ` + a + `
+                                    </a>`;
+                                }
+                                else{
+                                    days +=`<a  class="today clicked all-dates" style="width:calc(100%/5)"  href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span> ` + a + `</a>`;
+                                }
+                            }
+                            else{
+                                if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                                    days += `<a  class=" today clicked all-dates" style="width:calc(100%/6)" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}> <span>${i}</span></a>`;
+                                }
+                                else{
+                                    days += `<a  class=" today clicked all-dates" style="width:calc(100%/5)" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}> <span>${i}</span></a>`;                                   
+                                }
+                            }
+
+                        }
+                    } else {
+                        let found = find(dateList, urlForViewingSchedule);
+                        let foundPendingAppointment = find(numberOfAppointmentArray, urlForViewingSchedule);
+
+                        if (found['found'] == true) {
+                            let indexOfFoundEntry = found['index'];
+                            let indexOfPendingAppointment = foundPendingAppointment['index'];
+                            console.log("indexOfPendingAppointment")
+                            console.log(indexOfPendingAppointment)
+                            let a = ``;
+                            if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments !== 0){
+                            a += `<div class="events-inside-date-box-in-calendar-itself">Pending Appointments: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments} </div>`
+                            }
+                            if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                                days +=
+                                    `<a  class="other-Dates all-dates" style="width:calc(100%/6)" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span>` + a + `</a>`;
+                            }
+                            else{
+                                days +=
+                                    `<a  class="other-Dates all-dates" style="width:calc(100%/5)" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span>` + a + `</a>`;                                
+                            }
+                        } else {
+                            console.log("in here broo satyam")
+                            console.log(foundPendingAppointment['index'])
+                            if (foundPendingAppointment['found'] == true) {
+                                let indexOfFoundEntry = found['index'];
+                                let indexOfPendingAppointment = foundPendingAppointment['index'];
+                                console.log(numberOfAppointmentArray[indexOfPendingAppointment])
+                                let a = ``;
+                                if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments !=0 || numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments != 0){
+                                    for (let q = 0; q < 1; q++) {
+                                        if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments !== 0 ){
+                                        a += `<div class="events-inside-date-box-in-calendar-itself today-pending">Pending: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments}</div>`
+                                        }
+                                        if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments !== 0){
+                                        a += `<div class="events-inside-date-box-in-calendar-itself today-entered">Accepted: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments}</div>`
+                                        }
+                                    }
+                                }
+                                if(totalDaysWhichDoNotBelongToThisMonth > 7){                                
+                                    days +=`<a  class="other-Dates all-dates" style="width:calc(100%/6)" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span> ` + a + `</a>`;
+                                }
+                                else{
+                                   days +=`<a  class="other-Dates all-dates" style="width:calc(100%/5)" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span> ` + a + `</a>`;                                    
+                                }
+                            }
+                            else{
+                                console.log("nothing found ")
+                                if(totalDaysWhichDoNotBelongToThisMonth > 7){ 
+                                    days += `<a  class="other-Dates all-dates" style="width:calc(100%/6)" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}><span>${i}</span></a>`;
+                                }
+                                else{
+                                    days += `<a  class="other-Dates all-dates" style="width:calc(100%/5)" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}><span>${i}</span></a>`;                                    
+                                }
+                            }
+                        }
+                    }
+                }
+                if (nextDays >= 1) {
+                    for (let j = 1; j <= nextDays; j++) {
+                        if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                            days += `<a class="next-date" style="width:calc(100%/6);"><span>${j}</span></a>`;
+                            monthDays.innerHTML = days;
+                        }
+                        else{
+                            days += `<a class="next-date" style="width:calc(100%/5);"><span>${j}</span></a>`;
+                            monthDays.innerHTML = days;
+                        }
+                    }
+                } else {
+                    for (let k = 0; k <= nextDays; k++) {
+                        days += `<a class="invisible"></a>`;
+                        monthDays.innerHTML = days;
+                    }
+                }
+            };
+
+            let goToButton = document.querySelector(".button-to-load-page");
+
+            goToButton.addEventListener("click", (e) => {
+                let monthInput = document.querySelector("#month").value;
+                let yearInput = document.querySelector("#year").value;
+                console.log(monthInput)
+                console.log(yearInput)
+                let myMonths = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                ];
+                console.log(myMonths.indexOf(monthInput))
+                date.setMonth(myMonths.indexOf(monthInput))
+                date.setFullYear(yearInput)
+                renderCalendar();
+            })
+            document.querySelector(".prev").addEventListener("click", () => {
+                date.setMonth(date.getMonth() - 1)
+                console.log(date.getMonth())
+                renderCalendar();
+
+            });
+                
+            document.querySelector(".next").addEventListener("click", () => {
+                date.setMonth(date.getMonth() + 1);
+                renderCalendar();
+            });
+            renderCalendar();
+        }        
+        else{
+            let parsedVisitorArrayJson = JSON.parse(visitorArrayJson.replace(/&quot;/g,'"'));
+            let numberOfEntriesArray = [];
+            console.log(parsedVisitorArrayJson.length);
+            for( let i = 0 ; i<parsedVisitorArrayJson.length; i++){
+                let dateToFormatInGateKeeperCalendar = parsedVisitorArrayJson[i].date;
+                let formattedDateInGateKeeperCalendar = dateToFormatInGateKeeperCalendar.split("T");
+                let newFormattedDateInGateKeeperCalendar = formattedDateInGateKeeperCalendar[0]
+                console.log(newFormattedDateInGateKeeperCalendar);
+                numberOfEntriesArray.push({date : newFormattedDateInGateKeeperCalendar, numberOfEntries :parsedVisitorArrayJson[i].entered.length, numberOfExited: parsedVisitorArrayJson[i].exited.length})
+            }
+            console.log("this is null with entries biroooo")
+            console.log(numberOfAppointmentArray)
+            let dateList = numberOfEntriesArray ; 
+            function find(list, element) {
+                let found = false;
+                let i;
+                for (i = 0; i < list.length; i++) {
+                    if (list[i].date == element) {
+                        found = true;
+                        break;
+                    }
+                }
+                return {
+                    found: found,
+                    index: i
+                };
+            }
+            let date = new Date();
+            let renderCalendar = () => {
+                date.setDate(1);
+                let monthName = document.querySelector(".date h1")
+                let monthInLowerCase = (monthName.innerText).toLowerCase()
+                let monthInNumber = date.getMonth(monthInLowerCase) + 1
+                if (monthInNumber < 10) {
+                    monthInNumber = '0' + monthInNumber;
+                }
+                const monthDays = document.querySelector(".days");
+                const lastDay = new Date(
+                    date.getFullYear(),
+                    date.getMonth() + 1,
+                    0
+                ).getDate();
+                const prevLastDay = new Date(
+                    date.getFullYear(),
+                    date.getMonth(),
+                    0
+                ).getDate();
+                const firstDayIndex = date.getDay();
+                const lastDayIndex = new Date(
+                    date.getFullYear(),
+                    date.getMonth() + 1,
+                    0
+                ).getDay();
+                let nextDays = 7 - lastDayIndex - 1;
+                let months = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                ];
+                document.querySelector("#month").value = `${months[date.getMonth()]}`;
+                document.querySelector(".date p").innerHTML = new Date().toDateString();
+                let monthInput = document.querySelector("#month").value;
+                let yearInput = document.querySelector("#year").value;
+                if(date.getMonth() === 0){
+                    document.querySelector(".date h1").innerHTML = `January ${date.getFullYear()}`;
+                }
+                else{
+                    document.querySelector(".date h1").innerHTML = `${months[date.getMonth()]} ${date.getFullYear()}`;
+                }
+                let days = "";
+                let totalDaysWhichDoNotBelongToThisMonth = nextDays + firstDayIndex
+                for (let x = firstDayIndex; x > 0; x--) {
+                    if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                        days += `<a class="prev-date" style="width:calc(100%/6);"><span> ${prevLastDay - x + 1} </span></a>`;
+                    }
+                    else{
+                        days += `<a class="prev-date" style="width:calc(100%/5);"><span> ${prevLastDay - x + 1} </span></a>`;
+                    }
+                }
+                for (let i = 1; i <= lastDay; i++) {
+                    let urlForViewingSchedule = ""
+                    if(i<10){
+                        urlForViewingSchedule = `${date.getFullYear()}-${monthInNumber}-0${i}`
+                    }
+                    else{
+                        urlForViewingSchedule = `${date.getFullYear()}-${monthInNumber}-${i}`
+                    }
+                    let pageURL = $(location).attr("href");
+            
+                    let splittedURL=pageURL.split("/")
+                    
+                    let idOfCalendarForSecurityVehicleRecord=splittedURL[5]
+                    let idForViewingSchedule = `d${urlForViewingSchedule}`
+                    if (
+                        i === new Date().getDate() &&
+                        date.getMonth() === new Date().getMonth() &&
+                        date.getFullYear() === new Date().getFullYear()
+                    ) {
+                        let foundEntry = find(dateList, urlForViewingSchedule);
+                        let foundPendingAppointment = find(numberOfAppointmentArray, urlForViewingSchedule);
+
+                        if (foundEntry['found'] == true) {
+                            let indexOfFoundEntry = foundEntry['index'];
+                            let indexOfPendingAppointment = foundPendingAppointment['index'];
+                            let a = ``;
+                            console.log("numberOfAppointmentArray[indexOfPendingAppointment] here in today")
+                            console.log(numberOfAppointmentArray[indexOfPendingAppointment])
+                                if(foundPendingAppointment['found'] == true){
+                                    for (let q = 0; q < 1; q++) {
+                                        if(dateList[indexOfFoundEntry].numberOfEntries != 0){
+                                        a += `<div class="events-inside-date-box-in-calendar-itself today-entered">Current Entries: ${dateList[indexOfFoundEntry].numberOfEntries}
+                                        </div>`
+                                        }
+                                        if(dateList[indexOfFoundEntry].numberOfExited != 0){
+                                            a += `
+                                              <div class="events-inside-date-box-in-calendar-itself">Exited: ${dateList[indexOfFoundEntry].numberOfExited}
+                                            </div>`
+                                        }
+                                        if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments != 0){
+                                            a += `<div class="events-inside-date-box-in-calendar-itself today-pending">Pending: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments}
+                                        </div>`
+                                        }
+                                        if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments){
+                                            a += `<div class="events-inside-date-box-in-calendar-itself today-entered">Accepted: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments}
+                                        </div>`
+                                        }
+                                    }
+                                }
+                                else{
+                                    for (let q = 0; q < 1; q++) {
+                                        if(dateList[indexOfFoundEntry].numberOfEntries != 0){
+                                            a += `<div class="events-inside-date-box-in-calendar-itself today-entered">Current Entries: ${dateList[indexOfFoundEntry].numberOfEntries}
+                                            </div>`
+                                        }
+                                        if(dateList[indexOfFoundEntry].numberOfExited != 0){
+                                            a += `<div class="events-inside-date-box-in-calendar-itself">Exited: ${dateList[indexOfFoundEntry].numberOfExited}
+                                            </div>`
+                                        }
+                                    }
+                                    console.log("Zero pending appointments")
+                                }
+                            if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                                days +=
+                                    `<a  class="today clicked all-dates" style="width:calc(100%/6);" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span>
+                                    ` + a + `
+                                </a>`;
+                            }
+                            else{
+                                days +=
+                                    `<a  class="today clicked all-dates" style="width:calc(100%/5);" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span>
+                                    ` + a + `
+                                </a>`;
+                            }
+                        } 
+                        else{
+                            if (foundPendingAppointment['found'] == true) {
+                                let indexOfFoundEntry = foundEntry['index'];
+                                let indexOfPendingAppointment = foundPendingAppointment['index'];
+                                let a = ``;
+                                if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments !== 0 || numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments !== 0){
+                                    for (let q = 0; q < 1; q++) {
+                                        if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments != 0){
+                                            a += `<div class="events-inside-date-box-in-calendar-itself today-pending">Pending: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments}</div>`
+                                        }
+                                        if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments != 0){
+                                        a += `<div class="events-inside-date-box-in-calendar-itself today-entered">Accepted: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments}</div>`
+                                        }
+                                    }
+                                }
+                                if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                                    days +=`<a  class="today clicked all-dates" style="width:calc(100%/6);" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span> ` + a + `</a>`;
+                                }
+                                else{
+                                    days +=`<a  class="today clicked all-dates" style="width:calc(100%/5);" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span> ` + a + `</a>`;                                    
+                                }
+                            }
+                            else{
+                                if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                                    days += `<a  class="today clicked all-dates" style="width:calc(100%/6);" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}><span>${i}</span></a>`;
+                                }
+                                else{
+                                    days += `<a  class="today clicked all-dates" style="width:calc(100%/5);" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}><span>${i}</span></a>`;
+                                }
+                            }
+                        }
+                    } else {
+                        console.log(numberOfAppointmentArray)
+                        console.log("dateList")
+                        console.log(dateList)
+                        let foundEntry = find(dateList, urlForViewingSchedule);
+                        let foundPendingAppointment = find(numberOfAppointmentArray, urlForViewingSchedule);
+                        if (foundEntry['found'] == true) {
+                            let indexOfFoundEntry = foundEntry['index'];
+                            let indexOfPendingAppointment = foundPendingAppointment['index'];
+                            let a = ``;
+                            console.log("numberOfAppointmentArray[indexOfPendingAppointment] now here")
+                            console.log(foundPendingAppointment)
+                            if(foundPendingAppointment['found'] == true){
+                                for (let q = 0; q < 1; q++) {
+                                    if(dateList[indexOfFoundEntry].numberOfEntries != 0){
+                                    a += `<div class="events-inside-date-box-in-calendar-itself today-entered">Current Entries: ${dateList[indexOfFoundEntry].numberOfEntries}</div>`
+                                    }
+                                    if(dateList[indexOfFoundEntry].numberOfExited != 0){
+                                    a += `<div class="events-inside-date-box-in-calendar-itself today-exited">Exited: ${dateList[indexOfFoundEntry].numberOfExited}</div>`
+                                    }
+                                    if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments != 0){
+                                        a += `<div class="events-inside-date-box-in-calendar-itself today-pending">Pending: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments}</div>`
+                                    }
+                                    if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments != 0){
+                                
+                                    a += `<div class="events-inside-date-box-in-calendar-itself today-entered">Accepted: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments}
+                                    </div>`
+                                    }
+                                    
+                                }
+                            }
+                            else{
+                                for (let q = 0; q < 1; q++) {
+                                    if(dateList[indexOfFoundEntry].numberOfEntries != 0){
+                                    a += `<div class="events-inside-date-box-in-calendar-itself today-entered">Current Entries: ${dateList[indexOfFoundEntry].numberOfEntries}</div>`
+                                    }
+                                    if(dateList[indexOfFoundEntry].numberOfExited != 0){
+                                    a += `<div class="events-inside-date-box-in-calendar-itself today-exited">Exited: ${dateList[indexOfFoundEntry].numberOfExited}</div>`
+                                    }
+                                }
+                            }
+                            if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                                days +=
+                                    `<a  class="other-Dates all-dates" style="width:calc(100%/6);" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span>` + a + `</a>`;
+                            }
+                            else{
+                                days +=
+                                    `<a  class="other-Dates all-dates" style="width:calc(100%/5);" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span>` + a + `</a>`;                                
+                            }        
+                        } else {
+                            console.log("in here")
+                            console.log(foundPendingAppointment['index'])
+                            if (foundPendingAppointment['found'] == true) {
+                                let indexOfPendingAppointment = foundPendingAppointment['index'];
+                                let a = ``;
+                                console.log(numberOfAppointmentArray[indexOfPendingAppointment])
+                                if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments !== 0 || numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments !== 0){
+                                    for (let q = 0; q < 1; q++) {
+                                        if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments != 0){
+                                        a += `<div class="events-inside-date-box-in-calendar-itself today-pending">Pending: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfPendingAppointments} </div>`
+                                        }
+                                        if(numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments != 0){
+                                        a += `<div class="events-inside-date-box-in-calendar-itself today-entered">Accepted: ${numberOfAppointmentArray[indexOfPendingAppointment].numberOfAcceptedAppointments}</div>`
+                                        }
+                                    }
+                                }
+                                
+                                if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                                    days +=`<a  class="other-Dates all-dates" style="width:calc(100%/6);" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span>` + a + `</a>`;
+                                }
+                                else{
+                                    days +=`<a  class="other-Dates all-dates" style="width:calc(100%/5);" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}>
+                                    <span>${i}</span>` + a + `</a>`;                                    
+                                }
+                            }
+                            else{
+                                if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                                    days += `<a  class="other-Dates all-dates" style="width:calc(100%/6);" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}><span>${i}</span></a>`;
+                                }
+                                else{
+                                    days += `<a  class="other-Dates all-dates" style="width:calc(100%/5);" href='${idOfCalendarForSecurityVehicleRecord}/${urlForViewingSchedule}' id=${idForViewingSchedule}><span>${i}</span></a>`;                                    
+                                }
+                            }
+
+                        }
+                    }
+                }
+                if (nextDays >= 1) {
+                    for (let j = 1; j <= nextDays; j++) {
+                        if(totalDaysWhichDoNotBelongToThisMonth > 7){
+                            days += `<a class="next-date" style="width:calc(100%/6);"><span>${j}</span></a>`;
+                            monthDays.innerHTML = days;
+                        }
+                        else{
+                            days += `<a class="next-date" style="width:calc(100%/5);"><span>${j}</span></a>`;
+                            monthDays.innerHTML = days;
+                        }
+                    }
+                } else {
+                    for (let k = 0; k <= nextDays; k++) {
+                        days += `<a class="invisible"></a>`;
+                        monthDays.innerHTML = days;
+                    }
+                }
+            };
+            let goToButton = document.querySelector(".button-to-load-page");
+
+            goToButton.addEventListener("click", (e) => {
+                let monthInput = document.querySelector("#month").value;
+                let yearInput = document.querySelector("#year").value;
+                console.log(monthInput)
+                console.log(yearInput)
+                let myMonths = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                ];
+                console.log(myMonths.indexOf(monthInput))
+                date.setMonth(myMonths.indexOf(monthInput))
+                date.setFullYear(yearInput)
+                renderCalendar();
+            })
+            document.querySelector(".prev").addEventListener("click", () => {
+                date.setMonth(date.getMonth() - 1)
+                console.log(date.getMonth())
+                renderCalendar();
+
+            });
+                
+            document.querySelector(".next").addEventListener("click", () => {
+                date.setMonth(date.getMonth() + 1);
+                renderCalendar();
+            });
+            renderCalendar();
+        }
+            function addingClickedProperties() {
+                let allDates = document.querySelectorAll(".all-dates")
+                for (i = 0; i < allDates.length; i++) {
+                    allDates[i].addEventListener("click", (e) => {
+                        console.log(e.target)
+                        if (e.target.classList.contains("clicked")) {
+                            console.log("have class")
+                        } else {
+                            let currentClicked = document.querySelector(".clicked");
+                            if (currentClicked == null) {} else {
+                                currentClicked.classList.remove("clicked");
+                            }
+                            console.log("class added");
+                            e.target.classList.add("clicked")
+                        }
+                    })
+                }
+            }
+            addingClickedProperties();
+            let nextArrow = document.querySelector(".next")
+            let prevArrow = document.querySelector(".prev")
+            nextArrow.addEventListener("click", () => {
+                addingClickedProperties()
+            })
+            prevArrow.addEventListener("click", () => {
+                addingClickedProperties();
+            })
+
+            // TIME PICKER
+            $('.timerange').on('click', function (e) {
+                e.stopPropagation();
+                var input = $(this).find('.time-input');
+                var now = new Date();
+                var hours = now.getHours();
+                var period = "PM";
+                if (hours < 12) {
+                    period = "AM";
+                } else {
+                    hours = hours - 11;
+                }
+                var minutes = now.getMinutes();
+                var range = {
+                    from: {
+                        hour: hours,
+                        minute: minutes,
+                        period: period
+                    },
+                    to: {
+                        hour: hours,
+                        minute: minutes,
+                        period: period
+                    }
+                };
+                if (input.val() !== "") {
+                    var timerange = input.val();
+                    var matches = timerange.match(
+                        /([0-9]{2}):([0-9]{2}) (\\bAM\b|\bPM\b)-([0-9]{2}):([0-9]{2}) (\bAM\b|\bPM\b)/);
+                    if (matches.length === 7) {
+                        range = {
+                            from: {
+                                hour: matches[1],
+                                minute: matches[2],
+                                period: matches[3]
+                            },
+                            to: {
+                                hour: matches[4],
+                                minute: matches[5],
+                                period: matches[6]
+                            }
+                        }
+                    }
+                };
+                console.log(range);
+                var html = '<div class="timerangepicker-container">' +
+                    '<div class="timerangepicker-from">' +
+                    '<label class="timerangepicker-label">From:</label>' +
+                    '<div class="timerangepicker-display hour">' +
+                    '<span class="increment fa fa-angle-up"></span>' +
+                    '<span class="value">' + ('0' + range.from.hour).substr(-2) + '</span>' +
+                    '<span class="decrement fa fa-angle-down"></span>' +
+                    '</div>' +
+                    ':' +
+                    '<div class="timerangepicker-display minute">' +
+                    '<span class="increment fa fa-angle-up"></span>' +
+                    '<span class="value">' + ('0' + range.from.minute).substr(-2) + '</span>' +
+                    '<span class="decrement fa fa-angle-down"></span>' +
+                    '</div>' +
+                    ':' +
+                    '<div class="timerangepicker-display period">' +
+                    '<span class="increment fa fa-angle-up"></span>' +
+                    '<span class="value">PM</span>' +
+                    '<span class="decrement fa fa-angle-down"></span>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="timerangepicker-to">' +
+                    '<label class="timerangepicker-label">To:</label>' +
+                    '<div class="timerangepicker-display hour">' +
+                    '<span class="increment fa fa-angle-up"></span>' +
+                    '<span class="value">' + ('0' + range.to.hour).substr(-2) + '</span>' +
+                    '<span class="decrement fa fa-angle-down"></span>' +
+                    '</div>' +
+                    ':' +
+                    '<div class="timerangepicker-display minute">' +
+                    '<span class="increment fa fa-angle-up"></span>' +
+                    '<span class="value">' + ('0' + range.to.minute).substr(-2) + '</span>' +
+                    '<span class="decrement fa fa-angle-down"></span>' +
+                    '</div>' +
+                    ':' +
+                    '<div class="timerangepicker-display period">' +
+                    '<span class="increment fa fa-angle-up"></span>' +
+                    '<span class="value">PM</span>' +
+                    '<span class="decrement fa fa-angle-down"></span>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
+                $(html).insertAfter(this);
+                $('.timerangepicker-container').on(
+                    'click',
+                    '.timerangepicker-display.hour .increment',
+                    function () {
+                        var value = $(this).siblings('.value');
+                        value.text(
+                            increment(value.text(), 12, 1, 2)
+                        );
+                    }
+                );
+                $('.timerangepicker-container').on(
+                    'click',
+                    '.timerangepicker-display.hour .decrement',
+                    function () {
+                        var value = $(this).siblings('.value');
+                        value.text(
+                            decrement(value.text(), 12, 1, 2)
+                        );
+                    }
+                );
+                $('.timerangepicker-container').on(
+                    'click',
+                    '.timerangepicker-display.minute .increment',
+                    function () {
+                        var value = $(this).siblings('.value');
+                        value.text(
+                            increment(value.text(), 59, 0, 2)
+                        );
+                    }
+                );
+                $('.timerangepicker-container').on(
+                    'click',
+                    '.timerangepicker-display.minute .decrement',
+                    function () {
+                        var value = $(this).siblings('.value');
+                        value.text(
+                            decrement(value.text(), 59, 0, 2)
+                        );
+                    }
+                );
+                $('.timerangepicker-container').on(
+                    'click',
+                    '.timerangepicker-display.period .increment, .timerangepicker-display.period .decrement',
+                    function () {
+                        var value = $(this).siblings('.value');
+                        var next = value.text() == "PM" ? "AM" : "PM";
+                        value.text(next);
+                    }
+                );
+            });
+            $(document).on('click', e => {
+                if (!$(e.target).closest('.timerangepicker-container').length) {
+                    if ($('.timerangepicker-container').is(":visible")) {
+                        var timerangeContainer = $('.timerangepicker-container');
+                        if (timerangeContainer.length > 0) {
+                            var timeRange = {
+                                from: {
+                                    hour: timerangeContainer.find('.value')[0].innerText,
+                                    minute: timerangeContainer.find('.value')[1].innerText,
+                                    period: timerangeContainer.find('.value')[2].innerText
+                                },
+                                to: {
+                                    hour: timerangeContainer.find('.value')[3].innerText,
+                                    minute: timerangeContainer.find('.value')[4].innerText,
+                                    period: timerangeContainer.find('.value')[5].innerText
+                                },
+                            };
+                            timerangeContainer.parent().find('.time-input').val(
+                                timeRange.from.hour + ":" +
+                                timeRange.from.minute + " " +
+                                timeRange.from.period + "-" +
+                                timeRange.to.hour + ":" +
+                                timeRange.to.minute + " " +
+                                timeRange.to.period
+                            );
+                            timerangeContainer.remove();
+                        }
+                    }
+                }
+            });
+
+            function increment(value, max, min, size) {
+                var intValue = parseInt(value);
+                if (intValue == max) {
+                    return ('0' + min).substr(-size);
+                } else {
+                    var next = intValue + 1;
+                    return ('0' + next).substr(-size);
+                }
+            }
+
+            function decrement(value, max, min, size) {
+                var intValue = parseInt(value);
+                if (intValue == min) {
+                    return ('0' + max).substr(-size);
+                } else {
+                    var next = intValue - 1;
+                    return ('0' + next).substr(-size);
+                }
+            }
+
+
+            // FOR SIDE PANEL'S APPEARANCE
+            if (screen.width < 850) {
+                // FOR SIDE-NAVBAR'S DISAPPEARANCE
+                let bars = document.querySelector(".bars")
+                let outermost = document.getElementById("outermost2")
+                let sidebar = document.querySelector("#sidebar")
+                bars.addEventListener("click", (e) => {
+                    if (outermost.classList.contains("shadowing")) {
+                        console.log("Shadwoing removed")
+                        outermost.classList.remove("shadowing")
+                    } else {
+                        outermost.classList += " shadowing"
+                        console.log("shadwoing added");
+                    }
+                })
+                outermost.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    bars.className = "bars";
+                    sidebar.className = "sidebar-section";
+                    if (outermost.classList.contains("shadowing")) {
+                        console.log("Shadwoing removed")
+                        outermost.classList.remove("shadowing")
+                    } else {
+                        outermost.classList += " shadowing"
+                        console.log("shadwoing added");
+                    }
+                })
+                // FOR SIDE-NAVBAR'S APPEARANCE
+                function navbarBelow850px(x) {
+                    x.classList.toggle("change");
+                    x.classList.toggle("border");
+                    $("#sidebar").toggleClass("show");
+                    // $("#outermost2").toggleClass("shadowing")
+                }
+                }

@@ -1,0 +1,95 @@
+extends base.pug
+block style
+
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/wtf-forms.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(href='/static/css/quicksand.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(rel='stylesheet' href='/static/css/profileBusinessStyle.css')
+    link(rel='stylesheet' href='/static/css/settingsForMemberInSecurityCalendarStyle.css')
+    title #{securityCalendar.businessName} | Calendar 
+block content
+    section#outermost1.outermost
+    section.profile
+        div.h-primary 
+            h1  Manage Permissions
+            p.userWhoGavePermission-name #{securityCalendar.businessName}
+        //- button.button-to-make-managing-permission-section-visible.button-to-make-section-visible Manage Flat 
+        section.section-for-managing-permissions.section-for-managing-member-permission-security-guard 
+            if(usersWhoWereGivenPermissionOfThisFlat.length !== 0)
+                .div-to-show-users-who-already-have-permissions
+                    h2.permission-heading Permissions Given
+                    table.table-for-members 
+                        thead
+                            tr 
+                                th Name
+                                th Number
+                                th Status
+                        tbody  
+                            for userWhoWereGivenPermission in usersWhoWereGivenPermission
+                                tr
+                                    td  #{userWhoWereGivenPermission.name}    
+                                    td  #{userWhoWereGivenPermission.number}  
+                                    td
+                                    a(href="/removeUserPermission/" + businessCalendar._id +"/" +userWhoWereGivenPermission.id).anchor-tag-for-giving-permission.acceptMembershipRequestSecurity Remove
+            .div-for-search-user-for-flat-management
+                //- h2.permission-heading
+                form#search-user-form( method='get').input-group.input-groups-for-search
+                    input#permission-input-search.form-control.search-input(type='text' name="userSearch" value=userSearch placeholder='Search User')
+                    .input-group-append.inputs-for-search
+                    button.btn.btn-green.btn-md.m-0.px-3.py-2.z-depth-0.search-button.anchor-tag-for-only-permission-search(type="submit" , aria-haspopup='true' , aria-expanded='false' , form='search-user-form')   
+                        i.fa.fa-search    
+                if searchedUsers.length > 0
+                    for foundUser in searchedUsers
+                        .div-to-display-found-users 
+                            p.found-user-name Name: #{foundUser.name}
+                            p.found-user-number Mobile No.: #{foundUser.number}
+                            p.found-user-email Email: #{foundUser.email}   
+                            form(action="/givePermissionOfFlat/" + idOfCalendar + "/" + user._id + "/" + foundUser._id , method="post")
+                                div.div-containing-inputs.div-containing-radio-buttons   
+                                    div.div-having-radio-input-and-label
+                                        input(type="radio" name="adminRights" value="true" id="true").radio-type-input
+                                        label(for='true') Admin
+                                    div.div-having-radio-input-and-label
+                                        input(type="radio" name="adminRights" value="false" id="false").radio-type-input
+                                        label(for='false') Non-Admin
+                                    div.div-having-radio-input-and-label
+                                        input(type="radio" name="recieveEmailNotificationOrNot" value="true" id="recieveEmailNotificationOrNot").radio-type-input
+                                        label(for="recieveEmailNotificationOrNot") Email Notificaton
+                                    div.div-having-radio-input-and-label
+                                        input(type="radio" name="recieveMsgNotificationOrNot" value="true" id="recieveMsgNotificationOrNot").radio-type-input
+                                        label(for="recieveMsgNotificationOrNot") Msg Notification
+                                div.div-having-submit-button
+                                    button(type="submit") Submit  
+block script
+    // jQuery and Bootstrap scripts
+    script(type='text/javascript' src='assets/js/jquery.min.js')
+    script(src="/dtsel-master/dtsel.js")
+    script(type='text/javascript' src='assets/js/bootstrap.min.js')
+    // ClockPicker script
+    script(type='text/javascript' src='dist/bootstrap-clockpicker.min.js')
+    // JQuery
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/jquery.js')
+    script(src='../static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    script(src="../static/js/profileForBusinessScript.js")
+    script(src="../static/js/timepicker.js")

@@ -1,0 +1,565 @@
+* {
+    padding: 0;
+    margin: 0;
+    border-width: 0;
+    border-style: none;
+}
+
+:root {
+    --primary-color: #4d4d4d;
+}
+
+body {
+    color: darkgrey;
+}
+
+
+/* THIS IS FOR THE OUTERMOST LAYER  */
+
+.no-scrolling {
+    overflow-y: hidden;
+}
+
+.outermost {
+    z-index: 2;
+    position: fixed;
+}
+
+.shadowing {
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    opacity: 0.6;
+}
+
+.image-of-logo {
+    width: 50px;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    height: 82px;
+}
+
+.advertisement {
+    height: 200px;
+    width: 100%;
+}
+
+.div-having-logo-and-links-navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    flex-direction: row;
+    padding: 0;
+    z-index: 1;
+}
+
+.links-home-services {
+    font-size: 1.4rem;
+}
+
+.main-section-in-home-page:before {
+    content: "";
+    position: absolute;
+    background: url(../img/home.jpg) no-repeat;
+    background-position: top;
+    background-size: 100% 100%;
+    object-fit: cover;
+    width: 80%;
+    z-index: -1;
+    height: 100%;
+    top: 0;
+    align-content: center;
+    transition: 3s all ease;
+    filter: opacity(0.7);
+}
+
+.main-section-in-home-page {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    margin-top: 82px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: "Quicksand", sans-serif;
+    background-color: #24fbeb;
+}
+
+.div-having-taglines-inside-main-section-in-home-page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+}
+
+.main-section-in-home-page h2 {
+    font-weight: 500;
+    font-size: 2rem;
+    color: darkgrey;
+}
+
+.color-for-text-inside-website {
+    color: darkgrey;
+}
+
+.main-section-in-home-page h1 {
+    font-weight: 900;
+    font-size: 2.7rem;
+    color: #4d4d4d;
+    /* text-shadow: 0 0.3rem 0.5rem rgb(51 114 178 / 50%); */
+}
+
+.headings-inside-website {
+    color: #4d4d4d;
+}
+
+.anchor-tag-for-webapp {
+    color: blue;
+}
+
+.div-having-logo-inside-main-section-in-home-page img {
+    width: 80%;
+}
+
+.div-having-image-of-webapp-inside-main-section-in-home-page {
+    width: 18vw;
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-having-image-of-webapp-inside-main-section-in-home-page img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px
+}
+
+.section-having-service-features {
+    display: flex;
+    justify-content: center;
+}
+
+.div-having-services-name {
+    padding: 0;
+    width: 100vw;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.anchor-tag-for-web-app {
+    width: fit-content;
+}
+
+.map-and-contact {
+    z-index: 0;
+    background-color: #f1e9e9;
+}
+
+.inputs-in-contact-us-form {
+    border-style: solid;
+}
+
+
+/* FOOTER FROM HERE */
+
+.div-inside-footer {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-top: 40px;
+    padding-bottom: 15px;
+    border-top: 1px solid #ffe8e8;
+}
+
+.headings-in-footer-section {
+    font-size: 1.1rem;
+}
+
+.anchor-tag-inside-footer {
+    cursor: pointer;
+}
+
+
+/* FOR SCROLLBAR  */
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: darkgray;
+    border-radius: 10px;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
+}
+
+
+/* FLOATING CONTACT FORM FROM HERE */
+
+.floating-contact-for-section {
+    width: 40%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.7s;
+    background-color: transparent;
+    z-index: 4;
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#div-containing-floating-contact-form {
+    margin: 0;
+    width: 100%;
+    padding: 55px 35px;
+    background-color: #fff7f6;
+}
+
+.main-div-containing-form-inside-contact-section form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input-text {
+    display: inline-block;
+    width: 33.3%;
+    display: block;
+    width: 100%;
+    margin-bottom: 1.2rem;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.input-textarea {
+    width: 100%;
+    margin-bottom: 1.2rem;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.input-text input {
+    font-family: "Quicksand", sans-serif;
+    background-color: rgb(33 63 86 / 40%);
+    background-color: white;
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    color: var(--primary-color);
+}
+
+.input-textarea textarea {
+    width: 100%;
+    background-color: rgb(33 63 86 / 40%);
+    background-color: white;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1rem;
+    padding: 0.7rem;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    resize: vertical;
+    color: var(--primary-color);
+}
+
+.input-text input::placeholder {
+    color: var(--primary-color);
+}
+
+.input-textarea textarea::placeholder {
+    color: var(--primary-color);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.submit-button button {
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 0.7rem 0;
+    outline: none;
+    border: 3px solid var(--primary-color);
+    background-color: rgba(0, 41, 73, 0);
+    color: var(--primary-color);
+    transition: all 0.5s;
+    cursor: pointer;
+    letter-spacing: 3px;
+    font-weight: 600;
+    font-family: 'Slabo 27px', serif, sans-serif;
+}
+
+.submit-button button:hover {
+    background-color: var(--primary-color);
+    color: darkgrey;
+    border-color: var(--primary-color);
+}
+
+.cross-to-cut-floating-form {
+    cursor: pointer;
+    position: absolute;
+    top: -10px;
+    right: 0;
+    font-size: 2rem;
+    font-family: 'Slabo 27px', serif, sans-serif;
+}
+
+.visible-contact-form {
+    visibility: visible;
+    top: 50%;
+    top: 53%;
+    opacity: 1;
+    padding: 0;
+}
+
+.adsbygoogle {
+    text-align: center;
+}
+
+#outermost2 {
+    z-index: 3;
+}
+
+.hidden-inputs {
+    display: none;
+}
+
+
+/* RESPONSIVE FORM HERE */
+
+@media only screen and (max-width:1350px) {
+    .div-having-image-of-webapp-inside-main-section-in-home-page {
+        width: 23vw;
+    }
+}
+
+@media (min-width: 1280px) {
+    .div-having-services-name {
+        max-width: 80%;
+    }
+    .floating-contact-for-section {
+        width: 40%;
+    }
+    #div-containing-floating-contact-form {
+        padding: 40px 30px;
+    }
+}
+
+@media only screen and (max-width:1150px) {
+    .div-having-image-of-webapp-inside-main-section-in-home-page {
+        width: 25vw;
+    }
+}
+
+@media only screen and (max-width:1050px) {
+    .div-having-image-of-webapp-inside-main-section-in-home-page {
+        width: 26vw;
+    }
+    .main-section-in-home-page h2 {
+        font-size: 1.7rem;
+    }
+    .main-section-in-home-page h1 {
+        font-size: 2.4rem;
+    }
+    /* FLOATING FORM RESPONSIVE */
+    .floating-contact-for-section {
+        width: 45%;
+    }
+    #div-containing-floating-contact-form {
+        padding: 35px 15px;
+    }
+    .input-text input {
+        font-size: 0.7rem;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    .div-having-image-of-webapp-inside-main-section-in-home-page {
+        width: 28vw;
+    }
+}
+@media only screen and (max-width:850px) {
+    .div-having-image-of-webapp-inside-main-section-in-home-page {
+        height: 75%;
+        width: 31vw;
+    }
+    .main-section-in-home-page h2 {
+        font-size: 1.3rem;
+    }
+    .main-section-in-home-page h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media only screen and (max-width:770px) {
+    header {
+        padding-bottom: 1rem;
+        height: 122px;
+    }
+    .div-having-logo-and-links-navbar {
+        flex-direction: column;
+        padding: 5px 0 0 0;
+    }
+    .navbar-having-home-links {
+        width: 55%;
+        justify-content: space-around;
+    }
+    .navbar-having-home-links a {
+        margin: 0;
+    }
+    .main-section-in-home-page {
+        margin: 122px 0 20px 0;
+        height: fit-content;
+        flex-direction: column;
+    }
+    .mb-4 {
+        margin-bottom: 0;
+    }
+    .div-having-services-name .mb-20 {
+        margin-bottom: 10px;
+    }
+    .div-having-taglines-inside-main-section-in-home-page {
+        align-items: center;
+        margin-bottom: 15px;
+        width: 75%;
+    }
+    .div-having-image-of-webapp-inside-main-section-in-home-page {
+        height: 80%;
+        width: 40vw;
+    }
+    .main-section-in-home-page h2 {
+        font-size: 1.3rem;
+        margin: 10px 0;
+    }
+    .main-section-in-home-page h1 {
+        font-size: 2.2rem;
+    }
+    .div-inside-footer {
+        padding-top: 30px;
+        padding-bottom: 20px
+    }
+    .headings-in-footer-section {
+        font-size: 0.9rem;
+    }
+    /* FLOATING FORM RESPONSIVE */
+    .floating-contact-for-section {
+        width: 55%;
+    }
+    .input-text {
+        width: 100%;
+        padding: 0 20px;
+    }
+    .input-textarea {
+        width: 100%;
+        padding: 0 20px;
+    }
+    .submit-button {
+        width: 100%;
+        padding: 0 20px;
+    }
+    .input-text input {
+        font-size: 1.3rem;
+        padding: 0.9rem;
+    }
+    .input-textarea textarea {
+        font-size: 1.3rem;
+        padding: 0.9rem;
+    }
+}
+
+@media only screen and (max-width:700px) {
+    .div-having-image-of-webapp-inside-main-section-in-home-page {
+        width: 48vw;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .div-having-image-of-webapp-inside-main-section-in-home-page {
+        width: 54vw;
+    }
+}
+
+@media only screen and (max-width:580px) {
+    .input-text input {
+        font-size: 1.1rem;
+        padding: 0.7rem;
+    }
+    .input-textarea textarea {
+        font-size: 1.1rem;
+        padding: 0.7rem;
+    }
+}
+
+@media only screen and (max-width:550px) {
+    /* FLOATING FORM RESPONSIVE */
+    .floating-contact-for-section {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width:460px) {
+    .main-section-in-home-page h2 {
+        font-size: 1.1rem;
+    }
+    .main-section-in-home-page h1 {
+        font-size: 1.7rem;
+    }
+    .div-having-image-of-webapp-inside-main-section-in-home-page {
+        width: 65vw;
+    }
+    .links-home-services {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width:460px) {
+    .floating-contact-for-section {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width:410px) {
+    .input-text input {
+        font-size: 0.9rem;
+    }
+    .input-textarea textarea {
+        font-size: 0.9rem;
+    }
+}

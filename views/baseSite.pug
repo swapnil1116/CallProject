@@ -1,0 +1,109 @@
+﻿doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description' content='Calendar')
+    meta(name='keywords' content='Calendar')
+    meta(name='author' content='Calendar')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-D0FV0XYG1K');
+
+    //- link(rel="icon" , href="/static/image/MAIN.png" type="image/png" sizes="16x16")
+    block style
+        link(rel='stylesheet', href='https://unpkg.com/aos@next/dist/aos.css')
+        link(href='/static/style/fontArvo.css', rel='stylesheet')
+        link(href='/static/style/fontQuickSand.css', rel='stylesheet')
+        link(href='/static/style/tailwind.min.css', rel='stylesheet')
+        link(href='/static/style/homePageStyle.css', rel='stylesheet')
+        title Calendar
+  body
+    section#outermost2.outermost
+    header.text-gray-700.body-font
+      .container.mx-auto.flex.flex-wrap.p-5.flex-col.items-center.div-having-logo-and-links-navbar(class='md:flex-row')
+        a.flex.title-font.font-medium.items-center.text-gray-900.mb-4(class='md:mb-0', href='/')
+          
+          img.image-of-logo(src='../static/image/calendar-logo.png', alt='Logo', srcset='')
+        nav.flex.flex-wrap.items-center.text-base.justify-center.navbar-having-home-links
+          a.mr-5.links-home-services(class='hover:text-gray-900', href='/login') WebApp
+          a.mr-5.links-home-services(class='hover:text-gray-900', href='/features') Features
+          //- a.mr-5.links-home-services(class='hover:text-gray-900', href='/product') Products
+    block content
+    footer.text-gray-700.body-font
+      .container.px-5.div-inside-footer.mx-auto.flex.flex-wrap.flex-col(class='md:items-center lg:items-start md:flex-row md:flex-no-wrap')
+        .w-full.px-4(class='lg:w-1/4 md:w-1/2')
+          h2.title-font.font-medium.text-gray-900.tracking-widest.mb-3.headings-in-footer-section Products 
+          nav.list-none.mb-10
+            li
+              a(href="#" , class='hover:text-gray-800').anchor-tag-inside-footer.a.text-gray-600 Why Calendar? 
+            li
+              a(href="#" , class='hover:text-gray-800').anchor-tag-inside-footer.a.text-gray-600 Connected Calendars
+            li
+              a(href="#"  , class='hover:text-gray-800').anchor-tag-inside-footer.a.text-gray-600 Calendar Views
+            li
+              a(href="#"  , class='hover:text-gray-800').anchor-tag-inside-footer.a.text-gray-600 Analytics
+            li
+              a(href="#"  , class='hover:text-gray-800').anchor-tag-inside-footer.a.text-gray-600 Contact &amp; Pricing
+        .w-full.px-4(class='lg:w-1/4 md:w-1/2')
+          h2.title-font.font-medium.text-gray-900.tracking-widest.mb-3.headings-in-footer-section BUSINESS
+          nav.list-none.mb-10
+            li
+              a(href="#" , class='hover:text-gray-800').anchor-tag-inside-footer.a.text-gray-600 Individuals
+            li
+              a(href="/cteam"  , class='hover:text-gray-800').a.text-gray-600.anchor-tag-inside-footer Teams
+        .w-full.px-4(class='lg:w-1/4 md:w-1/2')
+          h2.title-font.font-medium.text-gray-900.tracking-widest.mb-3.headings-in-footer-section SUPPORT
+          nav.list-none.mb-10
+            li
+              a.text-gray-600.anchor-tag-inside-footer(class='hover:text-gray-800' href="#") Support
+            li
+              a.text-gray-600.anchor-tag-inside-footer(class='hover:text-gray-800') Integrations
+            li
+              a.text-gray-600.anchor-tag-inside-footer(class='hover:text-gray-800') Contact
+            li
+              a.text-gray-600.anchor-tag-inside-footer(class='hover:text-gray-800' onclick='showContactFormFunction(this)') Contact
+        .w-64.flex-shrink-0.mx-auto.text-center.mt-10(class='md:mx-0 md:text-left md:mt-0')
+          a.flex.title-font.font-medium.items-center.justify-center.text-gray-900(class='md:justify-start')
+            img(src='../static/image/calendar-logo.png', alt='Logo')
+      .bg-gray-200
+        .container.mx-auto.py-4.px-5.flex.flex-wrap.flex-col(class='sm:flex-row')
+          p.text-gray-500.text-sm.text-center(class='sm:text-left')
+            | © 2020 - All Rights Reserved
+          span.inline-flex.mt-2.justify-center(class='sm:ml-auto sm:mt-0 sm:justify-start')
+            a.text-gray-500
+              svg.w-5.h-5(fill='currentColor', stroke-linecap='round', stroke-linejoin='round', stroke-width='2', viewBox='0 0 24 24')
+                path(d='M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z')
+            a.ml-3.text-gray-500
+              svg.w-5.h-5(fill='currentColor', stroke-linecap='round', stroke-linejoin='round', stroke-width='2', viewBox='0 0 24 24')
+                path(d='M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z')
+            a.ml-3.text-gray-500
+              svg.w-5.h-5(fill='none', stroke='currentColor', stroke-linecap='round', stroke-linejoin='round', stroke-width='2', viewBox='0 0 24 24')
+                rect(width='20', height='20', x='2', y='2', rx='5', ry='5')
+                path(d='M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01')
+            a.ml-3.text-gray-500
+              svg.w-5.h-5(fill='currentColor', stroke='currentColor', stroke-linecap='round', stroke-linejoin='round', stroke-width='0', viewBox='0 0 24 24')
+                path(stroke='none', d='M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z')
+                circle(cx='4', cy='4', r='2', stroke='none')      
+                // FLOATING CONTACT FORM FROM HERE
+    section.floating-contact-for-section.main-div-containing-form-inside-contact-section
+      #div-containing-floating-contact-form(data-aos='fade-right', data-aos-duration='1000')
+        #cross-to-hide-floating-form.cross-to-cut-floating-form ✕
+        form#form(action='/', method='POST')
+          .divs-inside-contact-form.input-text
+              input(type='text', placeholder='Name' name='name' id='name'  required)
+          .divs-inside-contact-form.input-text
+              input(type='email', placeholder='Email' name='emailAddress' id='email' required)
+          //- .divs-inside-contact-form.input-text
+          //-     input(type='tel', placeholder='Tel' name='phoneNumber' id='phoneNumber' required)
+          .divs-inside-contact-form.input-textarea
+            textarea(name='message', id='message', cols='30', rows='7', placeholder='Message')
+          .divs-inside-contact-form.submit-button
+            button(type='submit') SEND         
+    block script
+        script(src='/static/script/jquery.min.js', crossorigin='anonymous')
+        script(src='/static/script/jquery-3.5.1.min.js')
+        script(src='/static/script/bootstrap.min.js')
+        script(src='/static/script/homeScript.js')

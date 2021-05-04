@@ -1,0 +1,326 @@
+extends base.pug
+block style
+
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/wtf-forms.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(href='/static/css/quicksand.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(rel='stylesheet' href='/static/css/profileBusinessStyle.css')
+    title #{businessCalendar.businessName} | Calendar
+block content
+    section#outermost1.outermost
+    section.profile
+        div.h-primary 
+            h1 Your Business Profile
+            if(userWhoGavePermission._id !== null && userWhoGavePermission._id != undefined )
+              p.userWhoGavePermission-name #{userWhoGavePermission.name}'s Calendar 
+        form.div-having-user-profile-img(action="/uploadProfilePicBusiness", method="post", enctype="multipart/form-data")
+          img(src="/"+businessCalendar.profilePicBusiness , alt="", srcset="")
+          label.file.label-for-upload-profile-pic
+            input#file(type='file' name="profilePicBusiness"  onchange="this.form.submit()")
+            //- span.file-custom
+        form#main-form( method='post' , action="/businessProfile/" + idOfCalendar)  
+          div.div-containing-label-inputs
+            label.name(for='name')
+              |  Name:
+            input#name.inputs-of-profile-page(type='text' name="businessName" placeholder='Name' value=businessCalendar.businessName )
+            img.edit-img(src='/static/img/edit-solid.svg' alt='')
+          div.div-containing-label-inputs
+            label.name(for='address')
+              |  Address:
+            input#address.inputs-of-profile-page(type='text' name="businessaddress" placeholder='Address' value=businessCalendar.businessaddress )
+            img.edit-img(src='/static/img/edit-solid.svg' alt='')
+          div.div-containing-label-inputs
+            label.name(for='country')
+              | Country:
+            input#country.inputs-of-profile-page(type='text' name="country" placeholder='Country' value=businessCalendar.country )
+            img.edit-img(src='/static/img/edit-solid.svg' alt='')
+          div.div-containing-label-inputs
+            label.name(for='state')
+              | State:
+            input#state.inputs-of-profile-page(type='text' name="state" placeholder='State' value=businessCalendar.state )
+            img.edit-img(src='/static/img/edit-solid.svg' alt='')
+          div.div-containing-label-inputs
+            label.name(for='city')
+              | City:
+            input#city.inputs-of-profile-page(type='text' name="city" placeholder='City' value=businessCalendar.city )
+            img.edit-img(src='/static/img/edit-solid.svg' alt='')
+          .business-days.business-days-for-business-profile.display-none
+              h3 Business Days
+              .whole-section-of-business-form.whole-section-of-business-form-for-business-profile
+                .days-in-business-days-form.days-in-business-days-form-for-business-profile
+                  .heading-day.weekdays-in-business-form.heading-in-business-days-inside-business-profile
+                    | Day
+                  .weekdays-in-business-form
+                    | Monday
+                  .weekdays-in-business-form
+                    | Tuesday
+                  .weekdays-in-business-form
+                    | Wednesday
+                  .weekdays-in-business-form
+                    | Thursday
+                  .weekdays-in-business-form
+                    | Friday
+                  .weekdays-in-business-form
+                    | Saturday
+                  .weekdays-in-business-form
+                    | Sunday
+                .checkbox-in-business-days-section
+                  .top-checkbox-in-business-days-section.input-checkboxes
+                    input(type='checkbox'  name='' disabled='')
+                  .input-checkboxes
+                    input(type='checkbox' checked name='mon')
+                  .input-checkboxes
+                    input(type='checkbox'  checked name='tue')
+                  .input-checkboxes
+                    input(type='checkbox' checked name='wed')
+                  .input-checkboxes
+                    input(type='checkbox' checked name='thu')
+                  .input-checkboxes
+                    input(type='checkbox'  name='fri')
+                  .input-checkboxes
+                    input(type='checkbox'   name='sat')
+                  .input-checkboxes
+                    input(type='checkbox'  name='sun')
+                .from-time-in-business-days
+                  .heading-of-from-time-in-business-form.from-time
+                    | From
+                  .from-time 
+                      input#mon-from.form-control-for-time-input(type='time' value=businessCalendar.days.mon.open name="open")
+                  .from-time
+                      input#tues-from.form-control-for-time-input(type='time' value=businessCalendar.days.tues.open name="open")
+                  .from-time
+                      input#wed-from.form-control-for-time-input(type='time' value=businessCalendar.days.wed.open name="open")
+                  .from-time
+                      input#thurs-from.form-control-for-time-input(type='time' value=businessCalendar.days.thurs.open name="open")
+                  .from-time
+                      input#fri-from.form-control-for-time-input(type='time' value=businessCalendar.days.fri.open name="open")
+                  .from-time
+                      input#sat-from.form-control-for-time-input(type='time' value=businessCalendar.days.sat.open name="open")
+                  .from-time
+                      input#sun-from.form-control-for-time-input(type='time' value=businessCalendar.days.sun.open name="open")
+                .to-time-in-business-days
+                  .heading-of-to-time-in-business-form.to-time
+                    | To
+                  .to-time
+                      input#mon-to.form-control-for-time-input(type='time' value=businessCalendar.days.mon.close name="close")
+                  .to-time
+                      input#tues-to.form-control-for-time-input(type='time' value=businessCalendar.days.tues.close name="close")
+                  .to-time
+                      input#wed-to.form-control-for-time-input(type='time' value=businessCalendar.days.wed.close name="close")
+                  .to-time
+                      input#thurs-to.form-control-for-time-input(type='time' value=businessCalendar.days.thurs.close name="close")
+                  .to-time
+                      input#fri-to.form-control-for-time-input(type='time' value=businessCalendar.days.fri.close name="close")
+                  .to-time
+                      input#sat-to.form-control-for-time-input(type='time' value=businessCalendar.days.sat.close name="close")
+                  .to-time
+                      input#sun-to.form-control-for-time-input(type='time' value=businessCalendar.days.sun.close name="close")
+                .entry-section-in-business-form
+                  .heading-of-entry-section.entries-in-a-day
+                    | Entry
+                  .entries-in-a-day
+                    input(type='number'  value=businessCalendar.days.mon.entry name='entry' id='entryMon')
+                  .entries-in-a-day
+                    input(type='number' value=businessCalendar.days.tues.entry  name='entry' id='entryTues')
+                  .entries-in-a-day
+                    input(type='number' value=businessCalendar.days.wed.entry name='entry' id='entryWed')
+                  .entries-in-a-day
+                    input(type='number' value=businessCalendar.days.thurs.entry  name='entry' id='entryThurs')
+                  .entries-in-a-day
+                    input(type='number' value=businessCalendar.days.fri.entry  name='entry' id='entryFri')
+                  .entries-in-a-day
+                    input(type='number'   value=businessCalendar.days.sat.entry name='entry' id='entrySat')
+                  .entries-in-a-day
+                    input(type='number' value=businessCalendar.days.sun.entry name='entry' id='entrySun')     
+          if(businessCalendar.calendarType === 'standard')   
+
+          else if(businessCalendar.calendarType === 'gateKeeper')          
+            h1.parking-detail-heading Parking Details          
+            select#select-for-parkingType-in-businessProfile.parking-type-inputs-in-businessProfile(name='parkingType')
+              option(value='') Select Parking Type
+              if businessCalendarForParkingTypeDetail.paid == true
+                option(value='paid' selected) Paid Parking
+                option(value='unpaid' ) Unpaid Parking
+              else if businessCalendarForParkingTypeDetail.paid == false
+                option(value='paid' ) Paid Parking
+                option(value='unpaid' selected) Unpaid Parking
+            if businessCalendarForParkingTypeDetail.cost === null
+              input#costOfParking1-in-businessProfile.costOfParking-in-businessProfile.parking-type-inputs-in-businessProfile(type='number' name='costForParking2' value=0 placeholder="Cost For 2-Wheeler")  
+              input#costOfParking2-in-businessProfile.costOfParking-in-businessProfile.parking-type-inputs-in-businessProfile(type='number' name='costForParking4' value=0 placeholder="Cost For 4-Wheeler")  
+            else
+              input#costOfParking1-in-businessProfile.costOfParking-in-businessProfile.parking-type-inputs-in-businessProfile(type='number'   name='costForParking2' value=businessCalendarForParkingTypeDetail.cost['2'] placeholder="Cost For 2-Wheeler")  
+              input#costOfParking2-in-businessProfile.costOfParking-in-businessProfile.parking-type-inputs-in-businessProfile(type='number'   name='costForParking4' value=businessCalendarForParkingTypeDetail.cost['4'] placeholder="Cost For 4-Wheeler")   
+            input#parkingCapacityNumber-in-businessProfile.parking-type-inputs-in-businessProfile(type='number' placeholder="Parking Capacity" name='parkingCapacity' value=businessCalendarForParkingTypeDetail.dailyMaximumParkingEntry) 
+          .service-and-duration-section.service-and-duration-section-in-business-profile-section.display-none
+              .services-in-service-and-duration-section
+                .heading-of-service
+                  | Service
+                .input-of-service-in-service-section
+                  input(type='text' name='serviceName' value=businessCalendar.services[0].serviceName id='service1')
+                .input-of-service-in-service-section
+                  input(type='text' name='serviceName' value=businessCalendar.services[1].serviceName id='service2')
+                .input-of-service-in-service-section
+                  input(type='text' name='serviceName' value=businessCalendar.services[2].serviceName id='service3')
+              .duration-in-service-and-duration-section
+                .heading-of-duration
+                  | Duration
+                .input-of-duration-in-service-section
+                  input(type='text' name='duration' value=businessCalendar.services[0].duration id='duration1')
+                .input-of-duration-in-service-section
+                  input(type='text' name='duration' value=businessCalendar.services[1].duration  id='duration2')
+                .input-of-duration-in-service-section
+                  input(type='text' name='duration' value=businessCalendar.services[2].duration  id='duration3')
+              .checkbox-and-button-in-service-duration-section
+                .heading-of-checkbox-duration-section
+                  button.button-in-service-duration-section-heading Add
+                .checkbox-input-of-service-duration-section
+                  input(type='checkbox' name='enabled1' id='' )
+                .checkbox-input-of-service-duration-section
+                  input(type='checkbox' name='enabled2' id='' )
+                .checkbox-input-of-service-duration-section
+                  input(type='checkbox' name='enabled3' id='')
+        if(businessCalendar.userId == user.id)
+          button.button-to-make-managing-permission-section-visible.button-to-make-section-visible Manage Committee 
+          section.section-for-managing-permissions.pop-up-section-for-managing-member-permission-security-guard 
+            #crossToHidePermissionSection.cross-to-cut-floating-section ✕
+            if(usersWhoWereGivenPermission.length !== 0)
+              .div-to-show-users-who-already-have-permissions
+                h2.permission-heading Permissions Given
+                table.table-for-members 
+                  thead
+                    tr 
+                      th Name
+                      th Number
+                      th Status
+                  tbody  
+                    for userWhoWereGivenPermission in usersWhoWereGivenPermission
+                      tr 
+                        td  #{userWhoWereGivenPermission.name}    
+                        td  #{userWhoWereGivenPermission.number}  
+                        td
+                          a(href="/removeUserPermission/" + businessCalendar._id +"/" +userWhoWereGivenPermission.id).anchor-tag-for-giving-permission.acceptMembershipRequestSecurity Remove
+            .div-for-search-user-for-permission
+              h2.permission-heading Manage Permissions
+              form#search-user-form(action="/businessProfile/" + idOfCalendar , method='post').input-group.input-groups-for-search
+                input#permission-input-search.form-control.search-input(type='text' name="userSearch" value=userSearch placeholder='Search User')
+                .input-group-append.inputs-for-search
+                  button.btn.btn-green.btn-md.m-0.px-3.py-2.z-depth-0.search-button.anchor-tag-for-only-permission-search(type="submit" , aria-haspopup='true' , aria-expanded='false' , form='search-user-form')   
+                    i.fa.fa-search        
+        else  
+        if businessCalendar.calendarType == "gateKeeper"
+          button.button-to-make-managing-membership-section-visible.button-to-make-section-visible Manage Members 
+          section.section-for-managing-membership.pop-up-section-for-managing-member-permission-security-guard 
+            #crossToHideMembershipSection.cross-to-cut-floating-section ✕
+            if  pendingUsersForMembership.length != 0  || memberUsers.length != 0
+              //- | nothing
+              if  pendingUsersForMembership.length != 0 
+                div.div-for-managing-subscribers 
+                  h1.parking-detail-heading Pending Requests
+                  table.table-for-members 
+                    thead
+                      tr 
+                        th Name
+                        th Number
+                        th House No
+                        th Status
+                    tbody  
+                      for pendingUser of pendingUsersForMembership
+                        tr 
+                          td #{pendingUser.name}
+                          td #{pendingUser.number}
+                          td #{pendingUser.houseNumber}
+                          td
+                            a(href="/acceptMembershipRequestSecurity/" + businessCalendar._id + "/" + pendingUser._id +"/" + pendingUser.houseNumber).anchor-tag-for-giving-permission.acceptMembershipRequestSecurity Accept Request
+              if memberUsers.length != 0
+                div.div-for-managing-subscribers 
+                  h1.parking-detail-heading Members
+                  table.table-for-members 
+                    thead
+                      tr 
+                        th Name
+                        th Number
+                        th House No
+                        th Status
+                    tbody  
+                      for memberUser of memberUsers
+                        tr 
+                          td #{memberUser.name}
+                          td #{memberUser.number}
+                          td #{memberUser.houseNumber}
+                          td
+                            a(href="/unsubscribeMembershipSecurity/" + businessCalendar._id + "/" + memberUser._id).anchor-tag-for-giving-permission.cancelMembershipRequestSecurity Remove 
+            else   
+              h1.parking-detail-heading No Members/Request   
+              
+          //- SECTION FOR GUARDS PERMISSION
+          button.button-to-make-section-visible.button-to-make-managing-security-guard-section-visible Manage Guards 
+          section.section-for-managing-security-guard.pop-up-section-for-managing-member-permission-security-guard 
+            #crossToHideSecurityGuardSection.cross-to-cut-floating-section ✕
+            if(usersWhoWereGivenGuardPermission.length !== 0)
+              .div-to-show-users-who-already-have-permissions
+                h2.permission-heading Guard Permissions Given
+                table.table-for-members 
+                  thead
+                    tr 
+                      th Name
+                      th Number
+                      th Status
+                  tbody  
+                    for userWhoWereGivenPermission in usersWhoWereGivenGuardPermission
+                      tr 
+                        td  #{userWhoWereGivenPermission.name}    
+                        td  #{userWhoWereGivenPermission.number}  
+                        td
+                          a(href="/removeSecurityGuardPermission/" + businessCalendar._id +"/" +userWhoWereGivenPermission.id).anchor-tag-for-giving-permission.acceptMembershipRequestSecurity Remove
+            .div-for-search-user-for-permission
+              h2.permission-heading Search Guards
+              form#search-user-form(action="/businessProfile/guardSearch/" + idOfCalendar).input-group.input-groups-for-search
+                input#guard-input-search.form-control.search-input(type='text' name="guardSearch" value=guardSearch placeholder='Search Guard')
+                .input-group-append.inputs-for-search
+                  button.btn.btn-green.btn-md.m-0.px-3.py-2.z-depth-0.search-button.anchor-tag-for-only-guard-search(aria-haspopup='true' , aria-expanded='false')   
+                    i.fa.fa-search        
+            #no-users-with-this-info-in-permission-management      
+        else  
+        //- div.map-section.display-none
+          #map-heading
+            h1 Your Location:  
+          iframe#map(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.695805347871!2d73.81757731531337!3d18.58774807196657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b8b88d41b9f7%3A0x61e6405dd26fc810!2sShrikrishna%20Apartment!5e0!3m2!1sen!2sin!4v1599126705783!5m2!1sen!2sin', frameborder='0', style='border:0;', allowfullscreen='true', aria-hidden='false', tabindex='0')
+        if businessCalendar.calendarType == "gateKeeper" &&  numberOfDaysLeft <= 15
+          .div-having-calendar-subscription-details 
+            p You have only #{numberOfDaysLeft} days left. Subscribe this calendar to enjoy the services continuously.
+            a(href="/productlist/" + idOfCalendar).button-to-make-section-visible Subscribe Calendar
+        .div-having-change-and-save-password
+          button(type="submit" form='main-form' disabled).save-btn Save   
+block script
+    // jQuery and Bootstrap scripts
+    script(type='text/javascript' src='assets/js/jquery.min.js')
+    script(src="/dtsel-master/dtsel.js")
+    script(type='text/javascript' src='assets/js/bootstrap.min.js')
+    // ClockPicker script
+    script(type='text/javascript' src='dist/bootstrap-clockpicker.min.js')
+    // JQuery
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/jquery.js')
+    script(src='../static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    script(src="../static/js/profileForBusinessScript.js")
+    script(src="../static/js/timepicker.js")

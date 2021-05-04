@@ -1,0 +1,115 @@
+﻿extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/per-date.css' rel='stylesheet')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel="stylesheet", href="/static/css/hospitalVisitorAppointmentStyle.css")
+    title  Calendar
+
+block content
+  main.main
+    .d-flex.justify-content-center.date-inside-main
+        .main-heading-below-navbar-in-visitor-and-doctor-appointment-page
+          .main-heading-in-visitor-and-doctor-appointment-page(style='color:black;') Today&apos;s Visitors
+          .main-date-heading(style='color: black;')
+            | #{date}
+    .grid
+      article
+        .d-flex.justify-content-center.timeSlot-container
+          .time
+            sub 00:00
+          .name Patient Name
+        .d-flex.justify-content-center.text.description Going for CT Scan Of Chest
+      article
+        .d-flex.justify-content-center.timeSlot-container
+          .time
+            sub 00:00
+          .name Patient Name
+        .d-flex.justify-content-center.text.description Going for CT Scan Of Chest
+      article
+        .d-flex.justify-content-center.timeSlot-container
+          .time
+            sub 00:00
+          .name Patient Name
+        .d-flex.justify-content-center.text.description Going for CT Scan Of Chest
+      article
+        .d-flex.justify-content-center.timeSlot-container
+          .time
+            sub 00:00
+          .name Patient Name
+        .d-flex.justify-content-center.text.description Going for CT Scan Of Chest
+      article
+        .d-flex.justify-content-center.timeSlot-container
+          .time
+            sub 00:00
+          .name Patient Name
+        .d-flex.justify-content-center.text.description Going for CT Scan Of Chest
+
+    #addSchedule.modal.fade.bottom(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')
+      // Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal
+      .modal-dialog.modal-full-height.modal-bottom(role='document')
+        form(action='/addSchedule/'+ date, method="POST").modal-content
+          .modal-header
+            h4#myModalLabel.modal-title.w-100 Add Schedule
+            button.close(type='button' data-dismiss='modal' aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body.justify-content-center.addSchedule-modal
+            select.browser-default.custom-select.select-timeSlot(name="timeSlot")
+              option(selected='') Select your timeSlot
+              option(value='00:00') 00:00
+              option(value='01:00') 01:00
+              option(value='02:00') 02:00
+              option(value='03:00') 03:00
+              option(value='04:00') 04:00
+              option(value='05:00') 05:00
+              option(value='06:00') 06:00
+              option(value='07:00') 07:00
+              option(value='08:00') 08:00
+              option(value='09:00') 09:00
+              option(value='10:00') 10:00
+              option(value='11:00') 11:00
+              option(value='12:00') 12:00
+              option(value='13:00') 13:00
+              option(value='14:00') 14:00
+              option(value='15:00') 15:00
+              option(value='16:00') 16:00
+              option(value='17:00') 17:00
+              option(value='18:00') 18:00
+              option(value='19:00') 19:00
+              option(value='20:00') 20:00
+              option(value='21:00') 21:00
+              option(value='22:00') 22:00
+              option(value='23:00') 23:00
+              option(value='24:00') 24:00
+            br
+            input(type='text' name="heading" placeholder='Schedule Heading')
+            br
+            input(type='text' name="purpose" placeholder='Schedule Purpose')
+            br
+            input(type='text' name="description" placeholder='Schedule Description')
+            br
+            input#myfile(type='file' name='myfile')
+          .modal-footer.justify-content-center
+            button.btn.addSchedule-button(type='submit') ADD
+  block script
+    // JQuery
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/jquery.js')
+    script(src='/static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')

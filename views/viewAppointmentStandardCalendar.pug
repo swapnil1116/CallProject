@@ -1,0 +1,91 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    link(href='https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap' rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/per-date.css' rel='stylesheet')
+    link(rel="stylesheet", href="/clockpicker-gh-pages/assets/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/clockpicker-gh-pages/dist/css/bootstrap-clockpicker.min.css")
+    link(rel="stylesheet", href="/dtsel-master/dtsel.css")
+    link(rel='stylesheet' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/viewAppointmentStandardCalendarStyle.css')
+    title #{formattedDate} | Calendar
+
+block content
+  //- form
+  //-   input(type="button", value="Go Back!" , onclick="history.back()")
+  main.main
+    .d-flex.justify-content-center.date-inside-main
+      h3.h3-in-view-appointment-standard-calendar #{formattedDate}
+      div.div-having-color-codes-about-the-appointment
+        div.green-color-for-accepted-appointment-code  
+          p 
+          div Accepted 
+        div.orange-color-for-pending-appointment-code 
+          p 
+          div Pending 
+        div.red-color-for-rejected-appointment-code
+          p 
+          div Rejected 
+  
+    if docs === undefined 
+      h2.no-schedule-text No Appointments Today
+    else 
+      .grid
+        for individualArrayOfTodaysAppointment in arrayOfTodaysAppointments
+          article
+            .d-flex.justify-content-center.timeSlot-container
+              .time
+                | #{individualArrayOfTodaysAppointment.start}-#{individualArrayOfTodaysAppointment.end}
+              .name
+                | Requester: #{individualArrayOfTodaysAppointment.requester}
+            .hiding-appointment-status #{individualArrayOfTodaysAppointment.appointmentApproved}  
+            if individualArrayOfTodaysAppointment.appointmentApproved === "cancel"
+              .d-flex.justify-content-center.text.description.red-color-for-rejected-appointment
+                | #{individualArrayOfTodaysAppointment.description}
+            else if individualArrayOfTodaysAppointment.appointmentApproved === "true"
+              .d-flex.justify-content-center.text.description.green-color-for-accepted-appointment 
+                | #{individualArrayOfTodaysAppointment.description}
+            else if individualArrayOfTodaysAppointment.appointmentApproved === "pending"    
+              .d-flex.justify-content-center.text.description.orange-color-for-pending-appointment 
+                | #{individualArrayOfTodaysAppointment.description}
+            if(individualArrayOfTodaysAppointment.documentImageInScheduleOrAppointment !== null)
+              a.anchor-tag-for-editing-the-personal-schedule(href="/" + individualArrayOfTodaysAppointment.documentImageInScheduleOrAppointment , download)
+                .download-attachement
+                  | Attachement 
+                  i.fa.fa-download#download-icon                 
+            if individualArrayOfTodaysAppointment.appointmentApproved === "pending"
+              div.div-containing-anchor-tags-for-accept-cancel-appointment 
+                a(href="/acceptAppointment/standard/" + userWhoGavePermission.userId +"/" + individualArrayOfTodaysAppointment.dateOfAppointment+"/" + individualArrayOfTodaysAppointment.requesterUserId + "/" +individualArrayOfTodaysAppointment._id).accept-appointments Accept
+                a(href="/cancelAppointment/standard/" + userWhoGavePermission.userId +"/" + individualArrayOfTodaysAppointment.dateOfAppointment + "/" + individualArrayOfTodaysAppointment.requesterUserId + "/" + individualArrayOfTodaysAppointment._id).cancel-appointments Cancel
+block script
+    // jQuery and Bootstrap scripts
+    script(type='text/javascript' src='assets/js/jquery.min.js')
+    script(src="/dtsel-master/dtsel.js")
+    script(type='text/javascript' src='assets/js/bootstrap.min.js')
+    // ClockPicker script
+    script(type='text/javascript' src='dist/bootstrap-clockpicker.min.js')
+    // JQuery
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/jquery.js')
+    script(src='../static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    script(src="../static/js/profileScript.js")
+    script(src="../static/js/timepicker.js")

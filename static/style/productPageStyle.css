@@ -1,0 +1,36 @@
+.div-having-image-and-text-inside-main-section-in-cteam-page {
+    justify-content: space-evenly;
+    width: 77%;
+}
+.div-having-image-of-team-member-inside-cteam-section {
+    width: 30%;
+}
+.img-of-products{
+    height: 200px;
+    max-width: 200px;
+    width: 200px;
+}
+
+.main-text-describing-team-member {
+    margin-left: 2rem;
+    text-align: initial;
+}
+.go-to-contact-page{
+    margin-left: 0;
+}
+
+@media only screen and (max-width:770px) {
+   
+    .div-having-image-and-text-inside-main-section-in-cteam-page {
+        justify-content: space-between;
+    }
+    .div-having-image-of-team-member-inside-cteam-section {
+        width: fit-content;
+    }
+}
+@media only screen and (max-width:450px) {
+
+    .div-having-just-headings-and-text {
+        width: 100%;
+    }
+}

@@ -1,0 +1,100 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    link(href='https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap' rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(rel="stylesheet", href="/dtsel-master/dtsel.css")
+    link(href='/static/css/per-date.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    title #{formattedDate} | Calendar
+
+block content
+  main.main
+    .d-flex.justify-content-center.date-inside-main
+      h3(style='color: black;') #{formattedDate}
+      //- data-toggle='modal' data-target='#addSchedule'
+      a(href="/addNotice/"  + calendarId + "/" + date).add-schedule-page-link
+        h2.add-heading-beside-plus-icon Add
+        i.fa.fa-plus-circle.add-schedule
+      div.div-having-color-codes-about-the-appointment
+        div.green-color-for-accepted-appointment  
+          p 
+          div Accepted 
+        div.orange-color-for-pending-appointment 
+          p 
+          div Pending 
+        div.red-color-for-rejected-appointment 
+          p 
+          div Rejected 
+    if !notices || notices.length === 0 
+      h2.no-schedule-text No Notice Issued Today
+    else    
+        .grid
+          for individualArrayOfNotices in notices
+            div.div-having-personal-schedule  
+                a.anchor-tag-for-editing-the-personal-schedule
+                  .d-flex.justify-content-center.timeSlot-container.notice-strip
+                    .time
+                      | #{individualArrayOfNotices.start} To #{individualArrayOfNotices.end}
+                      //- | 12/07/2020 - 14/07-2020
+                    .name
+                      | #{individualArrayOfNotices.noticeHeading}
+                  .d-flex.justify-content-center.text.description.description-border-radius 
+                      | #{individualArrayOfNotices.noticeDescription}                      
+                  if(individualArrayOfNotices.attachements !== null)
+                    a.anchor-tag-for-editing-the-personal-schedule(href="/" + individualArrayOfNotices.attachements , download)
+                      .download-attachement
+                        | Attachement
+                        i.fa.fa-download#download-icon 
+
+    #addSchedule.modal.fade.bottom(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')
+      // Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal
+      .modal-dialog.modal-full-height.modal-bottom(role='document')
+        form(action='/addSchedule/'+ date,   method='post' enctype="multipart/form-data").modal-content
+          .modal-header
+            h4#myModalLabel.modal-title.w-100.flex-center Add Schedule
+            button.close(type='button' data-dismiss='modal' aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body.justify-content-center.addSchedule-modal
+            div.div-having-from-and-to-time-input-in-add-schedule
+              input(type='time'  name='start' placeholder='From:' required).input-for-time-in-add-schedule.input-start-time
+              input(type='time' placeholder='To:' name='end' required).input-for-time-in-add-schedule.input-end-time
+            input(type='text' name="heading" placeholder='Schedule Heading')
+            br
+            input(type='text' name="description" placeholder='Schedule Description')
+            br
+            input#documentImageInSchedule( type='file' name="documentImageInScheduleOrAppointment"  accept='image/*' capture='camera' title=" This is title")
+          .modal-footer.justify-content-center
+            button.btn.addSchedule-button.disabled-submit-button(type='submit' disable) ADD
+block script
+    // jQuery and Bootstrap scripts
+    script(type='text/javascript' src='assets/js/jquery.min.js')
+    script(src="/dtsel-master/dtsel.js")
+    script(type='text/javascript' src='assets/js/bootstrap.min.js')
+    // ClockPicker script
+    script(type='text/javascript' src='dist/bootstrap-clockpicker.min.js')
+    // JQuery
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/jquery.js')
+    script(src='../static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    script(src="../static/js/profileScript.js")
+    script(src="../static/js/timepicker.js")
+    script(src="../static/js/scheduleOfIndividualDatePageScript.js")

@@ -1,0 +1,54 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-D0FV0XYG1K');
+    //- FAVICON 
+    link( rel="icon" href="/static/img/MAIN.png" type="image/png" sizes="16x16")
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/log.css')
+    title Log In
+  body
+    - var user = {AllErrors:AllErrors, number:number}    
+    .section-1
+      
+      .card
+        .row
+          .col-lg-6.col-md-6.col-sm-12
+            img#img2(src='/static/img/new1.png' alt='')
+          .col-lg-6.col-md-6.col-sm-12.section-2-content
+            h1 Log In
+            p
+            include partial/flash-messages.pug             
+            form(action='/login' method="POST")
+              .row.section-1-no.my-img.div-having-form-inputs-and-submit-button-in-login-page
+                div
+                  input(type='text' value=user.number name="number" autofocus placeholder='Phone ' maxlength="10")
+                div
+                  input(type="password" name="password" placeholder='Password ')
+                a.forget-anchor-tag(href='/forgetPassword') Forgot Password?
+                button Login
+                a#member(href='/createAccount')
+                  | Not a member? 
+                  span SignUp   
+    // JQuery 
+    script(src="/static/js/errorMessage.js")
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')

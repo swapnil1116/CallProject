@@ -1,0 +1,127 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#main-section-in-todays-appointment-for-business-user{
+    width: 81vw;
+    margin-left: 17vw;
+    background-color: #f1f1f1;
+    height: fit-content;
+    box-sizing: border-box;
+    padding-bottom: 2rem;
+}
+
+.div-for-todays-appointment-heading-and-cancelled-appointment-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 80px;
+    left: 45px;
+    background-color: #f1f1f1;
+}
+.div-for-todays-appointment-heading-and-cancelled-appointment-button h1{
+    font-size: 2.3rem;
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+    color: darkslategrey;
+    text-shadow: 0 0.3rem 0.5rem rgb(109 96 96 / 50%);
+    z-index: 2;
+    background-color: #f1f1f1;
+    padding: 1rem 0;
+    margin: 0 auto;
+}
+/* .div-for-todays-appointment-heading-and-cancelled-appointment-button a{
+    position: absolute;
+    right: 0;
+    font-family: 'Arvo', serif;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 10px 10px;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #fc0b0b;
+    color: #ffffff;
+} */
+.div-for-todays-appointment-heading-and-cancelled-appointment-button a:hover{
+    background-color: #cee002;
+    box-shadow: 0 0.3rem 0.5rem rgb(109 96 96 / 50%);
+    color: black;
+}
+.anchor-tag-inside-more-details-of-appointment-in-business-user{
+    font-family: 'Arvo', serif;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 10px 0;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #cee002;
+    color: black;
+    width: 75%;
+    margin: 0 auto;
+}
+.anchor-tag-inside-more-details-of-appointment-in-business-user:hover{
+    box-shadow: 0 0.3rem 0.5rem rgb(109 96 96 / 50%);
+    color: #ffffff;
+    background-color: #fc0b0b;
+}
+.todays-appoinments{
+    font-family: 'Arvo', serif;
+    margin-top: 2rem;
+    justify-content: space-around;
+    align-items: center;
+    display: grid;
+    padding: 0rem 4rem;
+    grid-column-gap: 4rem;
+    grid-row-gap: 4rem;
+    grid-auto-rows: 270px;
+    grid-template-columns: repeat(auto-fit, minmax(320px,350px));
+}
+.div-individual-todays-appointments{
+    margin: 15px 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 1.5rem 2rem;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, .2);
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.div-individual-todays-appointments:hover{
+    box-shadow: 0 4px 26px 0 rgba(6, 6, 6, 0.28), 0 0 0 transparent;
+}
+.div-individual-todays-appointments span{
+    color: cornflowerblue;
+}
+
+
+@media only screen and (max-width:850px){
+    #main-section-in-todays-appointment-for-business-user{
+        width: 100vw;
+        margin-left: 0;
+        height: fit-content;
+        padding-bottom: 2rem;
+    }
+}
+@media only screen and (max-width:540px){
+    .div-for-todays-appointment-heading-and-cancelled-appointment-button h1 {
+        font-size: 1.9rem;
+    }
+}
+@media only screen and (max-width:480px){
+    .div-for-todays-appointment-heading-and-cancelled-appointment-button h1 {
+        font-size: 1.5rem;
+    }
+}

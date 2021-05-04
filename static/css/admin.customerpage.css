@@ -1,0 +1,67 @@
+table{
+    width: 100%;
+    table-layout: auto;
+    background-color: white;
+}
+
+.header{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.title-text{
+    font-size: 30px;
+    margin: 40px 18px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+th{
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: system-ui;
+}
+
+table ,  td{
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+    padding: 12px;
+    font-size: 20px;
+    text-align: left;
+    font-family: cursive;
+}
+
+.btn{
+    text-align: center;margin: 20px;
+}
+
+button{
+    border: 2px solid red;
+    background-color: red;
+    border-radius: 8px;
+    font-size: 15px;
+    align-items: center;
+    margin: auto;
+    width: 7rem;
+    height: 3rem;
+}
+
+button:hover , a:hover{
+    background-color: white;
+    color: red;
+}
+
+
+a{
+    text-decoration: none;
+    color: white;
+    
+}
+
+/* {
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+    
+} */

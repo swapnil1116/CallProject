@@ -1,0 +1,92 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primary-color: #FFF7F6;
+    --secondary-color: #78473C;
+    --secondary-color: #a9a9a9;
+}
+
+.div-containing-name-of-business {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.name-of-business {
+    font-weight: 700;
+    font-family: system-ui;
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.business-type {
+    display: none;
+    font-family: monospace;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.business-profile-setting-icon {
+    position: absolute;
+    width: fit-content;
+    right: 0;
+}
+
+.business-profile-setting-icon i {
+    font-size: 1.7rem;
+}
+
+.business-profile-setting-icon a {
+    margin: 0 15px;
+    color: black;
+}
+
+.business-profile-setting-icon a:hover {
+    color: var(--secondary-color);
+}
+
+.today-pending {
+    background-color: orange;
+    color: white;
+}
+
+.today-entered {
+    background-color: green;
+    background-color: hsl(120 73% 61% / 1);
+    color: white;
+}
+
+.today-exited {}
+
+@media only screen and (max-width: 850px) {
+    /* .days {
+        height: 77vh;
+    }
+    .weekdays {
+        height: 77vh;
+    } */
+    .business-profile-setting-icon i {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .business-profile-setting-icon i {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .business-profile-setting-icon a {
+        margin: 0 10px;
+    }
+    .weekdays div h4 {
+        font-size: 0.7rem;
+    }
+}

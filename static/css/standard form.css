@@ -1,0 +1,560 @@
+*{
+    margin: 0px;
+    left: 0px;
+}
+body{
+    font-family: 'Economica', sans-serif;
+}
+.grid-container {
+    background-color: #fcf3ec;
+}
+.standard{
+    height:100vh;
+    margin: 5vh;
+    background-color: #fcf3ec;
+    width: 45vw;
+    padding: 5px 5px;
+    text-align: -webkit-center;
+    margin: 3vh auto;
+    border-radius: 5px;
+
+}
+.standard-form{
+    margin: 20px 30px;
+    color: black;
+}
+
+.standard-form #date{
+    display: inline-block;
+}
+.standard-form #time{
+    display: block;
+}
+.standard-form #details{
+    display: block;
+}
+
+.standard-form .date{
+    display: flex;
+}
+.standard-form .purpose{
+    display: flex;
+}
+.standard-form #time{
+    display: flex;
+}
+.standard-form #details{
+    display: flex;
+}
+.standard-form .attachment{
+    display: flex;
+}
+
+.standard-form input{
+    border: 1px solid #eaeaea;
+    margin: 0px 15px;
+    padding: 8px 18px;
+    border-radius: 5px;
+    margin-left: 7vw;
+    width: 30vw;
+    font-size: 15px;
+    outline-color: orange;
+}
+
+.standard-form textarea{
+    /* background-color: #f5f5f5; */
+    margin: 5px 15px;
+    padding: 8px 18px;
+    border-radius: 5px;
+    border: 1px solid #eaeaea;
+    font-size: 15px;
+    outline-color: orange;
+}
+.standard-form .attachment input{
+    background-color: white;
+}
+.standard-form label{
+    margin: 10px 0px;   
+    align-items: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.standard-form input::selection{
+    background-color: white;
+    border: 1px solid black;
+}
+.standard-form textarea:active{
+    background-color: white;
+    border: 1px solid #eaeaea;
+}
+
+.standard-form #date{
+    margin-left: 6vw;
+}
+.standard-form #time-from{
+    margin-left: 2.55vw;
+    width: 11.5vw;
+}
+.standard-form #time-to{
+    margin-left: 1.9vw;
+    width: 11.5vw;
+}
+.standard-form .time-from{
+    margin-left: 0.8vw;
+}
+.standard-form #purpose{
+    margin-left: 3.9vw;
+}
+.standard-form textarea{
+    margin-left: 4.65vw;
+    width: 30vw;
+}
+.standard-form #attachment{
+    margin-left: 4.8vw;
+}
+
+#submit-btn{
+    margin-top: 10px;
+    font-size: 14px;
+    color:white;
+    width: 30%;
+    margin-left: 27vw;
+    background-color: #204051;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.standard img{
+    width: 15vw;
+    height: 15vh;
+}
+.form-img{
+    margin-top: -15px ;
+    text-align: center;
+    height: 9vh;
+}
+
+.update{
+    background-color: white;
+    margin: 5px 0px;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: left;
+}
+
+#attach-btn{
+    display: flex;
+    background-color: #204051;
+    border: transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    float: right;
+    color: white;
+    margin-right: 2px;
+    padding: 10px 10px;
+    font-weight: bold;
+    font-size: 10px;
+}
+.h-primary{
+    font-size: 25px;
+}
+.h-secondary{
+    margin-top: 7px;
+    font-size: 20px;
+}
+
+
+
+/* RESPONSIVE DESIGN */
+@media(max-width:1508px){
+    .standard-form #time-to{
+        margin-left: 1vw;
+    }
+}
+@media(max-width:1430px){
+    .standard-form #time-to{
+        width: 11vw;
+        margin-left: 0.5vw;
+    }
+    .standard-form #time-from{
+        width: 11vw;
+    }
+
+}
+@media(max-width:1320px){
+    .standard-form input{
+        width: 25vw;
+    }
+    .standard-form textarea{
+        width: 25vw;
+    }
+    .standard-form #time-to{
+        width: 9.55vw;
+    }
+    .standard-form #time-from{
+        width: 9.55vw;
+    }
+}
+
+@media (max-width:1260px){
+    .standard{
+        width: 60vw;
+    }
+    .standard-form input{
+        width: 30vw;
+    }
+    .standard-form textarea{
+        width: 30vw;
+    }
+    .standard-form #time-to, .standard-form #time-from{
+        width: 11.5vw;
+    }
+    #submit-btn{
+        margin-left: 26vw;
+        font-size: 18px;
+        padding: 12px 17px;
+    }
+    .standard-form #time-to{
+        margin-left: 1vw;
+    }
+    .standard-form #date{
+        margin-left: 11vw;
+    }
+    .standard-form #time-from{
+        margin-left: 5.5vw;
+    }
+    .standard-form #time-to{
+        margin-left: 1vw;
+    }
+    .standard-form .time-from{
+        margin-left: 1vw;
+    }
+    .standard-form #purpose{
+        margin-left: 7.5vw;
+    }
+    .standard-form textarea{
+        margin-left: 9vw;
+    }
+    .standard-form #attachment{
+        margin-left: 9.5vw;
+    }
+    .standard-form label{
+        font-size: 25px;
+    }
+    .update{
+        font-size: 20px;
+    }
+    #attach-btn{
+        font-size: 15px;
+    }
+}
+@media (max-width:1100px){
+    .standard-form #time-to{
+        margin-left: 0.5vw;
+    }
+    .standard-form #time-from{
+        width: 11vw;
+    }
+    .standard-form #time-to{
+        width: 11vw;
+    }
+    #submit-btn{
+        margin-left: 28vw;
+        font-size: 18px;
+        padding: 12px 17px;
+    }
+    .standard-form #date{
+        margin-left: 10vw;
+    }
+    .standard-form #time-from{
+        margin-left: 4.45vw;
+    }
+    .standard-form #time-to{
+        margin-left: 0.5vw;
+    }
+    .standard-form .time-from{
+        margin-left: 0.5vw;
+    }
+    .standard-form #purpose{
+        margin-left: 6.2vw;
+    }
+    .standard-form textarea{
+        margin-left: 8vw;
+    }
+    .standard-form #attachment{
+        margin-left: 8.5vw;
+    }
+    .standard img{
+        width: 20vw;
+        height: 12vh;
+    }
+}
+@media(max-width:900px){
+
+    #submit-btn{
+        margin-left: 28.9vw;
+        font-size: 15px;
+        padding: 10px 15px;
+    }
+    .h-secondary{
+        margin-top: 0px;
+    }
+    .standard img{
+        width: 25vw;
+        height: 12vh;
+    }
+    .standard-form label{
+        font-size: 20px;
+    }
+}
+@media (max-width:825px){
+    .standard{
+        width: 100vw;
+    }
+    .standard-form label{
+        font-size: 20px;
+    }
+    .update{
+        font-size: 17px;
+    }
+    #attach-btn{
+        font-size: 12px;
+    }
+    .standard-form #date{
+        margin-left: 12vw;
+        width: 35vw;
+    }
+    .standard-form #time-from{
+        margin-left: 5.5vw;
+        width: 13vw;
+    }
+    .standard-form #time-to{
+        margin-left: 1vw;
+        width: 13vw;
+    }
+    .standard-form .time-from{
+        margin-left: 1vw;
+    }
+    .standard-form #purpose{
+        margin-left: 8vw;
+        width: 35vw;
+    }
+    .standard-form textarea{
+        margin-left: 10vw;
+        width: 35vw;
+    }
+    .standard-form #attachment{
+        margin-left: 10.5vw;
+        width: 35vw;
+    }
+}
+@media(max-width:680px){
+    .standard-form #time-to{
+        margin-left: 0.5vw;
+    }
+    .standard-form #time-from{
+        width: 12.25vw;
+    }
+    .standard-form #time-to{
+        width: 12.25vw;
+    }
+    #submit-btn{
+        margin-left: 30vw;
+        font-size: 15px;
+        padding: 10px 15px;
+    }
+    .standard-form #date{
+        margin-left: 10.7vw;
+        width: 35vw;
+    }
+    .standard-form #time-from{
+        margin-left: 3vw;
+    }
+    .standard-form #time-to{
+        margin-left: 1vw;
+    }
+    .standard-form .time-from{
+        margin-left: 1vw;
+    }
+    .standard-form #purpose{
+        margin-left: 5.2vw;
+    }
+    .standard-form textarea{
+        margin-left: 7.5vw;
+    }
+    .standard-form #attachment{
+        margin-left: 7.9vw;
+        width: 35vw;
+    }
+}
+@media(max-width:600px){
+    .standard{
+        width: 100%;
+    }
+    .standard-form label{
+        font-size: 15px;
+    }
+    .standard-form input{
+        font-size: 12px;
+    }
+    .standard-form #date{
+        width: 45vw;
+    }
+    .standard-form #time-from{
+        margin-left: 4vw;
+        width: 17.5vw;
+    }
+    .standard-form #purpose{
+        margin-left: 6vw;
+        width: 45vw;
+    }
+    .standard-form #time-to{
+        width: 17.5vw;
+    }
+    .standard-form input{
+        margin: 0px 5px;
+    }
+    .standard-form #attachment{
+        width: 45vw;
+    }
+    .standard-form textarea{
+        font-size: 12px;
+        width: 45vw;
+    }
+    .update{
+        font-size: 15px;
+    }
+    #attach-btn{
+        padding: 8px 8px;
+        font-size: 9px;
+    }
+    .h-primary{
+        font-size: 30px;
+    }
+    .h-secondary{
+        margin-top: 10px;
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+    #submit-btn{
+        margin-left: 40vw;
+        font-size: 12px;
+        padding: 7px 14px;
+    }
+    .standard img{
+        width: 30vw;
+        height: 12vh;
+    }
+}
+
+@media(max-width:550px){
+    .h-primary{
+        font-size: 25px;
+    }
+}
+@media(max-width:500px){
+    .standard-form #time-to{
+        margin-left: 0.5vw;
+    }
+    .standard-form .time-from{
+        margin-left: 0.5vw;
+    }
+    .standard-form input{
+        padding: 5px 15px;
+    }
+    .standard-form textarea{
+        padding: 5px 10px;
+    }
+    #submit-btn{
+        font-size: 10px;
+        padding: 7px 10px;
+    }
+    .standard-form{
+        margin: 15px 20px;
+    }
+    .standard img{
+        width: 35vw;
+        height: 12vh;
+    }
+    .standard-form #date{
+        margin-left: 11.5vw;
+    }
+    .standard-form #purpose{
+        margin-left: 6vw;
+    }
+    .standard-form textarea{
+        width: 47vw;
+    }
+}
+@media(max-width:470px){
+    .h-primary{
+        font-size: 25px;
+    }
+}
+@media(max-width:430px){
+    #submit-btn{
+        font-size: 8px;
+    }
+    #attach-btn{
+        font-size: 9px;
+        padding: 5px 5px;
+    }
+    .update{
+        font-size: 13px;
+    }
+    .standard-form #time-to{
+        width:15vw;
+    }
+    .standard-form #time-from{
+        width: 15vw;
+    }
+    .standard-form label{
+        font-size: 15px;
+    }
+    .h-primary{
+        font-size: 20px;
+    }
+    .h-secondary{
+        font-size: 15px;
+    }
+}
+@media(max-width:415px){
+    .standard{
+        width: 100%;
+    }
+}
+@media(max-width:360px){
+    .standard-form #time-to{
+        width:12vw;
+    }
+    .standard-form #time-from{
+        width: 12vw;
+    }
+    .standard-form #date{
+        margin-left: 15vw;
+    }
+    .standard-form textarea{
+        margin-left: 10vw;
+        width: 42vw;
+    }
+    .standard-form #purpose{
+        width: 42vw;
+    }
+    .standard-form #attachment{
+        margin-left: 10vw;
+        width: 38vw;
+    }
+}

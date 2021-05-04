@@ -1,0 +1,16 @@
+if AllErrors.length>0 && AllErrors !=""
+    each AllError in AllErrors  
+        div.errors
+            p.error-message 
+                =AllError.msg
+            div.error-cross ✕
+if error !=""
+        div.errors
+            p.error-message 
+                =error 
+            div.error-cross ✕
+if success_msg !=""                 
+        div.errors
+            p.error-message 
+                =success_msg
+            div.error-cross ✕

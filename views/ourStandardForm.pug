@@ -1,0 +1,52 @@
+extends base.pug
+block style
+    title Form
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/standard form.css')
+block content  
+    section.standard
+      .form-img
+        img(src='/static/img/Standard 1920x1080 Logo+Name B.png' alt='')
+      .standard-form
+        h1.h-primary Create New Appointment
+        h2.h-secondary Business Name
+        form(action='' method='post')
+          label.date(for='date')
+            | Date
+            input#date(type='date')
+          label#time(for='time')
+            | Time Slot
+            label.time-from(for='time-from')
+              input#time-from(type='time' name='time-from')
+            label(for='time-to')
+              | -
+              input#time-to(type='time' name='time-to')
+          label.purpose(for='purpose')
+            | Purpose
+            input#purpose(type='text' name='purpose' placeholder='')
+          label#details(for='details')
+            | Details
+            textarea#details(name='description' cols='20' rows='5' placeholder='Hi! Write The Details About The Job')
+          label.attachment(for='attachment')
+            | Attach
+            input#attachment(type='file' accept='.pdf,.doc,.xml,image/*')
+          button#submit-btn(type='submit') REQUEST
+          br
+          h2.h-secondary Updates
+          .update
+            | We discussed, your weight is 80Kg, and your ideal weight is 71. Attached is your current picture.
+          button#attach-btn(type='submit') Attach Documents
+          .update
+            | Please bring in documents when you will come.
+          .update
+            | Booking confirmed

@@ -1,0 +1,36 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+   
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/log_otp.css')
+    title Otp
+  body
+    .logo
+      img(src='/static/img' alt='Calendar')
+    form(action="/authenticate", method="post").card
+      h1 Enter the Otp sent to #{otp_send_to_mobileNumber.slice(0,5)}XXXXX and #{email.slice(0,7)} #{email.slice()}
+      include partial/flash-messages.pug       
+      input(type='text' maxlength="6"  name="otp" placeholder='OTP')
+      button Submit
+      a.resend(href='/resend-otp')
+        | Didn't received OTP? 
+        span Resend
+  
+    script(src="/static/js/errorMessage.js")
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')

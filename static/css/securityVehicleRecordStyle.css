@@ -1,0 +1,446 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #FFF7F6;
+    --secondary-color: #78473C;
+}
+
+.main .date-inside-main {
+    height: fit-content;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px;
+    display: flex;
+    /* padding-top: 15px; */
+    background-color: rgb(250 220 170 / 60%);
+    letter-spacing: 2px;
+}
+
+.fa-plus-circle:before {
+    content: "\f055";
+}
+
+.h2-heading-of-navbar {
+    margin-left: auto;
+    text-align: center;
+}
+
+.fa {
+    color: black;
+}
+
+.main .main-heading-in-visitor-and-doctor-appointment-page {
+    font-size: 29px;
+    font-weight: bold;
+    color: silver;
+}
+
+.main-date-heading {
+    color: black;
+    font: 1.1rem;
+}
+
+.main-heading-below-navbar-in-visitor-and-doctor-appointment-page {
+    width: 100%;
+}
+
+.main .date-inside-main i {
+    font-size: 26px;
+    color: black;
+    /* position: absolute; */
+    /* right: 0; */
+    width: fit-content;
+}
+
+.add-heading-beside-plus-icon {
+    font-size: 28px;
+    color: #4869ca;
+    font-weight: 700;
+    margin: 0;
+    /* box-shadow: 5px 10px #888888; */
+    text-shadow: 3px 1px darkgrey;
+}
+
+.main .date-inside-main a {
+    width: fit-content;
+    position: absolute;
+    height: fit-content;
+    margin-left: auto;
+    right: 8px;
+    display: flex;
+    padding: 4px 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: silver;
+    border-radius: 20%;
+}
+
+.main {
+    width: 100%;
+    margin: auto;
+    grid-area: main;
+    background-color: var(--primary-color);
+    margin-top: 10px;
+    color: black;
+}
+
+.all-cards-for-appointments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.name-number-description-for-appointments {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    border-bottom: 1px solid brown;
+    padding-bottom: 10px;
+}
+
+.heading-inside-name-number-description-for-appointments {
+    font-size: 1rem;
+    text-align: left;
+}
+
+.div-having-cancel-accept-entry-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.anchor-tags-for-accept-cancel-entry-buttons-in-pending-appointments {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.accept {
+    background-color: green;
+    background-color: hsl(120 73% 61% / 1);
+}
+
+.cancel {
+    background-color: red;
+    background-color: #ff4f3e;
+}
+
+.doEntry {
+    background-color: #394263;
+}
+
+.entered-vehicle-no {
+    display: flex;
+}
+
+.entered-vehicle-no h5 {
+    /* margin-left: auto; */
+}
+
+.when-content-not-present {
+    font-size: 20px;
+}
+
+.entry-time-exit-button {
+    display: flex;
+    align-items: center;
+}
+
+.entered-vehicle-no h5 {
+    color: gray;
+}
+
+.entry-time-exit-button h5 {
+    font-size: 10px;
+}
+
+.entry-image {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pending-entry-image {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.pending-entry-image img {
+    width: 50%;
+    height: 150px;
+}
+
+.entry-image img {
+    width: 100%;
+    height: 150px;
+}
+
+.name-number {
+    width: 52%;
+    margin: auto;
+    padding: 0px 10px;
+}
+
+.exit-button {
+    color: white;
+    background-color: #204051;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 2px 4px;
+    font-size: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-bottom: 3px;
+}
+
+.enter-card {
+    display: flex;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 5px;
+    border-bottom: 0.5px solid #ebe4de;
+    padding-bottom: 0.5rem;
+}
+
+.entered,
+.exit h2 {
+    text-align: -webkit-center;
+    margin-top: 10px;
+}
+
+.exit {
+    text-align: -webkit-center;
+}
+
+.all-cards {
+    text-align: center;
+}
+
+.description {
+    font-size: 13px;
+    /* font-weight: bold; */
+}
+
+.enter-card h4 {
+    font-size: 1rem;
+}
+
+.entered-vehicle-no h5 {
+    text-align: start;
+    font-size: 12px;
+}
+
+.visitor-detail-in-pending-entry-request {
+    display: flex;
+    flex-direction: column;
+}
+
+.entered h2,
+.exit h2 {
+    width: 100%;
+    margin-bottom: 2vh;
+    font-size: 21px;
+    color: #625e5e;
+    font-weight: 600;
+}
+
+.entered .pending-appointments-in-security-vehicle-record {
+    background-color: rgb(255 140 0 / 60%);
+}
+
+.entered .accepted-appointments-in-security-vehicle-record {
+    background-color: hsl(120deg 73% 61% / 70%);
+}
+
+.entered .currently-in-appointments-in-security-vehicle-record {
+    background-color: hsl(120 73% 61% / 70%);
+}
+
+.exit .exited-appointments-in-security-vehicle-record {
+    background-color: rgb(77 77 77 / 60%);
+    color: #453c3c;
+}
+
+.download-attachement {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.attachement-heading {
+    color: black;
+}
+
+.download-heading {
+    margin-left: 3px;
+}
+
+.download-heading i {
+    color: blue;
+}
+
+@media only screen and (max-width:1480px) {
+    /* .main {
+        width: 55%;
+    } */
+}
+
+@media only screen and (max-width:1400px) {
+    /* .main {
+        width: 60%;
+    } */
+}
+
+@media only screen and (max-width:1280px) {
+    /* .main {
+        width: 70%;
+    } */
+}
+
+@media only screen and (max-width:1100px) {
+    /* .main {
+        width: 100%;
+    } */
+}
+
+@media only screen and (max-width:785px) {
+    .enter-card {
+        width: 80%;
+    }
+    .main .main-heading-in-visitor-and-doctor-appointment-page {
+        font-size: 27px;
+    }
+    .entered h2,
+    .exit h2 {
+        font-size: 21px;
+    }
+    .when-content-not-present {
+        font-size: 17px;
+    }
+    .pending-entry-image img {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width:685px) {
+    .main img {
+        width: 200px;
+    }
+}
+
+@media only screen and (max-width:620px) {
+    .enter-card {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width:570px) {
+    .main img {
+        width: 180px;
+        height: 125px;
+    }
+    .enter-card h4 {
+        font-size: 15px;
+    }
+    .entered-vehicle-no h5 {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width:505px) {
+    .enter-card h4 {
+        font-size: 12px;
+    }
+    .entered-vehicle-no h5 {
+        font-size: 10px;
+    }
+    .entry-time-exit-button h5 {
+        font-size: 14px;
+    }
+    .main img {
+        width: 150px;
+        height: 100px;
+    }
+    .name-number-description-for-appointments {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width:456px) {
+    .main .main-heading-in-visitor-and-doctor-appointment-page {
+        font-size: 23px;
+    }
+    .entered h2,
+    .exit h2 {
+        font-size: 16px;
+        font-weight: 400;
+    }
+    .when-content-not-present {
+        font-size: 14px;
+    }
+    .description {
+        font-size: 12px;
+    }
+    .add-heading-beside-plus-icon {
+        font-size: 20px;
+    }
+    .main .date-inside-main i {
+        font-size: 22px;
+    }
+    .anchor-tags-for-accept-cancel-entry-buttons-in-pending-appointments {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-widthh:410px) {
+    .entered-vehicle-no h5 {
+        font-size: 8px;
+    }
+    .entry-time-exit-button h5 {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width:393px) {
+    .enter-card h4 {
+        font-size: 10px;
+    }
+    .enter-card h5 {
+        font-size: 10px;
+    }
+    .exit-button {
+        font-size: 8px;
+    }
+    .main img {
+        width: 150px;
+        height: 120px;
+    }
+    .description {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width:365px) {
+    .main img {
+        width: 110px;
+        height: 100px;
+    }
+}

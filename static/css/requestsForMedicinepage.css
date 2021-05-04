@@ -1,0 +1,193 @@
+*{
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main .date-inside-main {
+    height: 6vh;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px;
+    display: flex;
+    /* padding-top: 15px; */
+    background-color: #fadcaa;
+    letter-spacing: 2px;
+}
+
+.fa-plus-circle:before {
+  content: "\f055";
+}
+.main h2{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    padding: 5px 0;
+    background-color: #fadcaa;
+    width: 60%;
+    border-radius: 10px;
+}
+.main i{
+  margin-left: auto;
+}
+
+.fa{
+  color: black;
+}
+
+.main .date-inside-main i {
+    position: absolute;
+    top: 25%;
+    right: 0;
+    width: fit-content;
+    font-size: 25px;
+}
+.main {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    grid-area: main;
+    background-color: #fcf3ec;
+}
+
+.enter-card{
+    display: inline-block;
+    margin: 10px 10px;
+    /* border: 1px solid black; */
+}
+.main img{
+    width: 250px;
+    height: 150px;
+}
+.entered-vehicle-no{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.entered-vehicle-no h5{
+    /* margin-left: auto; */
+}
+.entry-time-exit-button{
+    /* display: flex; */
+}
+.entered-vehicle-no h5{
+    color: gray;
+}
+.name-number{
+    padding: 0px 10px;
+}
+.exit-button{
+    color:white;
+    background-color: #204051;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 2px 4px;
+    font-size: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-bottom: 3px;
+}
+.enter-card{
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.25);
+}
+.pending,.done h2{
+    margin-top: 10px;
+    color: black;
+}
+.all-cards{
+    text-align: center;
+    color: black;
+}
+.done{
+    color: black;
+    text-align: center;
+}
+.description{
+    font-size: 13px;
+    /* font-weight: bold; */
+}
+.enter-card h4{
+    font-size: 1rem;
+}
+.entered-vehicle-no h5{
+    text-align: start;
+    font-size: 12px;
+}
+
+
+
+
+@media(max-width:570px){
+    .main img{
+        width: 232px;
+        height: 150px;
+    }
+    .enter-card h4{
+        font-size: 15px;
+    }
+    .entered-vehicle-no h5{
+        font-size: 12px;
+    }
+}
+
+@media(max-width:505px){
+    .enter-card h4{
+        font-size: 12px;
+    }
+    .entered-vehicle-no h5{
+        font-size: 10px;
+    }
+    .main img{
+        width: 210px;
+        height: 150px;
+    }
+}
+@media(max-width:456px){
+    .main img{
+        width: 180px;
+        height: 125px;
+    }
+    .description {
+        font-size: 12px;
+    }
+}
+@media(max-widthh:410px){
+    .entered-vehicle-no h5{
+        font-size: 8px;
+    }
+}
+@media(max-width:393px){
+    .enter-card h4{
+        font-size:10px;
+    }
+    .enter-card h5{
+        font-size: 10px;
+    }
+    .exit-button{
+        font-size: 8px;
+    }
+    .main img{
+        width:150px ;
+        height: 120px;
+    }
+    .description{
+        font-size: 10px;
+    }
+}
+/* Override Ki Hui CSS */
+.main .main-heading-in-visitor-and-doctor-appointment-page{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .main-heading-below-navbar-in-visitor-and-doctor-appointment-page{
+    width: 100%;
+  }

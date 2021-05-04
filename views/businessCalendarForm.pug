@@ -1,0 +1,186 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    title Dashboard
+
+block content
+    #addCalendar.modal.fade.right(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')
+        .modal-dialog.modal-full-height.modal-right(role='document')
+            .modal-content
+            .modal-header
+                h4#myModalLabel.modal-title.w-100 Add Calendar
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                span(aria-hidden='true') ×
+            .modal-body
+                .modal-form.align
+                input.addCalendar-textfield(type='text' placeholder='Business Name')
+                input.addCalendar-textfield(type='text' placeholder='Description')
+                input.addCalendar-textfield(type='text' placeholder='Address Line 1')
+                input.addCalendar-textfield(style='width: 62%' type='text' placeholder='Address Line 2')
+                input.addCalendar-textfield(style='width: 36.5%' type='text' placeholder='City')
+                input.addCalendar-textfield(style='width: 49.5%' type='text' placeholder='State')
+                input.addCalendar-textfield(style='width: 49%' type='text' placeholder='Country')
+                input.addCalendar-textfield(style='width: 33%' type='text' placeholder='Opening Time:')
+                input.addCalendar-textfield(style='width: 33%; margin-right:5px' type='text' placeholder='Closing Time:')
+                input.addCalendar-textfield(style='width: 31%' type='text' placeholder='Lunch Time:')
+                label#addCalendar-appointment(for='appointment')
+                    | Auto Approve Appointments
+                    input#addCalendar-appointments(type='checkbox' name='auto-approve-appointment')
+                .business-days
+                    h3 Business Days
+                    table.business-table(style='width:100%')
+                    tbody
+                        tr
+                        th(style='text-align: center;font-weight: bold;') Day
+                        th
+                            input#availability-days(type='checkbox' name='availability-days' disabled='')
+                        th(style='text-align: center;font-weight: bold;') From
+                        th(style='text-align: center;font-weight: bold;') To
+                        th(style='font-weight: bold;') Entry
+                        tr
+                        td(style='width: 60%;text-align: center') Monday
+                        td
+                            input#availability-days(type='checkbox' name='availability-days')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td
+                            input(type='number' name='' id='' style='width: 100%;')
+                        tr
+                        td(style='width: 60%;text-align: center') Tuesday
+                        td
+                            input#availability-days(type='checkbox' name='availability-days')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td
+                            input(type='number' name='' id='' style='width: 100%;')
+                        tr
+                        td(style='width: 60%;text-align: center') Wednesday
+                        td
+                            input#availability-days(type='checkbox' name='availability-days')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td
+                            input(type='number' name='' style='width: 100%;')
+                        tr
+                        td(style='width: 60%;text-align: center') Thursday
+                        td
+                            input#availability-days(type='checkbox' name='availability-days')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td
+                            input(type='number' name='' id='' style='width: 100%;')
+                        tr
+                        td(style='width: 60%;text-align: center') Friday
+                        td
+                            input#availability-days(type='checkbox' name='availability-days')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td
+                            input(type='number' name='' id='' style='width: 100%;')
+                        tr
+                        td(style='width: 60%;text-align: center') Saturday
+                        td
+                            input#availability-days(type='checkbox' name='availability-days')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td
+                            input(type='number' name='' id='' style='width: 100%; ')
+                        tr
+                        td(style='width: 60%;text-align: center') Sunday
+                        td
+                            input#availability-days(type='checkbox' name='availability-days')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td(style='text-align: center;')
+                            input(type='time' style='width: 80%;')
+                        td
+                            input(type='number' name='' id='' style='width: 100%;')
+                .services-duration
+                    .services
+                    h4 Services
+                    ul
+                        li
+                        input(type='text')
+                        li
+                        input(type='text')
+                        li
+                        input(type='text')
+                    .duration
+                    h4 Duration
+                    ul
+                        li
+                        input(type='text')
+                        li
+                        input(type='text')
+                        li
+                        input(type='text')
+                    .add-disable-btn
+                    h4
+                        button Add
+                    ul
+                        li
+                        button Disable
+                        li
+                        button Disable
+                        li
+                        button Disable
+            .modal-footer.justify-content-center
+                button.btn.modal-btn(type='button') Submit
+            
+
+    block script
+    // JQuery
+    script(src='/static/js/timepicker.js')
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/jquery.js')
+    script(src='/static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    script(src='/static/js/yourOwnCalendarScript.js')
+    script(type='text/javascript').
+      $(document).ready(function () {
+      $(".responsive-calendar").responsiveCalendar({
+        events: {
+        "2020-10-12": {
+        "number": 5,
+        "url": "http://w3widgets.com/responsive-slider"
+        },
+        "2020-10-22": {
+        "number": 1,
+        "url": "http://w3widgets.com"
+        },
+        "2013-05-03": {
+        "number": 1
+        },
+        "2013-06-12": {}
+        }
+        });
+      });

@@ -1,0 +1,76 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    /* display: grid; */
+    place-items: center;
+}
+
+table{
+    width: 80vw;
+    margin: 40px auto;
+    height: 22vh;
+    box-shadow: -1px 12px 12px -6px rgba(0, 0, 0, 0.5);
+}
+
+table , th{
+    font-family: system-ui;
+    font-size: 20px;
+    padding: 20px;
+    background-color: rgb(0, 50, 74);
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table , td {
+    padding: 20px;
+    font-family: cursive;
+    font-size: 18px;
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+    text-align: center;
+    
+}
+button {
+    width: 78px;
+    padding: 5px;
+    background-color: #FE5F1E;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    /* background-color: #3c3f44; */
+}
+
+button:hover{
+    color: rgb(0, 50, 74);
+    
+}
+
+.navbar{
+    background-color:#393e46;
+    text-align: center;
+}
+
+h1{
+    padding: 12px;
+    color: blanchedalmond;
+    font-size: 30px;
+}
+
+.table-for-product tr{
+    background-color: blanchedalmond;
+    color: black;
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(33 150 243 / 10%);
+}
+tr:nth-child(even) {
+    background-color: rgb(255 192 203 / 30%);
+}

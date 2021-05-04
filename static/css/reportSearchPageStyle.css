@@ -1,0 +1,209 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.grid-container {
+    background-color: #fcf3ec;
+}
+
+.security-form-section {
+    /* margin: 0px; */
+    background-color: #fcf3ec;
+    width: 70%;
+    /* padding: 15px 15px; */
+    text-align: -webkit-center;
+    margin: 0px auto;
+    margin-top: 13px;
+    border-radius: 5px;
+    padding: 10px 10px;
+    grid-area: main;
+}
+
+.h-primary {
+    font-weight: 700;
+    width: 60%;
+    font-size: 25px;
+    margin: 6px 10px;
+    color: silver;
+    background-color: rgb(250 220 170 / 60%);
+    border-radius: 6px;
+}
+
+.security-form-section form {
+    width: 55%;
+    margin-top: 30px;
+}
+
+.div-containing-inputs {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 15px 0;
+    position: relative;
+    width: 100%;
+}
+
+.div-containing-inputs input,
+textarea,
+select {
+    border: 1px solid #eaeaea;
+    margin: 0px 15px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    /* margin-left: 7vw; */
+    width: 100%;
+    font-size: 15px;
+    color: #757575;
+    background-color: #e0e0e0;
+    background-color: white;
+    outline-color: orange;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+
+.div-containing-inputs .width-half {
+    border: 2px solid #eaeaea;
+    width: 50%;
+}
+
+.width-half:focus {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 8px peachpuff;
+    border: 1px solid peachpuff;
+}
+
+.div-containing-inputs .visitor-searches {
+    background-color: rgb(33 150 243 / 10%);
+}
+
+.div-containing-inputs .host-searches {
+    background-color: rgb(0 128 0 / 10%);
+}
+
+input[type='file'] {
+    color: transparent;
+}
+
+.div-containing-description-and-upload-file {
+    margin: 0 15px;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#descripiton-of-visit {
+    height: 85px;
+    width: 67%;
+    margin: 0;
+    padding: 2px 16px;
+}
+
+#capture-image {
+    width: 32%;
+    background-color: transparent;
+    border: navajowhite;
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+}
+
+.inputs-of-security-form-page:focus {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 8px peachpuff;
+    border: 1px solid peachpuff;
+}
+
+.div-having-save-visitor-details-button {
+    display: flex;
+    margin: 10px 0;
+    justify-content: center;
+    padding: 20px 25px;
+    /* box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12); */
+    transition: box-shadow 0.2s;
+}
+
+.div-having-save-visitor-details-button button {
+    font-size: 14px;
+    width: fit-content;
+    color: rgb(0, 0, 0, 0.8);
+    background-color: #e4bfba;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 15px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+/* FOR ERROR'S CROSS */
+
+.errors {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    color: black;
+    background-color: #8bdd67;
+}
+
+.errors p {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    padding: 0 10px;
+}
+
+.errors .error-cross {
+    font-size: 1.5rem;
+    padding: 0px 30px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+}
+
+@media(max-width:1080px) {
+    .security-form-section {
+        width: 75%;
+    }
+    .security-form-section form {
+        width: 70%;
+        margin-top: 30px;
+    }
+}
+
+@media(max-width:750px) {
+    .security-form-section {
+        width: 80%;
+    }
+    .security-form-section form {
+        width: 75%;
+        margin-top: 30px;
+    }
+}
+
+@media(max-width:600px) {
+    .security-form-section {
+        width: 85%;
+    }
+    .security-form-section form {
+        width: 80%;
+        margin-top: 30px;
+    }
+}
+
+@media(max-width:450px) {
+    .security-form-section {
+        width: 98%;
+    }
+    .security-form-section form {
+        width: 95%;
+        margin-top: 30px;
+    }
+}

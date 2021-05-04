@@ -1,0 +1,51 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/wtf-forms.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(href='/static/css/quicksand.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(rel='stylesheet' href='/static/swapnilCss/admin.customerpage.css')
+    title Admin 
+block content
+    main.main.main-div-in-dashboard
+      section.order
+        .header
+          .title-text
+            | Customer Orders
+          button.back-to-admin-page-button
+            a(href='/admin') Back To Dashboard 
+        .table
+          table
+            thead
+              tr
+                th Orders
+                th Customer
+                th Email
+                th Status
+                th Valid For
+            tbody
+              tr
+                td
+                  | Product-1
+                td
+                  | 5
+                td
+                  | 100
+                td
+                  form
+                    select(style='padding: 6px;\
+                    font-size: 16px;' name='' id='')
+                      option(value='') Active
+                      option(value='') Inactive
+                td 1 Month

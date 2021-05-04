@@ -1,0 +1,66 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/more-details-particular-search.css')
+    link(rel='stylesheet' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    title #{businessFound.businessName} | Calendar
+block content
+    section.search-results
+        .search-suggestions
+            .have-info-details
+                .name-in-search-suggestions
+                    | #{businessFound.businessName}
+                .address-of-the-place
+                    | #{businessFound.businessaddress}
+                .opening-closing-time
+                    | 10:00AM - 10:00PM
+            .containing-both-open-and-book-buttons
+                .book-appointment-directly-from-search-results
+                    a(href="/businessSearch/" + businessFound._id + "/bookAppointmentForm").book-open-button Book Appointment
+        .open-close-days-time
+            h3 Open/Close
+        .wrap-unwrap-open-close-time
+            ul.days-in-wrap-section
+                li Monday
+                li Tuesday
+                li Wednesday
+                li Thursday
+                li Friday
+                li Saturday
+                li Sunday
+            ul.timings-of-working-days
+                li
+                    span  #{businessFound.days.mon.open} - #{businessFound.days.mon.close}
+                li
+                    span  #{businessFound.days.tues.open} - #{businessFound.days.tues.close}
+                li
+                    span   #{businessFound.days.wed.open} - #{businessFound.days.wed.close}
+                li
+                    span  #{businessFound.days.thurs.open} - #{businessFound.days.thurs.close}
+                li
+                    span   #{businessFound.days.fri.open} - #{businessFound.days.fri.close}
+                li
+                    span   #{businessFound.days.sat.open} - #{businessFound.days.sat.close}
+                li
+                    span   #{businessFound.days.sun.open} - #{businessFound.days.sun.close}
+        .services-in-search-details
+            .heading-under-services-details
+                h3 Services
+            .services-wrap-unwrap
+                ul
+                    for service in businessFound.services
+                        li #{service.serviceName}
+                ul
+                    for service in businessFound.services
+                        li #{service.duration}

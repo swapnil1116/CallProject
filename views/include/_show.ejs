@@ -1,0 +1,18 @@
+<% for(var i = 0;i < Products.length; i++){%>
+
+<tr>
+    <td><%= i + 1%></td>
+    <td><%= Products[i].name%></td>
+    <td><%= Products[i].detail%></td>
+    <td><%= Products[i].status%></td>
+    <td><%= Products[i].users%></td>
+    <td><%= Products[i].flat%></td>
+    <td><%= Products[i].transcations%></td>
+    <td><%= Products[i].data_size%></td>
+    <td><%= Products[i].price%></td>
+    <td><%= Products[i].gst%></td>
+    <td><%= Products[i].total%></td>
+
+    <td><a href="/update_product?id=<%=Products[i]._id%>">Edit</a></td>
+</tr>
+<%}%>

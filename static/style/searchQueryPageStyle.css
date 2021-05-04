@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#main-section {
+    width: 81vw;
+    margin-left: 17vw;
+    background-color: #f1f1f1;
+    height: fit-content;
+    box-sizing: border-box;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#map{
+    height: 500px;
+    width: 100%;
+}
+
+/* FOR LIST OF RESULT IN SEARCH PAGE */
+.all-service-providers{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0;
+    align-items: flex-start;
+}
+.div-individual-service-provider{
+    background-color: white;
+    width: 50%;
+    height: 100%;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd4d4;
+
+}
+/* .div-individual-service-provider:hover{
+    box-shadow: 0 4px 26px 0 rgba(6, 6, 6, 0.28), 0 0 0 transparent;
+} */
+.details-of-vendors-in-search-page{
+    font-family: 'Arvo', serif;
+}
+.available-time-slots{
+    width: 100%;
+    padding: 0.7rem;
+}
+
+.div-having-details-of-service-provider{
+    width: 75%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.description-of-vendor{
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
+.working-hours-of-vendor{
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
+
+.divs-having-image-in-individual-service-provider div{
+    z-index: 2;
+}
+.div-individual-service-provider img{
+    width: 70%;
+    height: 200px;
+}
+
+.book-button-inside-details-of-service-provider {
+    width: 25%;
+    z-index: 2;
+    display:flex; 
+    justify-content: center;
+}
+.anchor-tag-of-button-inside-details-of-service-provider{
+    width: 80%;
+}
+.anchor-tag-of-button-inside-details-of-service-provider a {
+    font-family: 'Arvo', serif;
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding: 6px 0;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: darkgray;
+    color: black;
+    cursor: pointer;
+}
+
+.div-individual-service-provider div h1{
+    font-family: 'Arvo', serif;
+    font-size: 2rem;
+    margin-top: 10px;
+    color: blue;
+}

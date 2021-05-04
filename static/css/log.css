@@ -1,0 +1,406 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+body {
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-color: #FFF7F6;
+    --secondary-color: #78473C;
+}
+
+.section-1 .card {
+    margin-top: 5%;
+    height: 30rem;
+    width: 60rem;
+}
+
+
+/* .section-1 .logo {
+  margin-left: 14%;
+  margin-top: 5%;
+} */
+
+.section-1 .logo img {
+    height: 10%;
+    width: 20%;
+    margin-left: 10%;
+}
+
+.section-1 .card {
+    border-radius: 50px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35rem;
+    width: 70rem;
+}
+
+.section-1 .section-1-content h1 {
+    font-size: xx-large;
+    color: #636262;
+    margin-top: 12%;
+    text-align: center;
+}
+
+.section-1 .section-1-content p {
+    font-size: large;
+    color: #999999;
+    text-align: center;
+}
+
+.section-1 .my-img {
+    margin-top: 10%;
+    margin-left: 30%;
+}
+
+.section-1 .my-img div {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.section-1 #img1 {
+    z-index: -1;
+    margin-top: -70%;
+    float: right;
+    height: 85%;
+    width: 85%;
+}
+
+.section-1 #img2 {
+    padding: 10%;
+    padding-top: 20%;
+    height: 100%;
+    width: 100%;
+}
+
+.section-1 #img4 {
+    margin-top: -7%;
+    margin-left: 9%;
+    height: 200px;
+    width: 200px;
+}
+
+.section-1 input {
+    margin-top: 8%;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    border-bottom: 3px solid black;
+}
+
+.section-1 input:focus {
+    outline: hidden;
+}
+
+.section-1 .section-2-content h1 {
+    font-size: xx-large;
+    color: black;
+    opacity: 0.8;
+    margin-top: 12%;
+    text-align: center;
+    margin-left: -1%;
+}
+
+.section-1 .section-2-content input {
+    margin-top: 0;
+    width: 65%;
+}
+
+.section-1 .section-2-content #forget {
+    color: red;
+    margin-left: 13.5%;
+    opacity: 0.7;
+    font-size: small;
+}
+
+.section-1 .section-2-content #member {
+    margin-top: 5%;
+    color: black;
+    opacity: 0.7;
+}
+
+.section-1 .section-2-content #member span {
+    color: red;
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+.section-1 .section-2-content button {
+    background-color: #86f5a3;
+    opacity: 0.9;
+    border-radius: 14px;
+    margin-top: 3%;
+    height: 50px;
+    width: 40%;
+    color: rgb(0, 0, 0, 0.8);
+    font-size: large;
+    font: bold;
+}
+
+.errors {
+    display: flex;
+    width: fit-content;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    background-color: #8ef395;
+}
+
+.errors p {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    padding: 0 10px;
+}
+
+.errors .error-cross {
+    font-size: 1.5rem;
+    padding: 0px 30px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+}
+
+input::-webkit-input-placeholder:after {
+    color: red;
+    content: " *";
+}
+
+.section-1 .div-having-form-inputs-and-submit-button-in-login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    flex-direction: column;
+}
+
+.section-1 .div-having-form-inputs-and-submit-button-in-login-page .forget-anchor-tag {
+    color: red;
+    opacity: 0.7;
+    font-size: small;
+}
+
+@media (max-width: 576px) {
+    #img4 {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .section-1 .logo {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+    }
+    .section-1 .logo img {
+        margin-top: 5%;
+        margin-left: 5%;
+        height: 40%;
+        width: 35%;
+    }
+    .section-1 .card {
+        height: fit-content;
+        width: 20rem;
+        padding-bottom: 20px;
+    }
+    .section-1 #img2 {
+        padding: 5%;
+    }
+    .section-1 .section-2-content {
+        margin-top: -10%;
+    }
+    .section-1 .section-2-content h1 {
+        font-size: x-large;
+    }
+    /* .section-1 .section-2-content input {
+        margin-top: 0;
+        margin-left: -18%;
+        float: left;
+        width: 80%;
+    } */
+    /* .section-1 .section-2-content button {
+        margin-top: 10%;
+        height: 50px;
+        width: 60%;
+        margin-left: -15px;
+    } */
+    .section-1 .section-2-content #forget {
+        color: red;
+        margin-left: 1%;
+    }
+    .section-1 .section-2-content #member {
+        margin-top: 5%;
+        color: blue;
+    }
+    #img1 {
+        display: none;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .section-1 .card {
+        height: fit-content;
+        width: 30rem;
+    }
+    .section-1 #img4 {
+        margin-top: -14%;
+        margin-left: 1%;
+        height: 150px;
+        width: 150px;
+    }
+    /* .section-1 .section-2-content button {
+        margin-left: -50%;
+    } */
+    .section-1 .section-2-content #forget {
+        color: red;
+        margin-left: 8%;
+    }
+    .section-1 .section-2-content #member {
+        margin-top: 5%;
+        color: blue;
+    }
+}
+
+@media (min-width: 680px) and (max-width: 767.98px) {
+    .section-1 #img4 {
+        margin-left: 6%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .section-1 .logo {
+        margin: 0;
+    }
+    .section-1 .logo img {
+        height: 30%;
+        width: 40%;
+    }
+    .section-1 .card {
+        height: 25rem;
+        width: 45rem;
+    }
+    .section-1 #img4 {
+        margin-top: -10%;
+        margin-left: 1%;
+        height: 150px;
+        width: 150px;
+    }
+    .section-1 #img1 {
+        margin-top: -100%;
+    }
+    .section-1 .section-2-content input {
+        margin-top: 0;
+        width: 65%;
+    }
+    .section-1 .section-2-content button {
+        margin-top: 5%;
+        height: 50px;
+        width: 50%;
+        margin-left: 0%;
+    }
+    .section-1 .section-2-content #forget {
+        color: red;
+        margin-left: 8%;
+    }
+    .section-1 .section-2-content #member {
+        margin-top: 5%;
+        color: blue;
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 880px) and (max-width: 991.98px) {
+    .section-1 #img4 {
+        margin-left: 5%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .section-1 .logo {
+        margin: 0;
+    }
+    .section-1 .logo img {
+        height: 30%;
+        width: 40%;
+    }
+    .section-1 .card {
+        height: 30rem;
+        width: 53rem;
+    }
+    .section-1 #img4 {
+        margin-top: -10%;
+        margin-left: 5%;
+        height: 150px;
+        width: 150px;
+    }
+    .section-1 #img1 {
+        margin-top: -80%;
+    }
+    .section-1 .section-2-content input {
+        margin-top: 0;
+        width: 70%;
+    }
+    .section-1 .section-2-content button {
+        margin-top: 5%;
+        height: 50px;
+        width: 50%;
+    }
+    .section-1 .section-2-content #forget {
+        color: red;
+        margin-left: 0%;
+    }
+    .section-1 .section-2-content #member {
+        margin-top: 5%;
+        color: blue;
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 1030px) and (max-width: 1200px) {
+    .section-1 #img4 {
+        margin-left: 8%;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1350px) {
+    .section-1 .logo {
+        margin: 0;
+    }
+    .section-1 .logo img {
+        height: 30%;
+        width: 40%;
+    }
+    .section-1 .card {
+        margin-top: 5%;
+        height: 30rem;
+        width: 60rem;
+    }
+    .section-1 #img4 {
+        margin-top: -5%;
+        margin-left: 8%;
+        height: 150px;
+        width: 150px;
+    }
+    .section-1 #img1 {
+        margin-top: -80%;
+    }
+    .section-1 .section-2-content button {
+        height: 50px;
+        width: 50%;
+    }
+    .section-1 .section-2-content #forget {
+        color: red;
+        margin-left: -3%;
+    }
+    .section-1 .section-2-content #member {
+        /* margin-top: 10%; */
+        color: blue;
+    }
+}
+
+
+/*# sourceMappingURL=log.css.map */

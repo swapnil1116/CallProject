@@ -1,0 +1,248 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-time:before {
+    content: "\e023";
+}
+
+.input-group-addon:last-child {
+    border-left: 0;
+}
+
+.input-group .form-control-for-time-input:first-child,
+.input-group-addon:first-child,
+.input-group-btn:first-child>.btn,
+.input-group-btn:first-child>.btn-group>.btn,
+.input-group-btn:first-child>.dropdown-toggle,
+.input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child>.btn-group:not(:last-child)>.btn {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.clockpicker .input-group-addon {
+    cursor: pointer;
+}
+
+.city-state {
+    display: flex;
+    justify-content: space-between;
+}
+
+.business-days .days-in-business-days-form .heading-day {
+    padding-top: 3px;
+    font-weight: bold;
+}
+
+
+/* 22/10/2020 Overrided CSS for Business Days Area */
+
+.whole-section-of-business-from {
+    display: flex;
+    justify-content: space-around;
+}
+
+.heading-of-from-time-in-business-form {
+    font-weight: bold;
+}
+
+.heading-of-to-time-in-business-form {
+    font-weight: bold;
+}
+
+.heading-of-entry-section {
+    font-weight: bold;
+}
+
+.entry-section-in-business-form {
+    width: 10%;
+}
+
+.entries-in-a-day input {
+    width: 100%;
+}
+
+.form-control-for-time-input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    height: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.from-time {
+    height: 26px;
+    margin: 0.75vh 0vw;
+    color: black;
+}
+
+.to-time {
+    height: 26px;
+    margin: 0.75vh 0vw;
+    color: black;
+}
+
+.entries-in-a-day {
+    height: 26px;
+    color: black;
+    margin: 0.75vh 0vw;
+}
+
+.weekdays-in-business-form {
+    margin: 0.45vh 0vw;
+    color: black;
+}
+
+.service-and-duration-section {
+    margin-top: 2vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading-of-service {
+    margin-bottom: 0.5vh;
+    font-weight: bold;
+    color: black;
+}
+
+.heading-of-duration {
+    margin-bottom: 0.5vh;
+    font-weight: bold;
+    color: black;
+}
+
+.button-in-service-duration-section-heading button {
+    border-radius: 5px;
+    padding: 5px 5px;
+    background-color: #204051;
+    border: 1px solid white;
+    color: white;
+}
+
+.services-in-service-and-duration-section {
+    width: 65%;
+}
+
+.duration-in-service-and-duration-section {
+    width: 20%;
+}
+
+.input-of-service-in-service-section input {
+    width: 98%;
+}
+
+.input-of-duration-in-service-section input {
+    width: 98%;
+}
+
+.checkbox-and-button-in-service-duration-section {
+    text-align: center;
+}
+
+.service-and-duration-section input {
+    margin: 2px 0px;
+}
+
+.checkbox-input-of-service-duration-section {
+    margin: 1vh 0vw;
+}
+
+.top-checkbox-in-business-days-section input-checkboxes {
+    padding-top: 3px;
+}
+
+.input-checkboxes {
+    margin: 0.45vh 0vw;
+}
+
+.days-in-business-days-form {
+    text-align: -webkit-center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.checkbox-in-business-days-section {
+    margin-top: 3px;
+    text-align: -webkit-center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.from-time-in-business-days {
+    width: 25%;
+    text-align: -webkit-center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.to-time-in-business-days {
+    width: 25%;
+    text-align: -webkit-center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.entry-section-in-business-form {
+    text-align: -webkit-center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.display-none {
+    display: none;
+}
+
+@media(max-width:990px) {
+    .form-control-for-time-input {
+        padding: 4px 20px;
+    }
+    .weekdays-in-business-form {
+        margin: 0.7vh 0vw;
+        height: 26px;
+    }
+    .input-checkboxes {
+        height: 26px;
+        margin: 0.7vh 0vw;
+    }
+}
+
+@media(max-width:490px) {
+    .form-control-for-time-input {
+        padding: 4px 10px;
+    }
+}
+
+@media(max-width:400px) {
+    .form-control-for-time-input {
+        padding: 4px 5px;
+    }
+}

@@ -1,0 +1,81 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    link(href='https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap' rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(rel='stylesheet'  type='text/css' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/securityVehicleRecordStyle.css')
+    title Security Records | Calendar
+block content    
+  main.main
+    .d-flex.justify-content-center.date-inside-main
+      .main-heading-below-navbar-in-visitor-and-doctor-appointment-page
+          .main-heading-in-visitor-and-doctor-appointment-page(style='color:black;') Manage Entry Requests
+          .main-date-heading(style='color: black;')
+              | #{stringifiedDateForSecurityVehicleRecord}
+      //- a(href="")#anchor-tag-for-entry-form 
+      //-   h2.add-heading-beside-plus-icon Add
+      //-   i.fa.fa-plus-circle.add-schedule
+    section.entered 
+      h2.pending-appointments-in-security-vehicle-record Pending Entries
+      .all-cards.all-cards-for-appointments
+        if  docsVisitorsEntryRequestPending.length === 0
+          h1(style='font-size: 20px;') No Pending Entries Right Now
+        else
+          for singleDocsVisitorsEntryRequestPending in docsVisitorsEntryRequestPending
+              .enter-card
+                .entry-image
+                  img(src="/" + singleDocsVisitorsEntryRequestPending.photoUrl , alt='' , srcset='')
+                .name-number
+                  .visitor-detail-in-pending-entry-request
+                    h4.heading-under-enter-vehicle-no Visitor: #{singleDocsVisitorsEntryRequestPending.visitorName}
+                    h4 Visitor's Mobile No.: #{singleDocsVisitorsEntryRequestPending.contactNumberOfVisitor}
+                  h4 #{singleDocsVisitorsEntryRequestPending.vehicleType} Wheeler
+                  .entered-vehicle-no
+                    h5
+                      span(style='color: black;') From:
+                      |  #{singleDocsVisitorsEntryRequestPending.from} 
+                    //- h5(style='margin-left: auto;')
+                    //-   span(style='color: black;') Visiting To: You
+                  .description
+                    if singleDocsVisitorsEntryRequestPending.description == "" 
+                      | Reason of visit: Not Given
+                    else  
+                      | Reason of visit: #{singleDocsVisitorsEntryRequestPending.description}
+                  .description 
+                    | #{singleDocsVisitorsEntryRequestPending.typeOfUserCategoryInEntry} 
+                  .div-having-cancel-accept-entry-buttons
+                    a(href="/acceptEntry/gateKeeper/" + singleDocsVisitorsEntryRequestPending.userIdOfTheBusinessCalendar +"/" + singleDocsVisitorsEntryRequestPending.enteredDate+"/" + singleDocsVisitorsEntryRequestPending.idOfVisitor + "/" + singleDocsVisitorsEntryRequestPending._id).anchor-tags-for-accept-cancel-entry-buttons-in-pending-appointments.accept Accept
+                    a(href="/cancelEntry/gateKeeper/" + singleDocsVisitorsEntryRequestPending.userIdOfTheBusinessCalendar +"/" + singleDocsVisitorsEntryRequestPending.enteredDate+"/" + singleDocsVisitorsEntryRequestPending.idOfVisitor + "/" + singleDocsVisitorsEntryRequestPending._id).anchor-tags-for-accept-cancel-entry-buttons-in-pending-appointments.cancel Cancel
+
+                  //- .div-having-cancel-accept-entry-buttons
+                    a(href="/acceptEntry/gateKeeper/" + singleDocsVisitorsEntryRequestPending.userIdOfTheBusinessCalendar +"/" + singleDocsVisitorsEntryRequestPending.enteredDate+"/" + singleDocsVisitorsEntryRequestPending.idOfVisitor + "/" + singleDocsVisitorsEntryRequestPending._id).anchor-tags-for-accept-cancel-entry-buttons-in-pending-appointments.accept Accept
+                    a(href="/cancelEntry/gateKeeper/" + singleDocsVisitorsEntryRequestPending.userIdOfTheBusinessCalendar +"/" + singleDocsVisitorsEntryRequestPending.enteredDate+"/" + singleDocsVisitorsEntryRequestPending.idOfVisitor + "/" + singleDocsVisitorsEntryRequestPending._id).anchor-tags-for-accept-cancel-entry-buttons-in-pending-appointments.cancel Cancel
+
+  block script
+      // JQuery
+      script(src='/static/js/timepicker.js')
+      script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+      // Bootstrap tooltips
+      script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+      // Bootstrap core JavaScript
+      script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+      // MDB core JavaScript
+      script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+      script(src='/static/js/dash.js')
+      script(src='/static/js/jquery.js')
+      script(src='/static/js/bootstrap.min.js')
+      script(src='/static/js/responsive-calendar.js')
+      script(src='/static/js/yourOwnCalendarScript.js')
+      script(src='/static/js/securityVehicleRecord.js')

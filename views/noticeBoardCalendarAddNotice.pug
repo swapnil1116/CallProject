@@ -1,0 +1,50 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    link(href='https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap' rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    //- link(rel='stylesheet'  type='text/css' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/addScheduleInPersonalCalendarStyle.css')
+    title Issue New Notice | Calendar
+block content
+    section.add-schedule-form-section
+      div.div-having-heading-and-date
+        h1.add-schedule-heading Issue Notice
+        h2.add-schedule-date #{formattedDate}
+      form( action="/addNotice/"  + calendarId + "/" + date,   method='post' enctype="multipart/form-data").form-inside-add-schedule
+        div.div-containing-inputs
+          input.inputs-of-security-form-page.input-start-time(type='date'  name='start' placeholder='From:' required)
+          input.inputs-of-security-form-page.input-end-time(type='date' placeholder='To:' name='end' required)
+        div.div-containing-inputs
+          input#name-of-visitor.inputs-of-security-form-page(type='text' name="noticeHeading" placeholder='Notice Heading')
+        div.div-containing-inputs
+          input#name-of-visitor.inputs-of-security-form-page(type='text' name="noticeDescription" placeholder='Notice Description')
+        .div-containing-inputs
+          input.inputs-of-security-form-page( type='file' name="attachements"  accept='image/*' capture='camera' title=" This is title")
+        .div-having-save-visitor-details-button
+          button(type="submit").save-btn.disabled-submit-button Add 
+block script
+    // JQuery
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+    script(src='/static/js/dash.js')
+    script(src='/static/js/jquery.js')
+    script(src='/static/js/bootstrap.min.js')
+    script(src='/static/js/responsive-calendar.js')
+    script(src="/static/js/profileScript.js")
+    //- script(src="/static/js/scheduleOfIndividualDatePageScript.js")

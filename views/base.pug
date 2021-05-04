@@ -1,0 +1,312 @@
+﻿doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-D0FV0XYG1K');
+    block style
+        // Font Awesome
+        link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+        // Google Fonts
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+        link(href='https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap' rel='stylesheet')
+        // Bootstrap core CSS
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+        // Material Design Bootstrap
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+        link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+        link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+        link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+        link(rel='stylesheet' href='/static/css/profile.css')
+        link(rel='stylesheet' href='/static/css/business-form.css')
+        link(rel='stylesheet' href='/static/css/timepicker.css')
+        title Dashboard
+  body
+    - var userCalendar = {userCalendars:0,permittedCalendars:0}
+    -var personalCalendar = 0
+      for calendar in allCalendars
+        if(calendar.calendarPermissionType == null) 
+          - personalCalendar = personalCalendar + 1 
+    .grid-container
+      header.header-head
+        .menu-icon
+          i.fas.fa-bars.header__menu
+        a(href="/user/dashboard").div-for-logo-image-in-mobile-screen
+          img(src="/static/img/logo3.png", alt="", srcset="")
+        form(action="/searchResults").input-group.input-groups-for-search
+          input.form-control.search-input(type='text' name="calendarSearch" value=calendarSearch placeholder='Search')
+          .input-group-append.inputs-for-search
+            button.btn.btn-green.btn-md.m-0.px-3.py-2.z-depth-0.search-button(type="submit" , aria-haspopup='true' , aria-expanded='false')   
+              i.fa.fa-search      
+        a(href="/pendingEntries").anchor-tag-for-pendingEntries
+          i.fa.fa-info-circle         
+          if(pendingEntryArrayLength === 0)
+            span.hiding-appointment-status.badge
+          else
+            span.badge #{pendingEntryArrayLength}
+      aside.sidenav
+        .sidenav__close-icon
+          i.fas.fa-times.sidenav__brand-close
+        a(href="/").logo
+          img(src='/static/image/calendar-logo.png' alt='')
+        ul.sidenav__list
+            li.sidenav__list-item
+              a(href="/profile")
+                if(user.profilePic === null)
+                  img(src='/static/img/undraw_profile_pic_ic5t.png' alt='')
+                  |  Profile 
+                else 
+                  img(src="/" + user.profilePic alt='')
+                  |  Profile  
+            if    user.number != "9340618228" &&  user.number != "9755523425" && personalCalendar === 2
+
+            else if(user.number == "7898542894" || user.number == "8269422053")
+              if personalCalendar <= 5
+                li(data-toggle='modal' data-target='#addCalendar').sidenav__list-item
+                  img(src="/static/img/plus-icon2.png", alt="", srcset="")
+                  span Add Biz Calendar 
+              else      
+            else if(user.number == "9340618228" || user.number == "9755523425" )   
+              li(data-toggle='modal' data-target='#addCalendar').sidenav__list-item
+                img(src="/static/img/plus-icon2.png", alt="", srcset="")
+                span Add Biz Calendar 
+            else
+              li(data-toggle='modal' data-target='#addCalendar').sidenav__list-item
+                  img(src="/static/img/plus-icon2.png", alt="", srcset="")
+                  span Add Biz Calendar 
+            for calendar in allCalendars  
+              if calendar.calendarType == "personal"
+                li.sidenav__list-item
+                  a(href="/businessCalendar/"+calendar.calendarType+"/"+calendar.calendarTypeId).anchor-tag-of-personal-and-business-calendar
+                    img(src='/static/img/personal.png')
+                    | #{calendar.businessName}'s Calendar
+              else if calendar.calendarType == "gateKeeper"
+                li.sidenav__list-item
+                  a(href="/businessCalendar/"+calendar.calendarType +"/"+calendar.calendarTypeId).anchor-tag-of-personal-and-business-calendar
+                    img(src='/static/img/securityImage2.jpeg').your-qr-code
+                    div.div-for-business-name-and-permission-type    
+                      | #{calendar.businessName} 
+                      if(calendar.calendarPermissionType !== null)
+                        p.permission-type #{calendar.calendarPermissionType} 
+              else if calendar.calendarType == "noticeBoard"
+                li.sidenav__list-item
+                  a(href="/businessCalendar/"+calendar.calendarType +"/"+calendar.calendarTypeId ).anchor-tag-of-personal-and-business-calendar
+                    img(src='/static/img/noticeBoardImage.jpeg').your-qr-code
+                    div.div-for-business-name-and-permission-type    
+                      | #{calendar.businessName} 
+                      if(calendar.calendarPermissionType !== null)
+                        p.permission-type #{calendar.calendarPermissionType} 
+              else if calendar.calendarType == "standard"
+                li.sidenav__list-item
+                  a(href="/businessCalendar/"+calendar.calendarType +"/"+calendar.calendarTypeId ).anchor-tag-of-personal-and-business-calendar
+                    img(src='/static/img/standard.png').your-qr-code
+                    div.div-for-business-name-and-permission-type    
+                      | #{calendar.businessName} 
+                      if(calendar.calendarPermissionType !== null)
+                        p.permission-type #{calendar.calendarPermissionType} 
+              else
+                li.sidenav__list-item
+                  a(href="/businessCalendar/"+calendar.calendarType +"/"+calendar.calendarTypeId).anchor-tag-of-personal-and-business-calendar
+                    img(src='https://img.icons8.com/emoji/48/000000/calendar-emoji.png')
+                    div.div-for-business-name-and-permission-type    
+                      | #{calendar.businessName} 
+                      if(calendar.calendarPermissionType !== null)
+                        p.permission-type #{calendar.calendarPermissionType} 
+              if(calendar.calendarPermissionType === null) 
+                userCalendars
+            if  gateKeeperMembershipCalendars.length > 0 
+              for gateKeeperMembershipCalendar of gateKeeperMembershipCalendars
+                if gateKeeperMembershipCalendar.subscription != "pending"
+                  li.sidenav__list-item
+                    a(href="/businessCalendar/"+gateKeeperMembershipCalendar.businessCalendarType +"/"+gateKeeperMembershipCalendar.businessCalendarTypeId + "/member/" + user.id).anchor-tag-of-personal-and-business-calendar
+                      img(src='/static/img/securityImage2.jpeg').your-qr-code
+                      div.div-for-business-name-and-permission-type    
+                        | #{gateKeeperMembershipCalendar.businessName} 
+                        p.permission-type Member                  
+            li.sidenav__list-item
+              a(href="/qrCode")
+                img(src="/static/img/qrCodeIcon.png", alt="", srcset="").your-qr-code
+                | Your QR
+            li.sidenav__list-item
+              a(href="/logout")
+                img(src='/static/img/newlogout.jpg')
+                | Logout
+      block content
+      #addCalendar.modal.fade.right(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')
+        .modal-dialog.modal-full-height.modal-right(role='document')
+          .modal-content
+            .modal-header
+              h4#myModalLabel.modal-title.w-100 Add Calendar
+              button.close(type='button' data-dismiss='modal' aria-label='Close')
+                span(aria-hidden='true') ×
+            .modal-body
+              form(action="/businessForm", method="post").modal-form.align
+                input.addCalendar-textfield(type='text' name="businessName" placeholder='Business Name')
+                select.addCalendar-textfield#select-for-calendarType(name='calendarType')
+                  //- option(value='bank') Bank
+                  option(value='standard') Standard 
+                  option(value='gateKeeper') Visitor/Parking Management
+                  option(value='noticeBoard') Notice Board
+                input.addCalendar-textfield(type='text' name="businessDescription" placeholder='Description')
+                input.addCalendar-textfield(type='text' name="businessaddress" placeholder='Address Line 1')
+                div.city-state
+                  input.addCalendar-textfield(style='width: 49%' name="city" type='text' placeholder='City')
+                  input.addCalendar-textfield(style='width: 49%' name="state" type='text' placeholder='State')
+                input.addCalendar-textfield(style='width: 100%' name="country" type='text' placeholder='Country')
+                label#addCalendar-appointment(for='appointment').display-none
+                  | Auto Approve Appointments
+                  input#addCalendar-appointments(type='checkbox' name='autoApprove')
+                select#select-for-parkingType.addCalendar-textfield(name='parkingType')
+                  option(value='') Select Parking Type
+                  option(value='paid') Paid Parking
+                  option(value='unpaid') Unpaid Parking
+                input#costOfParking1.addCalendar-textfield(type='number' value=0  name='costForParking2' placeholder="Cost For 2-Wheeler")  
+                input#costOfParking2.addCalendar-textfield(type='number'  value=0 name='costForParking4' placeholder="Cost For 4-Wheeler")  
+                input#parkingCapacityNumber.addCalendar-textfield(type='number' placeholder="Parking Capacity"  name='parkingCapacity' )  
+                .business-days.display-none
+                  h3 Business Days
+                  .whole-section-of-business-form(style='display: flex;justify-content: space-around;\
+                  ')
+                    .days-in-business-days-form
+                      .heading-day.weekdays-in-business-form
+                        | Day
+                      .weekdays-in-business-form
+                        | Monday
+                      .weekdays-in-business-form
+                        | Tuesday
+                      .weekdays-in-business-form
+                        | Wednesday
+                      .weekdays-in-business-form
+                        | Thursday
+                      .weekdays-in-business-form
+                        | Friday
+                      .weekdays-in-business-form
+                        | Saturday
+                      .weekdays-in-business-form
+                        | Sunday
+                    .checkbox-in-business-days-section
+                      .top-checkbox-in-business-days-section.input-checkboxes
+                        input(type='checkbox'  name='' disabled='')
+                      .input-checkboxes
+                        input(type='checkbox' name='mon')
+                      .input-checkboxes
+                        input(type='checkbox' name='tue')
+                      .input-checkboxes
+                        input(type='checkbox' name='wed')
+                      .input-checkboxes
+                        input(type='checkbox' name='thu')
+                      .input-checkboxes
+                        input(type='checkbox' name='fri')
+                      .input-checkboxes
+                        input(type='checkbox' name='sat')
+                      .input-checkboxes
+                        input(type='checkbox' name='sun')
+                    .from-time-in-business-days
+                      .heading-of-from-time-in-business-form.from-time
+                        | From
+                      .from-time
+                          input.form-control-for-time-input(type='time' name="open")
+                      .from-time
+                          input.form-control-for-time-input(type='time' name="open")
+                      .from-time
+                          input.form-control-for-time-input(type='time' name="open")
+                      .from-time
+                          input.form-control-for-time-input(type='time' name="open")
+                      .from-time
+                          input.form-control-for-time-input(type='time' name="open")
+                      .from-time
+                          input.form-control-for-time-input(type='time' name="open")
+                      .from-time
+                          input.form-control-for-time-input(type='time' name="open")
+                    .to-time-in-business-days
+                      .heading-of-to-time-in-business-form.to-time
+                        | To
+                      .to-time
+                          input.form-control-for-time-input(type='time' name="close")
+                      .to-time
+                          input.form-control-for-time-input(type='time' name="close")
+                      .to-time
+                          input.form-control-for-time-input(type='time' name="close")
+                      .to-time
+                          input.form-control-for-time-input(type='time' name="close")
+                      .to-time
+                          input.form-control-for-time-input(type='time' name="close")
+                      .to-time
+                          input.form-control-for-time-input(type='time' name="close")
+                      .to-time
+                          input.form-control-for-time-input(type='time' name="close")
+                    .entry-section-in-business-form
+                      .heading-of-entry-section.entries-in-a-day
+                        | Entry
+                      .entries-in-a-day
+                        input(type='number'  value="1" name='entry' id='')
+                      .entries-in-a-day
+                        input(type='number' value="1"  name='entry' id='')
+                      .entries-in-a-day
+                        input(type='number'  value="1" name='entry' id='')
+                      .entries-in-a-day
+                        input(type='number'  value="1" name='entry' id='')
+                      .entries-in-a-day
+                        input(type='number' value="1"  name='entry' id='')
+                      .entries-in-a-day
+                        input(type='number' value="1"  name='entry' id='')
+                      .entries-in-a-day
+                        input(type='number'  value="1" name='entry' id='')
+                .service-and-duration-section.display-none
+                  .services-in-service-and-duration-section
+                    .heading-of-service
+                      | Service
+                    .input-of-service-in-service-section
+                      input(type='text' name='serviceName' id='')
+                    .input-of-service-in-service-section
+                      input(type='text' name='serviceName' id='')
+                    .input-of-service-in-service-section
+                      input(type='text' name='serviceName' id='')
+                  .duration-in-service-and-duration-section
+                    .heading-of-duration
+                      | Duration
+                    .input-of-duration-in-service-section
+                      input(type='text' name='duration' id='')
+                    .input-of-duration-in-service-section
+                      input(type='text' name='duration' id='')
+                    .input-of-duration-in-service-section
+                      input(type='text' name='duration' id='')
+                  .checkbox-and-button-in-service-duration-section
+                    .heading-of-checkbox-duration-section
+                      button.button-in-service-duration-section-heading(style='border-radius: 5px;\
+                      padding: 2px 5px;\
+                      background-color: #204051;\
+                      border: 1px solid white;\
+                      color: white;') Add
+                    .checkbox-input-of-service-duration-section
+                      input(type='checkbox' name='enabled1' id='')
+                    .checkbox-input-of-service-duration-section
+                      input(type='checkbox' name='enabled2' id='')
+                    .checkbox-input-of-service-duration-section
+                      input(type='checkbox' name='enabled3' id='')
+                .modal-footer.justify-content-center
+                  button.btn.modal-btn(type='submit') Submit
+    
+    //- Mob2
+    script.
+      (adsbygoogle = window.adsbygoogle || []).push({});             
+    block script
+        // JQuery
+        script(src='/static/js/timepicker.js')
+        //- script(src="/dtsel-master/dtsel.js")
+        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+        // Bootstrap tooltips
+        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+        // Bootstrap core JavaScript
+        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+        // MDB core JavaScript
+        script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+        script(src='/static/js/dash.js')
+        //- script(src='/static/js/jquery.js')
+        script(src='/static/js/responsive-calendar.js')
+        //- script(src='/static/js/yourOwnCalendarScript.js')
+

@@ -1,0 +1,196 @@
+extends base.pug
+block style
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    link(href='https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap' rel='stylesheet')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(rel='stylesheet'  type='text/css' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(rel='stylesheet' href='/static/css/securityVehicleRecordStyle.css')
+    title Security Records | Calendar
+block content    
+  main.main
+    .d-flex.justify-content-center.date-inside-main
+      .main-heading-below-navbar-in-visitor-and-doctor-appointment-page
+          .main-heading-in-visitor-and-doctor-appointment-page Manage Entry/Exit
+          .main-date-heading(style='color: black;')
+              | #{stringifiedDateForSecurityVehicleRecord}
+      a(href="")#anchor-tag-for-entry-form 
+        h2.add-heading-beside-plus-icon IN
+        //- i.fa.fa-plus-circle.add-schedule
+    section.entered 
+      h2.pending-appointments-in-security-vehicle-record Pending Request
+      .all-cards.all-cards-for-appointments
+        if unapprovedAppointmentsDetail.length === 0 && docsVisitorsEntryRequestPending.length === 0
+          h1.when-content-not-present No Pending Requests Today
+        else
+          for singleUnapprovedAppointment in unapprovedAppointmentsDetail
+            .name-number-description-for-appointments
+                  h4.heading-inside-name-number-description-for-appointments Requester: #{singleUnapprovedAppointment.requester}
+                  h4.heading-inside-name-number-description-for-appointments Requester's Mobile No.: #{singleUnapprovedAppointment.requesterMobileNumber}
+                  h4.heading-inside-name-number-description-for-appointments Reason of appointment: #{singleUnapprovedAppointment.description}
+                  if(singleUnapprovedAppointment.documentImageInScheduleOrAppointment !== null)
+                    a.anchor-tag-for-editing-the-personal-schedule(href="/" + singleUnapprovedAppointment.documentImageInScheduleOrAppointment , download)                  
+                      .download-attachement
+                        h4.heading-inside-name-number-description-for-appointments.attachement-heading Attachement: 
+                        h4.heading-inside-name-number-description-for-appointments.download-heading Download 
+                          i.fa.fa-download#download-icon   
+                  .div-having-cancel-accept-entry-buttons
+                    a(href="/acceptAppointment/gateKeeper/" + userIdOfTheBusinessCalendar +"/" + singleUnapprovedAppointment.dateOfAppointment+"/" + singleUnapprovedAppointment.requesterUserId + "/" +singleUnapprovedAppointment._id).anchor-tags-for-accept-cancel-entry-buttons-in-pending-appointments.accept Accept
+                    a(href="/cancelAppointment/gateKeeper/" + userIdOfTheBusinessCalendar +"/" + singleUnapprovedAppointment.dateOfAppointment + "/" + singleUnapprovedAppointment.requesterUserId + "/" + singleUnapprovedAppointment._id).anchor-tags-for-accept-cancel-entry-buttons-in-pending-appointments.cancel Cancel
+                    a(href="").anchor-tags-for-accept-cancel-entry-buttons-in-pending-appointments.doEntry Entry
+          for singleDocsVisitorsEntryRequestPending in docsVisitorsEntryRequestPending
+              .enter-card
+                .entry-image
+                  img(src="/" + singleDocsVisitorsEntryRequestPending.photoUrl , alt='' , srcset='')
+                .name-number
+                  .visitor-detail-in-pending-entry-request
+                    h4.heading-under-enter-vehicle-no Visitor: #{singleDocsVisitorsEntryRequestPending.visitorName}
+                    h4 Visitor's Mobile No.: #{singleDocsVisitorsEntryRequestPending.contactNumberOfVisitor}
+                  h4 #{singleDocsVisitorsEntryRequestPending.vehicleType} Wheeler
+                  .entered-vehicle-no
+                    h5
+                      span(style='color: black;') From:
+                      |  #{singleDocsVisitorsEntryRequestPending.from} 
+                    h5(style='margin-left: auto;')
+                      span(style='color: black;') Visiting To: #{singleDocsVisitorsEntryRequestPending.to}
+                  .description
+                    if singleDocsVisitorsEntryRequestPending.description == "" 
+                      | Reason of visit: Not Given
+                    else  
+                      | Reason of visit: #{singleDocsVisitorsEntryRequestPending.description}
+                  .description 
+                    | #{singleDocsVisitorsEntryRequestPending.typeOfUserCategoryInEntry}    
+                  //- if(singleDocsVisitorsEntryRequestPending.photoUrl !== null)
+                    a.anchor-tag-for-editing-the-personal-schedule(href="/" + singleDocsVisitorsEntryRequestPending.photoUrl , download)                  
+                      .download-attachement
+                        h4.heading-inside-name-number-description-for-appointments.attachement-heading Attachement: 
+                        h4.heading-inside-name-number-description-for-appointments.download-heading Download 
+                          i.fa.fa-download#download-icon   
+                  .div-having-cancel-accept-entry-buttons
+                    a(href="/acceptEntry/gateKeeper/" + userIdOfTheBusinessCalendar +"/" + singleDocsVisitorsEntryRequestPending.enteredDate+"/" + singleDocsVisitorsEntryRequestPending.idOfVisitor + "/" + singleDocsVisitorsEntryRequestPending._id).anchor-tags-for-accept-cancel-entry-buttons-in-pending-appointments.accept Accept
+                    a(href="/cancelEntry/gateKeeper/" + userIdOfTheBusinessCalendar +"/" + singleDocsVisitorsEntryRequestPending.enteredDate+"/" + singleDocsVisitorsEntryRequestPending.idOfVisitor + "/" + singleDocsVisitorsEntryRequestPending._id).anchor-tags-for-accept-cancel-entry-buttons-in-pending-appointments.cancel Cancel
+    section.entered 
+      h2.accepted-appointments-in-security-vehicle-record Accepted Requests
+      .all-cards.all-cards-for-appointments
+        if acceptedAppointmentsDetail.length === 0 
+          h1.when-content-not-present No Accepted Requests Today
+        else
+          for singleAcceptedAppointment in acceptedAppointmentsDetail
+            .name-number-description-for-appointments
+                  h4.heading-inside-name-number-description-for-appointments Requester: #{singleAcceptedAppointment.requester}
+                  h4.heading-inside-name-number-description-for-appointments Requester's Mobile No.: #{singleAcceptedAppointment.requesterMobileNumber}
+                  h4.heading-inside-name-number-description-for-appointments Reason of appointment: #{singleAcceptedAppointment.description}
+                  if(singleAcceptedAppointment.documentImageInScheduleOrAppointment !== null)
+                    a.anchor-tag-for-editing-the-personal-schedule(href="/" + singleAcceptedAppointment.documentImageInScheduleOrAppointment , download)                  
+                      .download-attachement
+                        h4.heading-inside-name-number-description-for-appointments.attachement-heading Attachement: 
+                        h4.heading-inside-name-number-description-for-appointments.download-heading Download 
+                          i.fa.fa-download#download-icon   
+                  h4 Accepted
+    section.entered
+      h2.currently-in-appointments-in-security-vehicle-record Currently In
+      .all-cards
+        if docsVisitorsEntered === undefined ||  docsVisitorsEntered.length === 0 
+          h1.when-content-not-present No Visitors Right Now
+        else    
+          for visitorsEntered in docsVisitorsEntered
+            if visitorsEntered.exitTime == null
+              .enter-card
+                .entry-image
+                  img(src="/" + visitorsEntered.photoUrl , alt='' , srcset='')
+                .name-number
+                  .entered-vehicle-no
+                    h4.heading-under-enter-vehicle-no #{visitorsEntered.vehicleNumber}
+                    h4(style='margin-left: auto;') #{visitorsEntered.visitorName}
+                  h4 #{visitorsEntered.vehicleType} Wheeler
+                  .entered-vehicle-no
+                    h5
+                      span(style='color: black;') From:
+                      |  #{visitorsEntered.from} 
+                    h5(style='margin-left: auto;')
+                      span(style='color: black;') To:
+                      if visitorsEntered.houseNumber 
+                        |  #{visitorsEntered.to}, #{visitorsEntered.houseNumber} 
+                      else
+                        | #{visitorsEntered.to}
+                  .description
+                    | #{visitorsEntered.description}
+                  .description
+                    | #{visitorsEntered.typeOfUserCategoryInEntry}
+                  .entry-time-exit-button
+                    if  ((visitorsEntered.entryTime).getHours()).toString().length === 1        
+                      h5 Entry: #{(visitorsEntered.entryTime).getHours()}: 0#{(visitorsEntered.entryTime).getMinutes()}
+                    else 
+                      h5 Entry: #{(visitorsEntered.entryTime).getHours()}: #{(visitorsEntered.entryTime).getMinutes()}
+                    a(href='/businessCalendar/gateKeeper/makeExit/'+idOfCalendarForSecurityVehicleRecord + '/' +dateForSecurityVehicleRecord +'/' + visitorsEntered._id).exit-button(style='margin-left: auto;') Out
+    section.exit
+      h2.exited-appointments-in-security-vehicle-record OUT
+      .all-cards
+        .all-cards
+          if docsVisitorsExited.length === 0
+            h1.when-content-not-present No Visitor Exited
+          else 
+            for visitorsExited in docsVisitorsExited
+              if visitorsExited.exitTime !== null
+                .enter-card
+                  .entry-image
+                    img(src="/" + visitorsExited.photoUrl  alt='')
+                  .name-number
+                    .entered-vehicle-no
+                      h4.heading-under-enter-vehicle-no #{visitorsExited.vehicleNumber}
+                      h4(style='margin-left: auto;') #{visitorsExited.visitorName}
+                    h4 #{visitorsExited.vehicleType} Wheeler
+                    .entered-vehicle-no
+                      h5
+                        span(style='color: black;') From:
+                        |  #{visitorsExited.from} 
+                      h5(style='margin-left: auto;')
+                        span(style='color: black;') To:
+                        if visitorsExited.houseNumber 
+                          |  #{visitorsExited.to}, #{visitorsExited.houseNumber}
+                        
+                        else 
+                          |  #{visitorsExited.to} 
+                    .description
+                      if visitorsExited.description == ''
+                        //- | For friendly Visit
+                      else 
+                        | #{visitorsExited.description}  
+                    .description
+                      | #{visitorsExited.typeOfUserCategoryInEntry}    
+                    .entry-time-exit-button
+                      if  ((visitorsExited.entryTime).getHours()).toString().length === 1                    
+                        h5 Entry:  0#{(visitorsExited.entryTime).getHours()}:#{(visitorsExited.entryTime).getMinutes()}
+                      else  
+                        h5 Entry:  #{(visitorsExited.entryTime).getHours()}:#{(visitorsExited.entryTime).getMinutes()}
+                      if  ((visitorsExited.exitTime).getHours()).toString().length === 1                    
+                        h5(style='margin-left: auto;') Exit:  0#{(visitorsExited.exitTime).getHours()}:#{(visitorsExited.exitTime).getMinutes()}
+                      else
+                        h5(style='margin-left: auto;') Exit:  #{(visitorsExited.exitTime).getHours()}:#{(visitorsExited.exitTime).getMinutes()}
+
+  block script
+      // JQuery
+      script(src='/static/js/timepicker.js')
+      script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+      // Bootstrap tooltips
+      script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js')
+      // Bootstrap core JavaScript
+      script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js')
+      // MDB core JavaScript
+      script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js')
+      script(src='/static/js/dash.js')
+      script(src='/static/js/jquery.js')
+      script(src='/static/js/bootstrap.min.js')
+      script(src='/static/js/responsive-calendar.js')
+      script(src='/static/js/yourOwnCalendarScript.js')
+      script(src='/static/js/securityVehicleRecord.js')

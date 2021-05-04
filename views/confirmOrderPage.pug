@@ -1,0 +1,64 @@
+extends base.pug
+block style
+    title Confirm Order 
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Google Fonts
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+    // Bootstrap core CSS
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet')
+    link(href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/wtf-forms.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Economica' rel='stylesheet' type='text/css')
+    link(href='/static/css/responsive-calendar.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/yourOwnCalendarStyle.css')
+    link(href='/static/css/quicksand.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/business-form.css')
+    link(rel='stylesheet' href='/static/css/timepicker.css')
+    link(rel='stylesheet' href='/static/swapnilCss/confirm.css')
+block content
+  main.main.main-div-in-dashboard
+    .payment
+        .payment_product
+            .content
+                div Product Name : 
+                div #{product.name}
+                div Product Description : 
+                div #{product.detail}
+                div Product Status : 
+                div #{product.status}
+        //- .payment_bill
+            h3 Recepit summary 
+            ul.ul-for-product-detail
+                li.li-for-product-detail
+                    span Price
+                    span #{product.price}
+                li.li-for-product-detail
+                    span Discount
+                    span $ 50
+                li.li-for-product-detail
+                    span Subtotal
+                    span #{product.price}
+                li.li-for-product-detail
+                    span GST
+                    span #{product.gst}
+                li.li-for-product-detail
+                    span Total
+                    span #{product.total}
+            hr
+        .payment_bill    
+            h3 Payment Confirmation
+            h2.send-payment-receipt-h2 Send your payment receipt details with Calendar Id: '#{idOfCalendar}' to 
+                a(href="#") 
+            a(href="/businessProfile/" + idOfCalendar).anchor-tag-to-go-back-to-business-profile
+                i.fas.fa-arrow-circle-left    
+            //- form.payament_form(action='/complete' method='POST')
+                .form-input
+                    input(style='width: 100%;font-size: 18px;margin-top: 8px;padding: 10px;' name='' type='text' placeholder='Card Number')
+                .form-input(style='margin-top: 10px;')
+                    input(style='    border: none;               background-color: #a6abab;               padding: 15px 10px;               width: 32%; color: black;' name='phone' type='number' placeholder='Phone Number')
+                    input(style='    border: none;               background-color: #a6abab;               padding: 15px 10px;               width: 32%; color: black;' name='address' type='text' placeholder='Address')
+                    input(style='    border: none;               background-color: #a6abab;               padding: 15px 10px;               width: 26%; color: black;' type='text' placeholder='CVC')
+                button
+                    a(style='text-decoration: none; color: white;' href='#') Order Confirm

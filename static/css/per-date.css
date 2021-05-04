@@ -1,0 +1,339 @@
+.main {
+    margin-top: 3%;
+}
+
+#addSchedule input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    border-bottom: 3px solid #781903;
+}
+
+.main .date-inside-main {
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+    padding-top: 15px;
+    background-color: #fadcaa;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.main .date-inside-main h3 {
+    margin-left: auto;
+    border-left: 3vw solid transparent;
+}
+
+.main .date-inside-main i {
+    /* margin-left: auto;
+    margin-right: 20px; */
+    font-size: 26px;
+    color: black;
+}
+
+.add-heading-beside-plus-icon {
+    font-size: 28px;
+}
+
+.no-event-heading {
+    color: black;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 20px;
+    align-items: stretch;
+    margin: 2.5%;
+    margin-right: 5%;
+    margin-left: 4%;
+}
+
+.grid>article {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    width: 80%;
+    margin: auto;
+}
+
+.grid>article .timeSlot-container {
+    color: black;
+    max-width: 100%;
+    padding: 0px 10px 0px 10px;
+    background-color: #fadcaa;
+    color: darkgrey;
+    background-color: var(--third-color);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.grid>article .timeSlot-container h4 {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.grid>article p {
+    justify-content: center;
+    text-align: center !important;
+    font-size: 15px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.grid .name-of-doctor {
+    font-weight: 600;
+}
+
+.grid .description {
+    opacity: 1;
+}
+
+.grid .text {
+    color: black;
+}
+
+.addSchedule-modal {
+    color: black;
+    text-align: center;
+    justify-content: center;
+}
+
+.addSchedule-modal .select-timeSlot {
+    width: 60vw;
+}
+
+.addSchedule-modal .select-timeSlot:focus {
+    border-color: black;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(0, 0, 0, 0.5);
+}
+
+.addSchedule-modal input {
+    width: 50vw;
+}
+
+.addSchedule-button {
+    transform: all 2s ease-in;
+    background-color: #7ed956;
+    opacity: 0.9;
+    border-radius: 16px;
+    margin: auto;
+    height: 50px;
+    width: 160px;
+    color: rgb(0, 0, 0, 0.8);
+    font-size: large;
+    font: bold;
+}
+
+.disabled-submit-button {
+    background-color: #81c163;
+    opacity: 0.7;
+}
+
+.addSchedule-button:hover {
+    transform: scale(1.05);
+}
+
+.div-having-color-codes-about-the-appointment {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 50%;
+    bottom: -1px;
+}
+
+.div-having-color-codes-about-the-appointment>div {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.div-having-color-codes-about-the-appointment>div>p {
+    width: 12px;
+    height: 12px;
+    margin: 0 7px 0 0;
+}
+
+.green-color-for-accepted-appointment {}
+
+.green-color-for-accepted-appointment p {
+    width: 10px;
+    height: 10px;
+    background-color: hsl(120 73% 61% / 1);
+}
+
+.orange-color-for-pending-appointment p {
+    width: 10px;
+    height: 10px;
+    background-color: orange;
+}
+
+.red-color-for-rejected-appointment {}
+
+.red-color-for-rejected-appointment p {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    background-color: #ff4f3e;
+}
+
+.div-having-cancel-accept-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-having-cancel-accept-buttons a {
+    color: #394263;
+    text-align: center;
+    width: 40%;
+    color: #1b00ff;
+    padding: 5px 0;
+    transition: all 0.3s;
+}
+
+.anchor-tag-having-appointment-link-in-personal-schedule-page {
+    color: #394263;
+    text-align: center;
+    width: 100%;
+    color: #1b00ff;
+    padding: 5px 0;
+    transition: all 0.3s;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.div-having-cancel-accept-buttons a {
+    color: #394263;
+    text-align: center;
+    width: 40%;
+    color: #1b00ff;
+    padding: 5px 0;
+    transition: all 0.3s;
+}
+
+.accept-appointment-link-in-personal-schedule-page {
+    background-color: hsl(120 73% 61% / 1);
+    border-bottom-left-radius: 15px;
+}
+
+.cancel-appointment-link-in-personal-schedule-page {
+    background-color: #ff4f3e;
+    border-bottom-right-radius: 15px;
+}
+
+.anchor-tag-having-cancel-appointment-link-in-personal-schedule-page:hover {
+    background-color: skyblue;
+    color: red;
+}
+
+.appointment-cancelled-written-on-this-div {
+    text-align: center;
+}
+
+.div-having-personal-schedule {
+    display: flex;
+    flex-direction: column;
+}
+
+.download-attachement {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: hsl(120 73% 61% / 1);
+    padding: 3px 0;
+}
+
+.download-attachement:hover {
+    background-color: rgb(208, 242, 255);
+    transition: background-color 0.3s;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#download-icon {
+    color: hsl(120 73% 61% / 1);
+}
+
+@media (max-width:1450px) {
+    .main .date-inside-main h3 {
+        border-left: 4vw solid transparent;
+    }
+}
+
+@media (max-width:1000px) {
+    .main .date-inside-main h3 {
+        border-left: 6vw solid transparent;
+    }
+    .addSchedule-modal .select-timeSlot {
+        width: 40vw;
+    }
+    .addSchedule-modal input,
+    .addSchedule-modal .div-having-from-and-to-time-input-in-add-schedule {
+        width: 30vw;
+        margin-top: 20px;
+    }
+    .addSchedule-modal .select-timeSlot {
+        font-size: small;
+    }
+    .addSchedule-modal input {
+        font-size: small;
+    }
+    .addSchedule-button {
+        width: 130px;
+        height: 45px;
+        font-size: small;
+    }
+    .div-having-color-codes-about-the-appointment {
+        width: 65%;
+    }
+}
+
+@media (max-width:750px) {
+    .main .date-inside-main h3 {
+        border-left: 8.3vw solid transparent;
+    }
+    .addSchedule-modal input,
+    .addSchedule-modal .div-having-from-and-to-time-input-in-add-schedule {
+        width: 45vw;
+        margin-top: 20px;
+    }
+    .div-having-color-codes-about-the-appointment {
+        width: 75%;
+    }
+}
+
+@media (max-width:500px) {
+    .main .date-inside-main h3 {
+        border-left: 12.5vw solid transparent;
+    }
+    .addSchedule-modal .select-timeSlot {
+        width: 50vw;
+        font-size: x-small;
+    }
+    .addSchedule-modal input {
+        width: 70vw;
+        font-size: small;
+    }
+    .addSchedule-button {
+        width: 100px;
+        font-size: smaller;
+    }
+    .add-heading-beside-plus-icon {
+        font-size: 23px;
+    }
+    .main .date-inside-main i {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .div-having-color-codes-about-the-appointment {
+        width: 95%;
+    }
+}

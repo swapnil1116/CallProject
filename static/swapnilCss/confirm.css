@@ -1,0 +1,115 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+
+
+ #wrapper{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 100vw;
+     height: 100vh;
+     box-shadow: 0px 0px 30px 15px rgba(0,0,0,0.1);
+     /* background-color: #ffa000; */
+
+ }
+
+ .payment{
+    display: flex;
+    width: 90%;
+    padding-top: 2rem;
+ }
+
+ .payment_product{
+     width: 40%;
+     height: 100%;
+     display: flex;
+     color: white;
+     justify-content: center;
+     align-items: center;
+     background-color: #394263;
+ }
+ .content{
+    font-size: 15px;
+    text-align: center;
+    line-height: 2;
+ }
+
+ .payment_bill{
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+ }
+
+ h3{
+     color: #4d4d4d;
+     font-weight: 400;
+     font-size: 30px;
+     margin-top: 10px;
+ }
+ .send-payment-receipt-h2{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #394263;
+    text-align: center;
+ }
+ .ul-for-product-detail{
+     padding: 0;
+     margin: 0;
+     list-style: none;
+ }
+ .li-for-product-detail{
+     display: flex;
+     justify-content: space-between;
+     line-height: 2;
+     color: #666;
+ }
+
+ li:nth-last-child(1) {
+     color: #ff4f3e;
+ }
+
+ hr{
+     border-color: #5d5252;
+     border-style: dashed;
+ }
+
+ span{
+     font-size: 20px;
+ }
+
+ .payment_form input,select{
+     border: none;
+     background-color: #a6abab;
+     padding: 15px 10px;
+     width: 32%;
+ }
+
+ .payment_form .form-input{
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 15px;
+ }
+
+ button{    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    /* background-color: #ff; */
+    background-color: rgb(250 220 140 / 200%);
+    border: none;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 19px;}
+
+.anchor-tag-to-go-back-to-business-profile{
+
+
+}
+.anchor-tag-to-go-back-to-business-profile i{
+    font-size: 1.5rem;
+}
