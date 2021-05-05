@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index"
+    "start": "node index.js"
   },
-  "author": "Satyam Mishra",
+  "author": "Swapnil",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
