@@ -81,12 +81,13 @@ app.use(express.urlencoded({ extended: true }))
 
 // ENVIRONMENT VARIABLES
 const {
-    PORT = 20000, // PROD 60000
     NODE_ENV = "development",
     session_Name = "mySession",
     session_Secret = "mySecret",
     session_Life = 1000 * 60 * 60, //SESSION LIFE = 1 HOUR
 } = process.env
+
+const PORT = process.env.PORT || 3000 ;
 
 
 
